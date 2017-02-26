@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lem_in_struct.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/20 11:35:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/20 13:51:11 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/20 16:24:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LEM_IN_STRUCT_H
+# define LEM_IN_STRUCT_H
+
 #include "lem_in.h"
 
-int	main(int argc, char **argv)
-{
-	return (0);
-}
+
+#endif
