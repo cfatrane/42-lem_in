@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ismultiple.c                                    :+:      :+:    :+:   */
+/*   check_ants.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/13 16:57:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/13 20:21:54 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/26 17:01:56 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/26 17:58:42 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lem_in.h"
 
-int	ft_ismultiple(int nb, int mlt)
+int			check_ants(t_lem_in *env)
 {
-	long long int	nbr;
-	int				ret;
+	char	*line;
 
-	nbr = nb;
-	ret = nbr % mlt;
-	return (ret == 0 ? 1 : -1);
+	get_next_line(0, &line);
+	if (ft_error(line) == -1)
+		return (-1);
+	env->ants = atoi(line);
+	if (env->ants <= 0)
+	{
+		ft_printf("ERROR NEGATIF\n");
+		return (-1);
+	}
+	ft_printf("Ants = %d\n", env->ants);
+	return (0);
 }

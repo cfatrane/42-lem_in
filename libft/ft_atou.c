@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoull.c                                        :+:      :+:    :+:   */
+/*   ft_atou.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/16 14:59:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/16 18:10:03 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/12 17:39:54 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/16 18:31:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long long	ft_atoull(const char *str)
+unsigned long long	ft_atou(const char *str)
 {
 	unsigned long long	nb;
 	unsigned long long	tmp;

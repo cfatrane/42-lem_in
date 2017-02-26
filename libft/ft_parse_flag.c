@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putmap.c                                        :+:      :+:    :+:   */
+/*   ft_parse_flag.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 17:57:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 17:58:53 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/15 14:03:35 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/14 12:57:22 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putmap(char **map)
+void	ft_parse_flag(t_env *arg)
 {
-	int	i;
-
-	i = 0;
-	while (map[i])
+	if (arg->str[arg->cur] == '#')
 	{
-		ft_putendl(map[i]);
-		i++;
+		arg->flag[DIESE] = 1;
+		arg->cur++;
+	}
+	else if (arg->str[arg->cur] == '0')
+	{
+		arg->flag[ZERO] = 1;
+		arg->cur++;
+	}
+	else if (arg->str[arg->cur] == '-')
+	{
+		arg->flag[LESS] = 1;
+		arg->cur++;
+	}
+	else if (arg->str[arg->cur] == '+')
+	{
+		arg->flag[MORE] = 1;
+		arg->cur++;
+	}
+	else if (arg->str[arg->cur] == ' ')
+	{
+		arg->flag[SPACE] = 1;
+		arg->cur++;
 	}
 }

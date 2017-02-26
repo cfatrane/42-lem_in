@@ -6,9 +6,17 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/20 16:24:16 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/26 18:20:09 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
+int	lem_in(t_lem_in *env)
+{
+	if (check_ants(env) == -1)
+		return (-1);
+	if (check_rooms(env) == -1)
+		return (-1);
+	return (0);
+}

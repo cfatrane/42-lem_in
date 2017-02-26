@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ismultiple.c                                    :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/13 16:57:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/13 20:21:54 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/19 13:01:55 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/14 12:01:00 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ismultiple(int nb, int mlt)
+int	ft_printf(const char *format, ...)
 {
-	long long int	nbr;
-	int				ret;
+	size_t	ret;
+	t_env	arg;
+	va_list	ap;
 
-	nbr = nb;
-	ret = nbr % mlt;
-	return (ret == 0 ? 1 : -1);
+	if (!format)
+		return (-1);
+	ft_bzero(&arg, sizeof(t_env));
+	arg.str = format;
+	va_start(ap, format);
+	arg.ret = ft_reader(&arg, ap);
+	if (arg.ret == 1)
+		ret = -1;
+	va_end(ap);
+	ret = arg.ret;
+	ft_bzero(&arg, sizeof(t_env));
+	return (ret);
 }

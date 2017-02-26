@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/02/20 11:33:11 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/02/26 20:18:21 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,12 @@ INC_PATH = -I./includes/
 # Name
 
 SRC_NAME =	main.c			\
+			lem_in.c		\
+			check_ants.c	\
+			check_rooms.c	\
+			utils.c			\
+			error.c			\
+			ft_start.c		\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

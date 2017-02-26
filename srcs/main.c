@@ -6,13 +6,18 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:35:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/20 13:51:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/26 16:47:11 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
+	t_lem_in	*env;
+
+	if (!(env = ft_memalloc(sizeof(t_lem_in))))
+		return (-1);
+	lem_in(env);
 	return (0);
 }

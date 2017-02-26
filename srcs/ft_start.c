@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ismultiple.c                                    :+:      :+:    :+:   */
+/*   ft_start.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/13 16:57:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/13 20:21:54 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/26 20:17:40 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/26 20:18:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "lem_in.h"
 
-int	ft_ismultiple(int nb, int mlt)
+int		ft_start(t_lem_in *env)
 {
-	long long int	nbr;
-	int				ret;
-
-	nbr = nb;
-	ret = nbr % mlt;
-	return (ret == 0 ? 1 : -1);
+	return (0);
 }
