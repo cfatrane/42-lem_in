@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/02/26 20:18:21 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/02/27 16:06:42 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRC_NAME =	main.c			\
 			utils.c			\
 			error.c			\
 			ft_start.c		\
+			ft_end.c		\
+			ft_comment.c	\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

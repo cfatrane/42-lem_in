@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_start.c                                         :+:      :+:    :+:   */
+/*   ft_end.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/26 20:17:40 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/27 17:08:13 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/27 14:55:12 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/27 17:07:04 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		ft_start(t_lem_in *env)
+int		ft_end(t_lem_in *env)
 {
 	char	*line;
 	int		words;
 	char	**data;
 
-	ft_printf("\033[31mDEBUT START START START START START START\n\033[0m");
+	ft_printf("\033[31mDEBUT END END END END END END\n\033[0m");
 	while (get_next_line(0, &line))
 	{
-		ft_printf("\033[33mSTART LINE = %s\n\033[0m", line);
-		if (ft_strcmp(line, "##end") == 0)
-			ft_end(env);
-		//		if (*line == '#')
-		//			return (ft_comment(env));
+		ft_printf("\033[32mEND LINE = %s\n\033[0m", line);
 		words = ft_count_words_sep(line, ' ');
-		//		if (words != 3 && (*line != '#'))
-		//			return (-1);
-		data = ft_strsplit(line, ' ');
+//		if (words != 3)
+//			return (-1);
 		if (words == 3)
 		{
-			//ft_printf("DATA 0 = %s DATA 2 = %s DATA 3 = %s\n", data[0], data[1], data[2]);
+			data =  ft_strsplit(line, ' ');
 			env->rooms.name = data[0];
 			env->rooms.coord_x = ft_atoi(data[1]);
 			env->rooms.coord_y = ft_atoi(data[2]);
-		ft_printf("Name BEGIN = %s Coord X = %d Coord Y = %d\n", env->rooms.name, env->rooms.coord_x, env->rooms.coord_y);
+		ft_printf("Name END = %s Coord X = %d Coord Y = %d\n", env->rooms.name, env->rooms.coord_x, env->rooms.coord_y);
 		}
 	}
-	ft_printf("\033[31mFIN START START START START START START\n\033[0m");
+	ft_printf("\033[31mFIN END END END END END END\n\033[0m");
 	return (0);
 }
