@@ -6,11 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:55:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/26 17:45:19 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/01 14:16:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../includes/lem_in.h"
 
 int		ft_check_format(char *line)
 {

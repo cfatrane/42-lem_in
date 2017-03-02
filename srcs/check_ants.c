@@ -6,11 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 17:01:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/27 16:13:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/01 14:16:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../includes/lem_in.h"
 
 int			check_ants(t_lem_in *env)
 {

@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in_struct.h                                    :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/02 11:25:14 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/03/02 13:52:30 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/03/02 13:53:06 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN_STRUCT_H
-# define LEM_IN_STRUCT_H
+#include "libft.h"
 
-# include "lem_in.h"
-
-typedef struct	s_rooms
+void	*ft_realloc(void *ptr, size_t newsize)
 {
-	char		*name;
-	int			coord_x;
-	int			coord_y;
-}				t_rooms;
+	char	*newptr;
+	size_t	cursize;
 
-typedef struct	s_links
-{
-}				t_links;
-
-typedef struct	s_lem_in
-{
-	int			ants;
-	t_rooms		rooms;
-	t_links		links;
-}				t_lem_in;
-
-#endif
+	if (ptr == 0)
+		return (malloc(newsize));
+	cursize = sizeof(ptr);
+	if (newsize <= cursize)
+		return (ptr);
+	newptr = malloc(newsize);
+	ft_memcpy(ptr, newptr, cursize);
+	free(ptr);
+	return (newptr);
+}

@@ -6,11 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:35:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/26 16:47:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/01 14:16:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../includes/lem_in.h"
 
 int	main(void)
 {

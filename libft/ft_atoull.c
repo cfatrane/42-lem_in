@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in_struct.h                                    :+:      :+:    :+:   */
+/*   ft_atoull.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/02 11:25:14 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/02/16 14:59:45 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/02/16 18:10:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN_STRUCT_H
-# define LEM_IN_STRUCT_H
+#include "libft.h"
 
-# include "lem_in.h"
-
-typedef struct	s_rooms
+unsigned long long	ft_atoull(const char *str)
 {
-	char		*name;
-	int			coord_x;
-	int			coord_y;
-}				t_rooms;
+	unsigned long long	nb;
+	unsigned long long	tmp;
 
-typedef struct	s_links
-{
-}				t_links;
-
-typedef struct	s_lem_in
-{
-	int			ants;
-	t_rooms		rooms;
-	t_links		links;
-}				t_lem_in;
-
-#endif
+	nb = 0;
+	tmp = 0;
+	while (ft_isspace((int)*str))
+		str++;
+	if (*str == '+')
+		str++;
+	while (ft_isdigit((int)*str))
+	{
+		tmp = tmp * 10 + *str - '0';
+		str++;
+		if (tmp < nb)
+			return (0);
+		nb = tmp;
+	}
+	return (nb);
+}

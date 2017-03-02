@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/27 16:06:18 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/01 14:12:22 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int		ft_start(t_lem_in *env);
 int		ft_end(t_lem_in *env);
 int		ft_comment(t_lem_in *env);
 
+int		hachage(char *str);
 
 #endif

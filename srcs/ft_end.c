@@ -6,11 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 14:55:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/27 17:07:04 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/01 14:17:49 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../includes/lem_in.h"
 
 int		ft_end(t_lem_in *env)
 {
