@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 17:45:18 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:07:43 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		check_rooms(t_lem_in *env);
 
 int		ft_start(t_lem_in *env);
 int		ft_end(t_lem_in *env);
-int		ft_links(t_lem_in *env);
+int		ft_links(t_lem_in *env, char *line);
 int		ft_comment(t_lem_in *env);
 
 int		hachage(char *str);

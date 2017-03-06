@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 14:55:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 18:32:36 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:07:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,24 @@ int		ft_end(t_lem_in *env)
 			}
 			else if (ft_is_links(line) == 1)
 			{
-				ft_printf("\033[31mFIN END END END END END END\n\n\033[0m");
-				if (ft_links(env) == -1)
+				if (ft_links(env, line) == -1)
 					return (-1);
+				/*	i = 0;
+				//	ft_printf("\033[31mFIN END END END END END END\n\n\033[0m");
+				//				if (ft_links(env) == -1)
+				//					return (-1);
+				int nbr = ft_atoi(line);
+				ft_printf("NBR = %d\n", nbr);
+				while (ft_isdigit(line[i]))
+				i++;
+				i++;
+				if (!ft_isdigit(line[i]))
+				{
+				ft_printf("NO DIGIT\n");
+				return (-1);
+				}
+				nbr = ft_atoi(&line[i]);
+				ft_printf("NBR = %d\n", nbr);*/
 			}
 		}
 	}
