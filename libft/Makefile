@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/02 14:12:22 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/06 19:16:39 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ SRC_NAME =	ft_memset.c				\
 			ft_putnbr_base.c		\
 			ft_putnbr_lng.c			\
 			ft_putnbr_uns.c			\
+			ft_putmap.c				\
 			ft_isalpha.c			\
 			ft_isdigit.c			\
 			ft_isalnum.c			\

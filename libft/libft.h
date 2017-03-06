@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/02 14:13:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:16:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putstr_n(const char *s, int n);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
+void				ft_putmap(char **map);
 char				*ft_strnew(size_t size);
 char				**ft_strnew_two(size_t x, size_t y);
 char				***ft_strnew_three(size_t x, size_t y, size_t z);

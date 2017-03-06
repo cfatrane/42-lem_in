@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:36:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/28 14:35:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:25:21 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	**ft_strnew_two(size_t x, size_t y)
 	i = 0;
 	tab = (char **)malloc(sizeof(char *) * y);
 	tableau2 = (char *)malloc(sizeof(char) * x * y);
+	ft_bzero(tab, x + 1);
 	while (i < y)
 	{
 		tab[i] = &tableau2[i * x];

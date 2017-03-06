@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 12:41:38 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 19:07:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 19:23:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int	ft_links(t_lem_in *env, char *line)
 {
-	char	**ant_farm;
 	int		i;
 
-	if (!(ant_farm = ft_strnew_two(env->nb_rooms, env->nb_rooms)))
+	if (!(env->ant_farm = ft_strnew_two(env->nb_rooms, env->nb_rooms)))
 		return (-1);
 	i = 0;
-	int nbr = ft_atoi(line);
-	ft_printf("NBR = %d\n", nbr);
+	int one = ft_atoi(line);
+	ft_printf("NBR = %d\n", one);
 	while (ft_isdigit(line[i]))
 		i++;
 	i++;
@@ -30,8 +29,10 @@ int	ft_links(t_lem_in *env, char *line)
 		ft_printf("NO DIGIT\n");
 		return (-1);
 	}
-	nbr = ft_atoi(&line[i]);
-	ft_printf("NBR = %d\n", nbr);
+	int	two = ft_atoi(&line[i]);
+	ft_printf("NBR = %d\n", two);
+	env->ant_farm[one][two] = '1';
+	env->ant_farm[two][one] = '1';
 	/*	while (get_next_line(0, &line) > 0)
 		{
 		i = 0;
