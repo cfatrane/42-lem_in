@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 13:31:05 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 17:12:09 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,15 @@ int		hachage(char *str);
 
 t_rooms	*ft_create_elem_rooms(char *name, int coord_x, int coord_y);
 void	ft_rooms_push_back(t_rooms **rooms, char *name, int coord_x, int coord_y);
-void	ft_rooms_push_front(t_rooms **rooms, char *name, int coord_x, int coord_y);
+
+
+int	ft_is_links(char *line);
+
+
+
+
+
+
+void	ft_rooms_display(t_lem_in *env);
 
 #endif

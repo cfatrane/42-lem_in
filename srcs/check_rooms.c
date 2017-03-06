@@ -6,11 +6,13 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 17:58:34 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 11:29:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 15:58:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+// CHECK SALLE D ABORD AVEC START
 
 int	check_rooms(t_lem_in *env)
 {

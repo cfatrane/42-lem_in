@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 13:29:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 16:42:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 typedef struct			s_rooms
 {
-	int					ants;
 	char				*name;
 	int					coord_x;
 	int					coord_y;
@@ -27,7 +26,8 @@ typedef struct			s_rooms
 typedef struct			s_lem_in
 {
 	int					ants;
-	t_rooms				rooms;
+	int					nb_rooms;
+	struct s_rooms		*rooms;
 	t_rooms				start;
 	t_rooms				end;
 }						t_lem_in;

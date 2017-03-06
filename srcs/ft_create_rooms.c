@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_lst.c                                    :+:      :+:    :+:   */
+/*   ft_create_rooms.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 13:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 13:31:11 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/03/06 13:37:38 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/03/06 16:02:09 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,4 @@ void	ft_rooms_push_back(t_rooms **rooms, char *name, int coord_x, int coord_y)
 	}
 	else
 		*rooms = ft_create_elem_rooms(name, coord_x, coord_y);
-}
-
-void	ft_rooms_push_front(t_rooms **rooms, char *name, int coord_x, int coord_y)
-{
-	t_rooms*list;
-
-	list = ft_create_elem_rooms(name, coord_x, coord_y);
-	if ((*rooms))
-		list->next = *rooms;
-	*rooms = list;
 }
