@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/02 11:25:14 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 13:29:35 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 
 # include "lem_in.h"
 
-typedef struct	s_rooms
+typedef struct			s_rooms
 {
-	char		*name;
-	int			coord_x;
-	int			coord_y;
-}				t_rooms;
+	int					ants;
+	char				*name;
+	int					coord_x;
+	int					coord_y;
+	struct s_rooms		*next;
+}						t_rooms;
 
-typedef struct	s_links
+typedef struct			s_lem_in
 {
-}				t_links;
-
-typedef struct	s_lem_in
-{
-	int			ants;
-	t_rooms		rooms;
-	t_links		links;
-}				t_lem_in;
+	int					ants;
+	t_rooms				rooms;
+	t_rooms				start;
+	t_rooms				end;
+}						t_lem_in;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 14:55:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/01 14:17:49 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 13:04:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,20 @@ int		ft_end(t_lem_in *env)
 		words = ft_count_words_sep(line, ' ');
 //		if (words != 3)
 //			return (-1);
+		if (*line == '#' && *line + 1 != '#')
+			ft_comment(env);
 		if (words == 3)
 		{
 			data =  ft_strsplit(line, ' ');
+			if (ft_error(data[1]) == -1 || ft_error(data[2]) == -1)
+			{
+					ft_printf("ERROR COORD\n");
+					return (-1);
+			}
 			env->rooms.name = data[0];
 			env->rooms.coord_x = ft_atoi(data[1]);
 			env->rooms.coord_y = ft_atoi(data[2]);
-		ft_printf("Name END = %s Coord X = %d Coord Y = %d\n", env->rooms.name, env->rooms.coord_x, env->rooms.coord_y);
+		ft_printf("Name END = |%s| Coord X = |%d| Coord Y = |%d|\n", env->rooms.name, env->rooms.coord_x, env->rooms.coord_y);
 		}
 	}
 	ft_printf("\033[31mFIN END END END END END END\n\033[0m");
