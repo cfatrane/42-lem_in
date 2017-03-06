@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 14:55:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 17:12:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 18:32:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		ft_end(t_lem_in *env)
 	ft_printf("\033[31mDEBUT END END END END END END\n\033[0m");
 	while (get_next_line(0, &line) > 0)
 	{
-		ft_printf("\033[32mEND LINE = %s\n\033[0m", line);
+		ft_printf("\033[32mEND LINE = %s TMP = %s\n\033[0m", line, env->line_tmp);
+		env->line_tmp = line;
 		if (line[0] == '#' && line[1] != '#')
 			ft_comment(env);
 		else if (1)
@@ -41,7 +42,8 @@ int		ft_end(t_lem_in *env)
 			else if (ft_is_links(line) == 1)
 			{
 				ft_printf("\033[31mFIN END END END END END END\n\n\033[0m");
-				ft_links(env);
+				if (ft_links(env) == -1)
+					return (-1);
 			}
 		}
 	}

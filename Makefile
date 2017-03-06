@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/06 14:27:27 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/06 17:47:26 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC_PATH = ./srcs/
 
 OBJ_PATH = ./objs/
 
-INC_PATH = -I./includes/
+INC_PATH = ./includes/
 
 # Name
 
@@ -59,7 +59,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INC_PATH)
 	@make -C./libft/
 	@echo "\033[34mCreation of $(NAME) ...\033[0m"
 	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@
@@ -67,7 +67,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(INC_PATH) -o $@ -c $<
+	@$(CC) -I$(INC_PATH) -o $@ -c $<
 
 clean:
 	@make clean -C ./libft/

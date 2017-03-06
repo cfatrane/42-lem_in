@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 16:42:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 17:46:06 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct			s_lem_in
 {
 	int					ants;
 	int					nb_rooms;
+	char				*line_tmp;
 	struct s_rooms		*rooms;
 	t_rooms				start;
 	t_rooms				end;

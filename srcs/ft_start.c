@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 20:17:40 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 16:45:42 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/06 17:49:19 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		ft_start(t_lem_in *env)
 			else
 				return (-1);
 		}
+		env->line_tmp = line;
 	}
 	return (0);
 }
