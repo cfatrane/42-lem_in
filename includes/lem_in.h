@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 19:07:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/07 13:47:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_rooms_push_back(t_rooms **rooms, char *name, int coord_x, int coord_y);
 int	ft_is_links(char *line);
 
 
+void	ft_rooms_clear(t_rooms **begin_list);
 
 
 

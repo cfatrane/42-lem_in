@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 17:57:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/15 17:58:53 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/07 11:56:06 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putmap(char **map)
 	int	i;
 
 	i = 0;
-	while (map[i])
+	while (map[i] != NULL)
 	{
 		ft_putendl(map[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 20:17:40 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 17:49:19 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/07 13:54:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_start(t_lem_in *env)
 		}
 		else if (line[0] == '#' && line[1] != '#')
 			ft_comment(env);
-	//	else if (!(ft_strcmp(line, "##end") == 0) && !(line[0] == '#' && line[1] != '#'))
+		//	else if (!(ft_strcmp(line, "##end") == 0) && !(line[0] == '#' && line[1] != '#'))
 		else if (1)
 		{
 			words = ft_count_words_sep(line, ' ');
@@ -51,6 +51,7 @@ int		ft_start(t_lem_in *env)
 				//ft_printf("DATA 0 = %s DATA 2 = %s DATA 3 = %s\n", data[0], data[1], data[2]);
 				ft_rooms_push_back(&(env->rooms), data[0], ft_atoll(data[1]), ft_atoll(data[2]));
 				env->nb_rooms++;
+				free(data);
 			}
 			else
 				return (-1);
