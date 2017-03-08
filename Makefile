@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/06 17:47:26 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/07 15:34:58 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_NAME =	main.c				\
 			ft_comment.c		\
 			hash.c				\
 			ft_create_rooms.c	\
+			ft_rooms.c			\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
