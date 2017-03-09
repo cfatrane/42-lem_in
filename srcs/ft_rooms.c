@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 14:07:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/08 10:07:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/09 10:42:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,11 @@ int	ft_rooms(t_lem_in *env, char *line)
 {
 	char	**data;
 	int		words;
-	int		flags;
 
-	flags = 0;
-//	env->rooms = NULL;
+	t_rooms	*rooms[100];
 	ft_printf("\033[31mDEBUT ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\033[0m");
-	/*	if (flags == 0 && line) GERER LE CAS OU MERDE AVANT OU DIRECT APRES START
-		return (-1);
-		flags++;*/
 	ft_printf("\033[33mROOMS LINE = %s\n\033[0m", line);
-/*	if (ft_strcmp(line, "##end") == 0)
-	{
-		if (ft_end(env) == -1)
-			return (-1);
-	}
-	else if (line[0] == '#' && line[1] != '#')
-		ft_comment(env);
-	//	else if (!(ft_strcmp(line, "##end") == 0) && !(line[0] == '#' && line[1] != '#'))
-*/	if (1)
+	if (1)
 	{
 		words = ft_count_words_sep(line, ' ');
 		data = ft_strsplit(line, ' ');

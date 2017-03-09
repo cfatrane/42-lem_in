@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/08 11:23:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/09 10:38:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	lem_in(t_lem_in *env)
 		return (-1);
 	if (check_rooms(env) == -1)
 		return (-1);
-	//	ft_putmap(env->ant_farm);
 	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
 	{
 		ft_printf("NO START OR END OR PATH\n");
@@ -51,6 +50,6 @@ int	lem_in(t_lem_in *env)
 		tmp = tmp->next;
 	}
 	ft_printf("\nNBR ROOMS = %d\n", env->nb_rooms);
-	ft_rooms_display(env);
+//	ft_rooms_display(env);
 	return (0);
 }

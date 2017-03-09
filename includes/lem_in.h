@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/08 11:39:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/09 10:26:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_rooms(t_lem_in *env, char *line);
 void	ft_rooms_clear(t_rooms **begin_list);
 
 
+int	error_rooms(t_lem_in *env);
 
 
 void	ft_rooms_display(t_lem_in *env);
