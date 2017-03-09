@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/09 10:40:48 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/09 14:18:54 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	hachage(t_lem_in *env, char *str)
 		hash += str[i];
 		i++;
 	}
-	hash %= env->nb_rooms;
-//	hash %= 100;
+//	hash %= env->nb_rooms;
+	hash %= 100;
 	(void)env;
 	return (hash);
 }
@@ -39,3 +39,24 @@ int	search_hash(t_lem_in *env, char *str)
 	(void)str;
 	return (0);
 }
+
+int	hachage_lst(char *str)
+{
+//	ft_printf("HASH LINE = |%s|\n", str);
+	if (ft_error(str) == 0)
+		return (ft_atoi(str));
+	int	hash;
+	int	i;
+
+	hash = 0;
+	i = 0;
+	while (str[i])
+	{
+		hash += str[i];
+		i++;
+	}
+//	hash %= env->nb_rooms;
+	hash %= 100;
+	return (hash);
+}
+

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/09 09:49:25 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/09 17:17:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,15 @@ typedef struct			s_rooms
 	char				*name;
 	int					coord_x;
 	int					coord_y;
+	int					hash;
 	struct s_rooms		*next;
 }						t_rooms;
+
+typedef struct			s_tab_rooms
+{
+//	t_rooms				**rooms;
+	struct s_rooms		*rooms;
+}						t_tab_rooms;
 
 typedef struct			s_lem_in
 {
@@ -36,6 +43,9 @@ typedef struct			s_lem_in
 	struct s_rooms		*rooms;
 	t_rooms				start;
 	t_rooms				end;
+	t_rooms				**tab_rooms;
+//	t_tab_rooms			*tbl_rooms;
+	struct s_tab_rooms	*tbl_rooms;
 }						t_lem_in;
 
 #endif

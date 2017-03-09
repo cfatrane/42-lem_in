@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 12:41:38 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/09 10:40:53 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/09 19:43:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,37 +39,41 @@ int	ft_links(t_lem_in *env, char *line)
 	int y;
 
 	x = 0;
-	ft_printf("\033[31mDEBUT LINKS ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\033[0m");
-	ft_printf("\033[32mLINKS LINE = %s\n\033[0m", line);
-//	ft_printf("\033[32mLINKS LINE = %s TMP = %s\n\033[0m", line, env->line_tmp);
+	//	ft_printf("\033[31mDEBUT LINKS ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\033[0m");
+	//	ft_printf("\033[32mLINKS LINE = %s\n\033[0m", line);
+	//	ft_printf("\033[32mLINKS LINE = %s TMP = %s\n\033[0m", line, env->line_tmp);
 	if (!(env->ant_farm))
-		if (!(env->ant_farm = ant_farm(env->nb_rooms, env->nb_rooms)))
+		//	if (!(env->ant_farm = ant_farm(env->nb_rooms, env->nb_rooms)))
+		if (!(env->ant_farm = ant_farm(10000, 10000))) // ENLEVER TABLEAU STRUCT ET LA
+			return (-1);
+	if (!(env->tab_rooms))
+		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * env->nb_rooms)))
+			return (-1);
+	if (!(env->tbl_rooms))
+		if (!(env->tbl_rooms = ft_memalloc(sizeof(t_tab_rooms*) * env->nb_rooms)))
 			return (-1);
 	i = 0;
 	env->flag_path = 1;
 	while (line[i] != '-')
 		i++;
 	i++;
-	int test = hachage(env, ft_strdup_c(line, '-'));
-	ft_printf("TEST = %d\n", test);
-//	int one = ft_atoi(line);
-//	ft_printf("NBR ONE = %d\n", one);
-/*	while (ft_isdigit(line[i]))
-		i++;
-	i++;*/
+	int test1 = hachage(env, ft_strdup_c(line, '-'));
+	ft_printf("LINE = |%s| TEST 1 = %d\n", ft_strdup_c(line, '-'), test1);
 	int test2 = hachage(env, &line[i]);
-	ft_printf("TEST 2 = %d\n", test2);
-/*	if (!ft_isdigit(line[i]))
-	{
-		ft_printf("NO DIGIT\n");
-		return (-1);
-	}
-	int	two = ft_atoi(&line[i]);*/
-//	ft_printf("NBR TWO = %d\n", two);
-//	env->ant_farm[one][two] = '1';
-//	env->ant_farm[two][one] = '1';
-	env->ant_farm[test][test2] = '1';
-	env->ant_farm[test2][test] = '1';
+	ft_printf("LINE = |%s| TEST 2 = %d\n", &line[i], test2);
+	//	int one = ft_atoi(line);
+	//	ft_printf("NBR ONE = %d\n", one);
+	/*	while (ft_isdigit(line[i]))
+		i++;
+		i++;*/
+	put_in_tab(env, test1, test2);
+		//	printlst(env);
+	/*	int	two = ft_atoi(&line[i]);*/
+	//	ft_printf("NBR TWO = %d\n", two);
+	//	env->ant_farm[one][two] = '1';
+	//	env->ant_farm[two][one] = '1';
+	env->ant_farm[test1][test2] = '1';
+	env->ant_farm[test2][test1] = '1';
 	while (x < env->nb_rooms)
 	{
 		y = 0;
@@ -83,7 +87,7 @@ int	ft_links(t_lem_in *env, char *line)
 		//	ft_printf("\n");
 		x++;
 	}
-	ft_printf("\033[31mFIN LINKS ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\n\033[0m");
+	//	ft_printf("\033[31mFIN LINKS ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\n\033[0m");
 	return (0);
 }
 int	ft_is_links(t_lem_in *env, char *line)
@@ -98,21 +102,21 @@ int	ft_is_links(t_lem_in *env, char *line)
 	{
 		y++;
 	}
-//	ft_printf("y = %d\n", y);
+	//	ft_printf("y = %d\n", y);
 	while (tmp)
 	{
 		//		ft_printf("line = %s\troom = %s\n", line, tmp->name);
 		if (ft_strncmp(line, tmp->name, y) == 0)
 		{
 			flag++;
-//			ft_printf("flag cmp 1 = %d\n", flag);
+			//			ft_printf("flag cmp 1 = %d\n", flag);
 			if (line[y] == '-')
 			{
 				y++;
 				flag++;
-//				ft_printf("flag tiret 2 = %d\n", flag);
+				//				ft_printf("flag tiret 2 = %d\n", flag);
 			}
-//			ft_printf("line two = %s\n", &line[y]);
+			//			ft_printf("line two = %s\n", &line[y]);
 		}
 		tmp = tmp->next;
 	}
@@ -123,7 +127,7 @@ int	ft_is_links(t_lem_in *env, char *line)
 		{
 			flag++;
 			break ;
-//			ft_printf("flag cmp 3 = %d\n", flag);
+			//			ft_printf("flag cmp 3 = %d\n", flag);
 		}
 		//		ft_printf("line = %s\troom = %s\n", line, tmp->name);
 		tmp = tmp->next;
@@ -132,13 +136,13 @@ int	ft_is_links(t_lem_in *env, char *line)
 		return (1);
 	else
 		return (0);
-//	ft_printf("flag = %d\n", flag);
-/*	while (line[i])
-	{
+	//	ft_printf("flag = %d\n", flag);
+	/*	while (line[i])
+		{
 		if (ft_isdigit(line[i - 1]) && line[i] == '-' && ft_isdigit(line[i + 1]))
-			return (1);
+		return (1);
 		i++;
-	}*/
+		}*/
 	return (0);
 }
 

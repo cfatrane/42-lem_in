@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 14:07:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/09 10:42:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/09 18:09:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ int	ft_rooms(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
-	t_rooms	*rooms[100];
-	ft_printf("\033[31mDEBUT ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\033[0m");
-	ft_printf("\033[33mROOMS LINE = %s\n\033[0m", line);
+//	ft_printf("\033[31mDEBUT ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\033[0m");
+//	ft_printf("\033[33mROOMS LINE = %s\n\033[0m", line);
 	if (1)
 	{
 		words = ft_count_words_sep(line, ' ');
@@ -43,7 +42,7 @@ int	ft_rooms(t_lem_in *env, char *line)
 		}
 	}
 	env->line_tmp = line;
-	ft_printf("\033[31mFIN ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\n\033[0m");
+//	ft_printf("\033[31mFIN ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\n\033[0m");
 	return (0);
 }
 
