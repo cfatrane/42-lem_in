@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 14:07:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/07 17:03:19 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/08 10:07:10 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_rooms(t_lem_in *env, char *line)
 		}
 	}
 	env->line_tmp = line;
-	ft_printf("\033[31mFIN ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\033[0m");
+	ft_printf("\033[31mFIN ROOMS ROOMS ROOMS ROOMS ROOMS ROOMS \n\n\033[0m");
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/07 16:19:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/08 11:23:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,27 @@ int	lem_in(t_lem_in *env)
 	if (check_rooms(env) == -1)
 		return (-1);
 	//	ft_putmap(env->ant_farm);
-	ft_printf("NUMBER = |");
-	for (int y = 0 ; y < env->nb_rooms ; y++)
+	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
 	{
-		ft_printf("%d", y);
+		ft_printf("NO START OR END OR PATH\n");
+		return (-1);
 	}
-	ft_printf("|\n");
+	ft_printf("NUMBER = ");
+/*	for (int y = 0 ; y < env->nb_rooms ; y++)
+	{
+		ft_printf("%d", y % 10);
+	}*/
+	t_rooms *tmp = env->rooms;
+	while (tmp)
+	{
+		ft_printf("|%s|", tmp->name);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+	tmp = env->rooms;
 	for (int i = 0 ; i < env->nb_rooms ; i++)
 	{
-		ft_printf("LINE %d = |", i);
+		ft_printf("LINE %s = |", tmp->name);
 		for (int j = 0 ; j < env->nb_rooms ; j++)
 		{
 			if (env->ant_farm[i][j] == '1')
@@ -36,8 +48,9 @@ int	lem_in(t_lem_in *env)
 				ft_printf("%c", env->ant_farm[i][j]);
 		}
 		ft_printf("|\n");
+		tmp = tmp->next;
 	}
-	ft_printf("NBR ROOMS = %d\n", env->nb_rooms);
+	ft_printf("\nNBR ROOMS = %d\n", env->nb_rooms);
 	ft_rooms_display(env);
 	return (0);
 }

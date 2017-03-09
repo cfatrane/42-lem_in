@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/08 09:43:54 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/08 10:42:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,21 @@ int	ft_is_links(t_lem_in *env, char *line)
 	{
 		y++;
 	}
-	ft_printf("y = %d\n", y);
+//	ft_printf("y = %d\n", y);
 	while (tmp)
 	{
 		//		ft_printf("line = %s\troom = %s\n", line, tmp->name);
 		if (ft_strncmp(line, tmp->name, y) == 0)
 		{
 			flag++;
-			ft_printf("flag cmp 1 = %d\n", flag);
+//			ft_printf("flag cmp 1 = %d\n", flag);
 			if (line[y] == '-')
 			{
 				y++;
 				flag++;
-				ft_printf("flag tiret 2 = %d\n", flag);
+//				ft_printf("flag tiret 2 = %d\n", flag);
 			}
-			ft_printf("line two = %s\n", &line[y]);
+//			ft_printf("line two = %s\n", &line[y]);
 		}
 		tmp = tmp->next;
 	}
@@ -67,7 +67,7 @@ int	ft_is_links(t_lem_in *env, char *line)
 		{
 			flag++;
 			break ;
-			ft_printf("flag cmp 3 = %d\n", flag);
+//			ft_printf("flag cmp 3 = %d\n", flag);
 		}
 		//		ft_printf("line = %s\troom = %s\n", line, tmp->name);
 		tmp = tmp->next;
@@ -76,7 +76,7 @@ int	ft_is_links(t_lem_in *env, char *line)
 		return (1);
 	else
 		return (0);
-	ft_printf("flag = %d\n", flag);
+//	ft_printf("flag = %d\n", flag);
 /*	while (line[i])
 	{
 		if (ft_isdigit(line[i - 1]) && line[i] == '-' && ft_isdigit(line[i + 1]))
