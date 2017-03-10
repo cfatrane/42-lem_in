@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/09 19:22:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/10 17:02:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,6 @@ int	lem_in(t_lem_in *env)
 	{
 		ft_printf("NO START OR END OR PATH\n");
 		return (-1);
-	}
-	ft_printf("NUMBER = ");
-/*	for (int y = 0 ; y < env->nb_rooms ; y++)
-	{
-		ft_printf("%d", y % 10);
-	}*/
-	t_rooms *tmp = env->rooms;
-	while (tmp)
-	{
-		ft_printf("|%s|", tmp->name);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
-	tmp = env->rooms;
-	for (int i = 0 ; i < env->nb_rooms ; i++)
-	{
-		ft_printf("LINE %s = |", tmp->name);
-		for (int j = 0 ; j < env->nb_rooms ; j++)
-		{
-			if (env->ant_farm[i][j] == '1')
-				ft_printf("\033[31m%c\033[0m", env->ant_farm[i][j]);
-			else
-				ft_printf("%c", env->ant_farm[i][j]);
-		}
-		ft_printf("|\n");
-		tmp = tmp->next;
 	}
 	t_rooms	**tmp1 = env->tab_rooms;
 	t_rooms	*tmp2;

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:55:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/02 15:40:46 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/10 17:13:14 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		ft_check_format(char *line)
 			line++;
 		if (!ft_isdigit(*line))
 		{
+			ft_printf("line = %s\n", line);
 			ft_printf("ERROR FORMAT\n");
 			return (-1);
 		}

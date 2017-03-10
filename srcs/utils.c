@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/09 19:41:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/10 16:44:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,6 @@ int	error(void)
 {
 	ft_printf("ERROR\n");
 	return (-1);
-}
-
-void	ft_rooms_display(t_lem_in *env)
-{
-	t_rooms	*tmp;
-
-	tmp = env->rooms;
-	while (tmp)
-	{
-		ft_printf("\033[31mName = %s Coord X = %d Coord Y = %d HASH = %d\n\033[0m", tmp->name, tmp->coord_x, tmp->coord_y, tmp->hash);
-		tmp = tmp->next;
-	}
 }
 
 int	tab_len(t_lem_in *env)
@@ -51,9 +39,27 @@ t_rooms	*ft_rooms_find(t_rooms *rooms, int hash_ref)
 		return (NULL);
 }
 
+void	ft_swap_int(int *a, int *b)
+{
+	int	i;
+
+	i = *a;
+	*a = *b;
+	*b = i;
+}
+
+void	ft_swap_str(char* *a, char **b)
+{
+	char	*i;
+
+	i = *a;
+	*a = *b;
+	*b = i;
+}
+
 t_rooms	*ft_rooms_sort(t_rooms *lst)
 {
-	int		tempo;
+//	int		tempo;
 	t_rooms	*parcour;
 
 	parcour = lst;
@@ -61,10 +67,14 @@ t_rooms	*ft_rooms_sort(t_rooms *lst)
 	{
 		if (lst->hash > lst->next->hash)
 		{
-			tempo = lst->hash;
+			ft_swap_str(&lst->name, &lst->next->name);
+			ft_swap_int(&lst->coord_x, &lst->next->coord_x);
+			ft_swap_int(&lst->coord_y, &lst->next->coord_y);
+			ft_swap_int(&lst->hash, &lst->next->hash);
+/*			tempo = lst->hash;
 			lst->hash = lst->next->hash;
 			lst->next->hash = tempo;
-			lst = parcour;
+			lst = parcour;*/
 		}
 		else
 			lst = lst->next;
@@ -73,23 +83,3 @@ t_rooms	*ft_rooms_sort(t_rooms *lst)
 	return (lst);
 }
 
-void	printlst(t_lem_in *env)
-{
-	t_rooms	**tmp1 = env->tab_rooms;
-	t_rooms	*tmp2;
-	int i = 0;
-
-	while (tmp1[i])
-	{
-		ft_printf("%d: ", i);
-		tmp2 = tmp1[i];
-		while (tmp2)
-		{
-			ft_printf("%d --> ", tmp2->hash);
-			tmp2 = tmp2->next;
-		}
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("\n");
-}

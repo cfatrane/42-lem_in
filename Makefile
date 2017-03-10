@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/09 13:22:37 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/10 16:19:06 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRC_NAME =	main.c				\
 			ft_create_rooms.c	\
 			ft_rooms.c			\
 			ft_check.c			\
+			print.c				\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -55,7 +56,7 @@ LFT = -lft
 
 CC = gcc $(CFLAGS)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Rules
 

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 14:55:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/08 10:58:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/10 13:50:15 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int		ft_end(t_lem_in *env, char *line)
 	int		words;
 	char	**data;
 
-	ft_printf("\033[31mDEBUT END END END END END END\n\033[0m");
+//	ft_printf("\033[31mDEBUT END END END END END END\n\033[0m");
 	//	while (get_next_line(0, &line) > 0)
 	//	{
-	ft_printf("\033[32mEND LINE = %s TMP = %s\n\033[0m", line, env->line_tmp);
+//	ft_printf("\033[32mEND LINE = %s TMP = %s\n\033[0m", line, env->line_tmp);
 	env->line_tmp = line;
 	//	if (line[0] == '#' && line[1] != '#')
 	//		ft_comment(env);
@@ -64,7 +64,7 @@ int		ft_end(t_lem_in *env, char *line)
 			nbr = ft_atoi(&line[i]);
 			ft_printf("NBR = %d\n", nbr);*/
 	}
-	ft_printf("\033[31mFIN END END END END END END\n\n\033[0m");
+//	ft_printf("\033[31mFIN END END END END END END\n\n\033[0m");
 	//	}
 	return (0);
 }
