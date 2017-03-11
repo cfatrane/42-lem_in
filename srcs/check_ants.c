@@ -6,18 +6,18 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 17:01:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/02 14:12:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 18:23:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int			check_ants(t_lem_in *env)
+int	check_ants(t_lem_in *env)
 {
 	char	*line;
 
 	get_next_line(0, &line);
-	if (ft_error(line) == -1)
+	if (ft_error_nbr(line) == -1)
 		return (-1);
 	env->ants = atoi(line);
 	if (env->ants <= 0)

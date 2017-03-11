@@ -6,13 +6,13 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:55:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 15:53:07 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:56:39 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int		ft_check_format(char *line)
+int		ft_check_format_nbr(char *line)
 {
 	while (*line)
 	{
@@ -32,7 +32,7 @@ int		ft_check_max(ssize_t line)
 {
 	if (line > INT_MAX)
 	{
-			ft_printf("ERROR OVERFLOW\n");
+		ft_printf("ERROR OVERFLOW\n");
 		return (-1);
 	}
 	return (0);
@@ -54,10 +54,28 @@ int		ft_check_format_name(char *str)
 	return (0);
 }
 
-int		ft_error(char *line)
+int		ft_error_rooms(char *name, char *coord_x, char *coord_y)
 {
-	if (ft_check_format(line) == -1 || ft_check_max(ft_atoll(line)) == -1 ||
-			(ft_atoll(line) > 0 && (ft_atou(line) == 0)) || ft_strlen(line) > 19)
+	if (ft_check_format_name(name) == -1)
+		return (-1);
+	if (ft_check_format_nbr(coord_x) == -1 ||
+			ft_check_max(ft_atoll(coord_x)) == -1 ||
+			(ft_atoll(coord_x) > 0 && (ft_atou(coord_x) == 0)) ||
+			ft_strlen(coord_x) > 19)
+		return (-1);
+	if (ft_check_format_nbr(coord_y) == -1 ||
+			ft_check_max(ft_atoll(coord_y)) == -1 ||
+			(ft_atoll(coord_y) > 0 && (ft_atou(coord_y) == 0)) ||
+			ft_strlen(coord_y) > 19)
+		return (-1);
+	return (0);
+}
+
+int		ft_error_nbr(char *line)
+{
+	if (ft_check_format_nbr(line) == -1 || ft_check_max(ft_atoll(line)) == -1 ||
+			(ft_atoll(line) > 0 && (ft_atou(line) == 0)) ||
+			ft_strlen(line) > 19)
 		return (-1);
 	return (0);
 }

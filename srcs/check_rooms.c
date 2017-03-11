@@ -6,13 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 17:58:34 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 16:54:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:33:52 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
-// CHECK SALLE D ABORD AVEC START
 
 int	check_rooms(t_lem_in *env)
 {
@@ -20,7 +18,6 @@ int	check_rooms(t_lem_in *env)
 
 	while (get_next_line(0, &line) > 0)
 	{
-//		ft_printf("\033[34mCHECK ROOMS LINE = %s\n\033[0m", line);
 		if (ft_strcmp(line, "##start") == 0)
 		{
 			(get_next_line(0, &line));

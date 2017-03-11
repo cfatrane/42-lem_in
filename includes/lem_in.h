@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 15:50:05 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 18:19:15 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 int		lem_in(t_lem_in *env);
 
-int		ft_error(char *av);
+int		ft_error_nbr(char *line);
+int		ft_error_rooms(char *name, char *x, char *y);
 int		ft_check_format_name(char *str);
-int		error(void);
 
 int		check_ants(t_lem_in *env);
 int		check_rooms(t_lem_in *env);
@@ -30,13 +30,12 @@ int		ft_end(t_lem_in *env, char *line);
 int		ft_links(t_lem_in *env, char *line);
 int		ft_comment(t_lem_in *env, char *line);
 
-int		hachage(t_lem_in *env, char *str);
-int	hachage_lst(char *str);
-int	max_hash(t_lem_in *env);
+int		hachage_lst(char *str);
+int		max_hash(t_lem_in *env);
 
-t_rooms	*ft_create_elem_rooms(char *name, int coord_x, int coord_y);
-void	ft_rooms_push_back(t_rooms **rooms, char *name, int coord_x, int coord_y);
-void	ft_rooms_push_front(t_rooms **stack, char *name, int coord_x, int coord_y);
+t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
+void	ft_rooms_push_back(t_rooms **rooms, char *name, int x, int y);
+void	ft_rooms_push_front(t_rooms **stack, char *name, int x, int y);
 
 t_rooms	*ft_rooms_sort(t_rooms *lst);
 void	printlst(t_lem_in *env);

@@ -1,0 +1,2 @@
+
+//			ft_printf("||%s||%d %d %d| --> ", rooms->name, rooms->coord_x, rooms->coord_y, rooms->hash);
