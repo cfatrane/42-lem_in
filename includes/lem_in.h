@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 19:52:59 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:59:19 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int		ft_is_links(t_lem_in *env, char *line);
 
 int		hachage_lst(char *str);
 int		max_hash(t_lem_in *env);
-
 
 t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
 void	ft_rooms_push_back(t_rooms **rooms, char *name, int x, int y);

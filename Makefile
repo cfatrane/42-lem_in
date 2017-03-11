@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/11 19:32:18 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/11 19:59:46 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ SRC_NAME =	main.c				\
 			ft_end.c			\
 			ft_links.c			\
 			is_links.c			\
-			ft_comment.c		\
 			hash.c				\
 			ft_create_rooms.c	\
 			ft_rooms.c			\
