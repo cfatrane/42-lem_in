@@ -6,29 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 19:33:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:49:00 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
-void	ft_swap_int(int *a, int *b)
-{
-	int	i;
-
-	i = *a;
-	*a = *b;
-	*b = i;
-}
-
-void	ft_swap_str(char **a, char **b)
-{
-	char	*i;
-
-	i = *a;
-	*a = *b;
-	*b = i;
-}
 
 t_rooms	*ft_rooms_find(t_rooms *rooms, int hash_ref)
 {

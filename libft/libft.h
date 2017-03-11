@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/06 19:16:17 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:47:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,8 @@ int					ft_size_tab_base(size_t n, int base);
 int					ft_count_words_sep(char const *s, char c);
 size_t				ft_strlen_sep(char const *s, char c);
 char				*ft_strrev(char *str);
-void				ft_swap(int *a, int *b);
+void				ft_swap_int(int *a, int *b);
+void				ft_swap_str(char **a, char **b);
 int					ft_sqrt(int nb);
 int					*ft_range(int min, int max);
 int					ft_hex_to_dec(char *hex);

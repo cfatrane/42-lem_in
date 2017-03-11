@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/06 19:16:39 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/11 19:46:51 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,7 +148,8 @@ SRC_NAME =	ft_memset.c				\
 			ft_count_words_sep.c	\
 			ft_strlen_sep.c			\
 			ft_strrev.c				\
-			ft_swap.c				\
+			ft_swap_int.c			\
+			ft_swap_str.c			\
 			ft_sqrt.c				\
 			ft_range.c				\
 			ft_hex_to_dec.c			\

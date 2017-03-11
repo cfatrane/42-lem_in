@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/11 19:08:21 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 19:42:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:43:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	flag_one(t_lem_in *env, char *line, int *i)
 			{
 				(*i)++;
 				env->flag_links++;
+				break ;
 			}
 		}
 		tmp = tmp->next;
