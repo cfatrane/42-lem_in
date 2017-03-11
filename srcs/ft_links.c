@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 12:41:38 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 18:27:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:31:57 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,51 +37,3 @@ int		ft_links(t_lem_in *env, char *line)
 	return (0);
 }
 
-int		ft_is_links(t_lem_in *env, char *line)
-{
-	int	i;
-	int	flag;
-	t_rooms *tmp;
-
-	i = 0;
-	flag = 0;
-	tmp = env->rooms;
-	while (line[i] && line[i] != '-')
-		i++;
-	while (tmp)
-	{
-		if (ft_strncmp(line, tmp->name, i) == 0)
-		{
-			flag++;
-			if (line[i] == '-')
-			{
-				i++;
-				flag++;
-			}
-		}
-		tmp = tmp->next;
-	}
-	tmp = env->rooms;
-	while (tmp)
-	{
-		if (ft_strncmp(&line[i], tmp->name, ft_strlen(line) - i) == 0)
-		{
-			flag++;
-			break ;
-		}
-		tmp = tmp->next;
-	}
-	if (flag == 3)
-		return (1);
-	return (0);
-}
-
-void	ft_rooms_clear(t_rooms **begin_list)
-{
-	if (*begin_list != NULL)
-	{
-		ft_rooms_clear(&((*begin_list)->next));
-		free(*begin_list);
-		*begin_list = NULL;
-	}
-}

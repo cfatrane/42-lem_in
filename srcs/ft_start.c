@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 20:17:40 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 18:23:08 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:02:48 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		ft_start(t_lem_in *env, char *line)
 	int		words;
 
 	env->flag_start = 1;
+	(get_next_line(0, &line));
 	words = ft_count_words_sep(line, ' ');
 	if (words == 3)
 	{

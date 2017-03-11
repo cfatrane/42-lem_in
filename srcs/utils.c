@@ -6,39 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 17:03:04 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:33:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
-int	max_hash(t_lem_in *env)
-{
-	int		max;
-	t_rooms	*tmp;
-
-	tmp = env->rooms;
-	max = tmp->hash;
-	while (tmp)
-	{
-		if (tmp->hash > max)
-			max = tmp->hash;
-		tmp = tmp->next;
-	}
-	return (max);
-}
-
-t_rooms	*ft_rooms_find(t_rooms *rooms, int hash_ref)
-{
-	if (rooms == NULL)
-		return (NULL);
-	if (ft_nbrcmp(rooms->hash, hash_ref) == 0)
-		return (rooms);
-	else if (rooms->next)
-		return (ft_rooms_find(rooms->next, hash_ref));
-	else
-		return (NULL);
-}
 
 void	ft_swap_int(int *a, int *b)
 {
@@ -56,6 +28,18 @@ void	ft_swap_str(char **a, char **b)
 	i = *a;
 	*a = *b;
 	*b = i;
+}
+
+t_rooms	*ft_rooms_find(t_rooms *rooms, int hash_ref)
+{
+	if (rooms == NULL)
+		return (NULL);
+	if (ft_nbrcmp(rooms->hash, hash_ref) == 0)
+		return (rooms);
+	else if (rooms->next)
+		return (ft_rooms_find(rooms->next, hash_ref));
+	else
+		return (NULL);
 }
 
 t_rooms	*ft_rooms_sort(t_rooms *lst)

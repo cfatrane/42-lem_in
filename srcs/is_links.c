@@ -1,56 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash.c                                             :+:      :+:    :+:   */
+/*   is_links.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 18:34:18 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/03/11 19:08:21 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/03/11 19:31:49 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-/*
-** GERER COLLISION
-*/
-
-int	hachage_lst(char *str)
+int		ft_is_links(t_lem_in *env, char *line)
 {
-	int	hash;
 	int	i;
+	int	flag;
+	t_rooms *tmp;
 
-	hash = 0;
 	i = 0;
-	while (str[i])
-	{
-		hash += str[i];
-		i++;
-	}
-	hash %= 100;
-	return (hash);
-}
-
-int	search_hash(t_lem_in *env, char *str)
-{
-	(void)env;
-	(void)str;
-	return (0);
-}
-
-int	max_hash(t_lem_in *env)
-{
-	int		max;
-	t_rooms	*tmp;
-
+	flag = 0;
 	tmp = env->rooms;
-	max = tmp->hash;
+	while (line[i] && line[i] != '-')
+		i++;
 	while (tmp)
 	{
-		if (tmp->hash > max)
-			max = tmp->hash;
+		if (ft_strncmp(line, tmp->name, i) == 0)
+		{
+			flag++;
+			if (line[i] == '-')
+			{
+				i++;
+				flag++;
+			}
+		}
 		tmp = tmp->next;
 	}
-	return (max);
+	tmp = env->rooms;
+	while (tmp)
+	{
+		if (ft_strncmp(&line[i], tmp->name, ft_strlen(line) - i) == 0)
+		{
+			flag++;
+			break ;
+		}
+		tmp = tmp->next;
+	}
+	if (flag == 3)
+		return (1);
+	return (0);
 }
