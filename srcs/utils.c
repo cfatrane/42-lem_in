@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 15:08:30 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 17:03:04 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,22 @@ t_rooms	*ft_rooms_sort(t_rooms *lst)
 	return (lst);
 }
 
+char	**ant_farm(int x, int y)
+{
+	char	**ptr;
+	int		i;
+
+	ptr = malloc(y * sizeof(*ptr));
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < y)
+	{
+		ptr[i] = (char*)malloc(x * sizeof(**ptr));
+		if (ptr[i] == NULL)
+			return (NULL);
+		i++;
+	}
+	ptr[i] = "\0";
+	return (ptr);
+}

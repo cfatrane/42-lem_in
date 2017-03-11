@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 20:17:40 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/10 16:35:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 16:57:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int		ft_start(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
-	env->rooms = NULL;
-//	ft_printf("\033[31mDEBUT START START START START START START\n\033[0m");
-//	ft_printf("\033[33mSTART LINE = %s\n\033[0m", line);
+//	env->rooms = NULL;
 	if (1)
 	{
 		env->flag_start = 1;
@@ -27,15 +25,13 @@ int		ft_start(t_lem_in *env, char *line)
 		data = ft_strsplit(line, ' ');
 		if (words == 3)
 		{
-			if (data[0][0] == 'L' || ft_error(data[1]) == -1 || ft_error(data[2]) == -1)
+			if (ft_check_format_name(data[0]) == -1 || ft_error(data[1]) == -1 || ft_error(data[2]) == -1)
 			{
-				ft_printf("ERROR COORD\n");
+				ft_printf("ERROR START\n");
 				return (-1);
 			}
-//			ft_printf("START DATA 0 = %s DATA 2 = %s DATA 3 = %s\n", data[0], data[1], data[2]);
 			ft_rooms_push_back(&(env)->rooms, data[0], ft_atoll(data[1]), ft_atoll(data[2]));
 			env->nb_rooms++;
-//			free(data);
 		}
 		else
 		{
@@ -43,6 +39,5 @@ int		ft_start(t_lem_in *env, char *line)
 			return (-1);
 		}
 	}
-//	ft_printf("\033[31mFIN START START START START START START\n\n\033[0m");
 	return (0);
 }

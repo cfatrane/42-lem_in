@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:55:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/10 17:13:14 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:53:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int		ft_check_format(char *line)
 			line++;
 		if (!ft_isdigit(*line))
 		{
-			ft_printf("line = %s\n", line);
 			ft_printf("ERROR FORMAT\n");
 			return (-1);
 		}
@@ -39,6 +38,22 @@ int		ft_check_max(ssize_t line)
 	return (0);
 }
 
+int		ft_check_format_name(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[0] == 'L')
+		return (-1);
+	while (str[i])
+	{
+		if (str[i] == '-')
+			return (-1);
+		i++;
+	}
+	return (0);
+}
+
 int		ft_error(char *line)
 {
 	if (ft_check_format(line) == -1 || ft_check_max(ft_atoll(line)) == -1 ||
@@ -46,4 +61,3 @@ int		ft_error(char *line)
 		return (-1);
 	return (0);
 }
-

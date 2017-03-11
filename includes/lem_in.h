@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 14:58:02 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:50:05 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int		lem_in(t_lem_in *env);
 
 int		ft_error(char *av);
+int		ft_check_format_name(char *str);
 int		error(void);
 
 int		check_ants(t_lem_in *env);

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 17:58:34 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/09 12:56:33 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 16:54:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	check_rooms(t_lem_in *env)
 			ft_comment(env, line);
 		else if (ft_is_links(env, line) == 1)
 		{
-//			ft_printf("DEBUG\n");
 			if (ft_links(env, line) == -1)
 			{
 				ft_printf("ERROR LINKS\n");
@@ -54,7 +53,6 @@ int	check_rooms(t_lem_in *env)
 			ft_printf("NO START\n");
 			return (-1);
 		}
-		env->line_tmp = line;
 	}
 	return (0);
 }
