@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/10 17:02:34 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 14:17:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 void	printlst(t_lem_in *env)
 {
-	t_rooms	**tmp1 = env->tab_rooms;
-	t_rooms	*tmp2;
+	t_rooms	**tabroom = env->tab_rooms;
+	t_rooms	*rooms;
 	int i = 0;
 
-	while (tmp1[i])
+//	while (tabroom[i])
+//	while (i < env->nb_rooms)
+	while (i < 100)
 	{
 		ft_printf("%d: ", i);
-		tmp2 = tmp1[i];
-		while (tmp2)
+		rooms = tabroom[i];
+		while (rooms)
 		{
-//			ft_printf("|%s| --> ", tmp2->name);
-			ft_printf("||%s||%d %d %d| --> ", tmp2->name, tmp2->coord_x, tmp2->coord_y, tmp2->hash);
-			tmp2 = tmp2->next;
+			ft_printf("|%s| --> ", rooms->name);
+//			ft_printf("||%s||%d %d %d| --> ", rooms->name, rooms->coord_x, rooms->coord_y, rooms->hash);
+			rooms = rooms->next;
 		}
 		ft_printf("\n");
 		i++;

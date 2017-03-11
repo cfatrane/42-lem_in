@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/10 16:44:27 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 13:52:12 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_swap_int(int *a, int *b)
 	*b = i;
 }
 
-void	ft_swap_str(char* *a, char **b)
+void	ft_swap_str(char **a, char **b)
 {
 	char	*i;
 
