@@ -6,27 +6,28 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 13:52:12 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:08:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int	error(void)
+int	max_hash(t_lem_in *env)
 {
-	ft_printf("ERROR\n");
-	return (-1);
+	int		max;
+	t_rooms	*tmp;
+
+	tmp = env->rooms;
+	max = tmp->hash;
+	while (tmp)
+	{
+		if (tmp->hash > max)
+			max = tmp->hash;
+		tmp = tmp->next;
+	}
+	return (max);
 }
 
-int	tab_len(t_lem_in *env)
-{
-	int len;
-
-	len = 0;
-	(void)env;
-
-	return (len);
-}
 t_rooms	*ft_rooms_find(t_rooms *rooms, int hash_ref)
 {
 	if (rooms == NULL)
@@ -59,7 +60,6 @@ void	ft_swap_str(char **a, char **b)
 
 t_rooms	*ft_rooms_sort(t_rooms *lst)
 {
-//	int		tempo;
 	t_rooms	*parcour;
 
 	parcour = lst;
@@ -71,10 +71,6 @@ t_rooms	*ft_rooms_sort(t_rooms *lst)
 			ft_swap_int(&lst->coord_x, &lst->next->coord_x);
 			ft_swap_int(&lst->coord_y, &lst->next->coord_y);
 			ft_swap_int(&lst->hash, &lst->next->hash);
-/*			tempo = lst->hash;
-			lst->hash = lst->next->hash;
-			lst->next->hash = tempo;
-			lst = parcour;*/
 		}
 		else
 			lst = lst->next;

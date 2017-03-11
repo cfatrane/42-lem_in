@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 14:17:07 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:08:52 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void	printlst(t_lem_in *env)
 	t_rooms	*rooms;
 	int i = 0;
 
-//	while (tabroom[i])
-//	while (i < env->nb_rooms)
-	while (i < 100)
+	while (i < (max_hash(env) + 1))
 	{
 		ft_printf("%d: ", i);
 		rooms = tabroom[i];

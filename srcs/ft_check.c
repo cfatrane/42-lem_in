@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 13:55:01 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 14:15:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 15:13:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 			}
 			ft_printf("\033[31mICI 1\n\033[0m");
 			ft_rooms_push_back(&(env)->tab_rooms[hash1], to_push1->name, to_push1->coord_x, to_push1->coord_y);
-			ft_rooms_sort(env->tab_rooms[hash1]);
 			printlst(env);
 			ft_printf("\033[32mICI 2\n\033[0m");
 			ft_rooms_push_back(&(env)->tab_rooms[hash2], to_push2->name, to_push2->coord_x, to_push2->coord_y);
-			ft_rooms_sort(env->tab_rooms[hash2]);
 			printlst(env);
+			ft_rooms_sort(env->tab_rooms[hash1]);
+			ft_rooms_sort(env->tab_rooms[hash2]);
 			//	else
 			//		ft_rooms_push_front(&(env)->tab_rooms[hash1], to_push1->name, to_push1->coord_x, to_push1->coord_y);
 			//	if (hash2 < hash1)
