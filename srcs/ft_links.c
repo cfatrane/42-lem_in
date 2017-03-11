@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 12:41:38 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 19:31:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:34:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ int		ft_links(t_lem_in *env, char *line)
 	ft_rooms_sort(env->tab_rooms[hash2]);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 18:40:41 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/11 19:37:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct			s_lem_in
 	int					flag_end;
 	int					flag_rooms;
 	int					flag_path;
+	int					flag_links;
 	int					tab_len;
 	char				*line_tmp;
 	char				**ant_farm;
