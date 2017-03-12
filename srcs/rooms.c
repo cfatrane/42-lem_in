@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/12 13:33:18 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/12 13:34:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_start(t_lem_in *env, char *line)
 	return (0);
 }
 
-int	ft_rooms(t_lem_in *env, char *line)
+int		ft_rooms(t_lem_in *env, char *line)
 {
 	char	**data;
 	int		words;
