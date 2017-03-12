@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/12 13:19:40 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/12 13:27:23 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,11 @@ INC_PATH = ./includes/
 
 SRC_NAME =	main.c				\
 			lem_in.c			\
-			ft_check.c			\
+			check_data.c		\
 			ft_rooms.c			\
+			ft_links.c			\
 			utils.c				\
 			error.c				\
-			ft_links.c			\
-			is_links.c			\
 			hash.c				\
 			ft_create_rooms.c	\
 			print.c				\
