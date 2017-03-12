@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/11 19:59:46 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/12 13:19:40 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,18 +26,14 @@ INC_PATH = ./includes/
 
 SRC_NAME =	main.c				\
 			lem_in.c			\
-			check_ants.c		\
-			check_rooms.c		\
+			ft_check.c			\
+			ft_rooms.c			\
 			utils.c				\
 			error.c				\
-			ft_start.c			\
-			ft_end.c			\
 			ft_links.c			\
 			is_links.c			\
 			hash.c				\
 			ft_create_rooms.c	\
-			ft_rooms.c			\
-			ft_check.c			\
 			print.c				\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
