@@ -6,61 +6,8 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 19:49:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/12 13:33:51 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
-t_rooms	*ft_rooms_find(t_rooms *rooms, int hash_ref)
-{
-	if (rooms == NULL)
-		return (NULL);
-	if (ft_nbrcmp(rooms->hash, hash_ref) == 0)
-		return (rooms);
-	else if (rooms->next)
-		return (ft_rooms_find(rooms->next, hash_ref));
-	else
-		return (NULL);
-}
-
-t_rooms	*ft_rooms_sort(t_rooms *lst)
-{
-	t_rooms	*parcour;
-
-	parcour = lst;
-	while (lst->next)
-	{
-		if (lst->hash > lst->next->hash)
-		{
-			ft_swap_str(&lst->name, &lst->next->name);
-			ft_swap_int(&lst->coord_x, &lst->next->coord_x);
-			ft_swap_int(&lst->coord_y, &lst->next->coord_y);
-			ft_swap_int(&lst->hash, &lst->next->hash);
-		}
-		else
-			lst = lst->next;
-	}
-	lst = parcour;
-	return (lst);
-}
-
-char	**ant_farm(int x, int y)
-{
-	char	**ptr;
-	int		i;
-
-	ptr = malloc(y * sizeof(*ptr));
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < y)
-	{
-		ptr[i] = (char*)malloc(x * sizeof(**ptr));
-		if (ptr[i] == NULL)
-			return (NULL);
-		i++;
-	}
-	ptr[i] = "\0";
-	return (ptr);
-}
