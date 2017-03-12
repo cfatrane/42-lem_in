@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 18:34:18 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/12 15:58:34 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 /*
 ** GERER COLLISION
 */
+
+int	collision(t_lem_in *env)
+{
+	(void)env;
+	return (0);
+}
 
 int	hachage_lst(char *str)
 {
@@ -25,7 +31,7 @@ int	hachage_lst(char *str)
 	i = 0;
 	while (str[i])
 	{
-		hash += str[i];
+		hash += (int)str[i];
 		i++;
 	}
 	hash %= 100;

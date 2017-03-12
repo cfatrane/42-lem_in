@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/12 13:34:30 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/12 15:09:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		ft_start(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
+	if (env->flag_end == 1)
+		return (-1);
 	env->flag_start = 1;
 	(get_next_line(0, &line));
 	words = ft_count_words_sep(line, ' ');
@@ -45,6 +47,8 @@ int		ft_rooms(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
+	if (env->flag_start != 1)
+		return (-1);
 	env->flag_rooms = 1;
 	words = ft_count_words_sep(line, ' ');
 	if (words == 3)
@@ -72,6 +76,8 @@ int		ft_end(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
+	if (env->flag_start != 1)
+		return (-1);
 	env->flag_end = 1;
 	(get_next_line(0, &line));
 	words = ft_count_words_sep(line, ' ');

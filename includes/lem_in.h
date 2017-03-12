@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 19:59:19 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/12 15:25:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "lem_in_struct.h"
+# include <math.h>
 
 int		lem_in(t_lem_in *env);
 
@@ -37,7 +38,8 @@ int		max_hash(t_lem_in *env);
 
 t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
 void	ft_rooms_push_back(t_rooms **rooms, char *name, int x, int y);
-t_rooms	*ft_rooms_find(t_rooms *begin_list, int content_ref);
+t_rooms	*ft_rooms_find_hash(t_rooms *rooms, int content_ref);
+t_rooms	*ft_rooms_find_name(t_rooms *rooms, char *name_ref);
 void	ft_rooms_clear(t_rooms **begin_list);
 t_rooms	*ft_rooms_sort(t_rooms *lst);
 

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/11 19:47:36 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/12 15:31:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ void				ft_swap_str(char **a, char **b);
 int					ft_sqrt(int nb);
 int					*ft_range(int min, int max);
 int					ft_hex_to_dec(char *hex);
+int					ft_pow(int nb, int pow);
 
 # define MAJ_HEXA "0123456789ABCDEF"
 # define MIN_HEXA "0123456789abcdef"

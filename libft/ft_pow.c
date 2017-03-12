@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.c                                           :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/20 16:24:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/12 15:32:50 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/03/12 15:30:22 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/03/12 15:31:20 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#include "libft.h"
 
-int	lem_in(t_lem_in *env)
+int	ft_pow(int nb, int pow)
 {
-	if (check_ants(env) == -1)
-		return (-1);
-	if (check_rooms(env) == -1)
-		return (-1);
-	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
-	{
-		ft_printf("NO START OR END OR PATH\n");
-		return (-1);
-	}
-	ft_printf("\nNBR ROOMS = %d\n", env->nb_rooms);
-	ft_rooms_display(env);
-//	printlst(env);
-	return (0);
+	return (pow == 0 ? 1 : nb * ft_pow(nb, pow - 1));
 }

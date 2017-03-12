@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/12 13:27:07 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/12 15:36:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_ants(t_lem_in *env)
 	return (0);
 }
 
-int	links_rooms(t_lem_in *env, char *line)
+int	check_links_rooms(t_lem_in *env, char *line)
 {
 	if (line[0] == '#' && line[1] != '#')
 	{
@@ -37,17 +37,22 @@ int	links_rooms(t_lem_in *env, char *line)
 	else if (ft_is_links(env, line) == 1)
 	{
 		if (ft_links(env, line) == -1)
+		{
+			ft_printf("DEBUG\n");
 			return (-1);
+		}
 	}
 	else if (1)
 	{
 		if (ft_rooms(env, line) == -1)
+		{
 			return (-1);
+		}
 	}
 	return (0);
 }
 
-int	start_end(t_lem_in *env, char *line)
+int	check_start_end(t_lem_in *env, char *line)
 {
 	if (ft_strcmp(line, "##start") == 0)
 	{
@@ -59,7 +64,7 @@ int	start_end(t_lem_in *env, char *line)
 		if (ft_end(env, line) == -1)
 			return (-1);
 	}
-	else if (links_rooms(env, line) == -1)
+	else if (check_links_rooms(env, line) == -1)
 		return (-1);
 	return (0);
 }
@@ -70,7 +75,7 @@ int	check_rooms(t_lem_in *env)
 
 	while (get_next_line(0, &line) > 0)
 	{
-		if (start_end(env, line) == -1)
+		if (check_start_end(env, line) == -1)
 		{
 			ft_printf("ERROR\n");
 			return (-1);
