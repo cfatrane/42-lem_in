@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/12 14:50:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/13 12:23:18 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ int		ft_links(t_lem_in *env, char *line)
 	int		hash1;
 	int		hash2;
 	int		max;
-	t_rooms	*to_push;
-	t_rooms	*to_hash;
+	t_rooms	*tmp;
 
+	ft_lstcpy(env->rooms, collision(env));
 	max = max_hash(env) + 1;
 	if (!(env->tab_rooms))
 		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * max)))
 			return (-1);
 	env->flag_path = 1;
-	to_hash = ft_rooms_find_name(env->rooms, ft_strdup_c(line, '-'));
-	hash1 = to_hash->hash;
-	to_hash = ft_rooms_find_name(env->rooms, ft_strchr(line, '-') + 1);
-	hash2 = to_hash->hash;
-	to_push = ft_rooms_find_hash(env->rooms, hash2);
-	ft_rooms_push_back(&(env)->tab_rooms[hash1], to_push->name,
-			to_push->coord_x, to_push->coord_y);
-	to_push = ft_rooms_find_hash(env->rooms, hash1);
+	tmp = ft_rooms_find_name(env->rooms, ft_strdup_c(line, '-'));
+	hash1 = tmp->hash;
+	tmp = ft_rooms_find_name(env->rooms, ft_strchr(line, '-') + 1);
+	hash2 = tmp->hash;
+	tmp = ft_rooms_find_hash(env->rooms, hash2);
+	ft_rooms_push_back(&(env)->tab_rooms[hash1], tmp->name,
+			tmp->coord_x, tmp->coord_y);
+	tmp = ft_rooms_find_hash(env->rooms, hash1);
 	ft_rooms_sort(env->tab_rooms[hash1]);
-	ft_rooms_push_back(&(env)->tab_rooms[hash2], to_push->name,
-			to_push->coord_x, to_push->coord_y);
+	ft_rooms_push_back(&(env)->tab_rooms[hash2], tmp->name,
+			tmp->coord_x, tmp->coord_y);
 	ft_rooms_sort(env->tab_rooms[hash2]);
 	return (0);
 }
