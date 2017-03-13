@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 12:23:06 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/13 14:15:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_rooms	*ft_create_elem_rooms(char *name, int x, int y)
 	rooms->coord_x = x;
 	rooms->coord_y = y;
 //	rooms->hash = hachage_lst(name);
-//	rooms->hash = 0;
+	rooms->hash = 0;
 	rooms->next = NULL;
 	return (rooms);
 }

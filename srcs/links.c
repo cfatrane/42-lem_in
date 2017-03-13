@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 12:23:18 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/13 14:41:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ int		ft_links(t_lem_in *env, char *line)
 	int		max;
 	t_rooms	*tmp;
 
+//	ft_printf("IN LINKS DEBUG 1\n");
 	ft_lstcpy(env->rooms, collision(env));
+//	ft_printf("IN LINKS DEBUG 2\n");
 	max = max_hash(env) + 1;
+//	ft_printf("MAX = %d\n", max);
 	if (!(env->tab_rooms))
 		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * max)))
 			return (-1);
@@ -33,10 +36,12 @@ int		ft_links(t_lem_in *env, char *line)
 	ft_rooms_push_back(&(env)->tab_rooms[hash1], tmp->name,
 			tmp->coord_x, tmp->coord_y);
 	tmp = ft_rooms_find_hash(env->rooms, hash1);
+//	ft_printf("IN LINKS DEBUG FIN\n");
 	ft_rooms_sort(env->tab_rooms[hash1]);
 	ft_rooms_push_back(&(env)->tab_rooms[hash2], tmp->name,
 			tmp->coord_x, tmp->coord_y);
 	ft_rooms_sort(env->tab_rooms[hash2]);
+//	ft_printf("IN LINKS DEBUG 3\n");
 	return (0);
 }
 
@@ -84,9 +89,11 @@ int		ft_is_links(t_lem_in *env, char *line)
 	i = 0;
 	env->flag_links = 0;
 	while (line[i] && line[i] != '-')
+	{
+		if (line[i] == '\0')
+			return (0);
 		i++;
-	if (line[i] == '\0')
-		return (0);
+	}
 	flag_one(env, line, &i);
 	flag_two(env, line, i);
 	if (env->flag_links == 3)
