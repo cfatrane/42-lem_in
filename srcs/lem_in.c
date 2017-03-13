@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 14:42:32 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:07:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	lem_in(t_lem_in *env)
 //	ft_printf("\nNBR ROOMS = %d\n", env->nb_rooms);
 //	ft_lstcpy(env->rooms, collision(env));
 //	ft_rooms_display(env);
-	ft_modify(env);
-//	printlst(env);
+//	ft_modify(env);
+	printlst(env);
+	bfs(1, env);
 	return (0);
 }

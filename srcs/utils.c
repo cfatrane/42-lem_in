@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 15:11:12 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/13 15:25:10 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ int		ft_modify(t_lem_in *env)
 {
 	t_rooms	*tmp_1;
 	t_rooms	*tmp_2;
-//	t_rooms	*tmp_3;
+	t_rooms	*tmp_3;
 
 	tmp_1 = env->rooms;
+	tmp_3 = env->rooms;
 	while (tmp_1)
 	{
 		tmp_2 = tmp_1->next;

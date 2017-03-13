@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/13 12:39:36 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/13 16:00:09 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC_NAME =	main.c				\
 			hash.c				\
 			lst_rooms.c			\
 			print.c				\
+			bfs.c				\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

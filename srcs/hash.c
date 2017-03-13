@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 14:36:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:01:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
 ** GERER COLLISION
 */
-
 
 t_rooms	*collision(t_lem_in *env)
 {
@@ -55,13 +54,15 @@ int	collision(t_lem_in *env)
 	return (0);
 }
 */
-int	re_hach()
+/*
+int	re_hach(char *str)
 {
 	int	hash;
 
 	hash = 0;
 	return (hash);
 }
+*/
 int	hachage_lst(t_lem_in *env, char *str)
 {
 	int	hash;

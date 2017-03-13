@@ -6,9 +6,18 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 13:48:28 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 13:48:39 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/13 16:08:05 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+
+	for(int i = 1; i <= N; ++i)
+	{
+		color[i] = WHITE; // On colorie tous les noeuds en blanc
+		dist[i] = INF; // On affecte INF à la distance de chaque noeud
+		parent[i] = NIL; // On affecte NIL au parent de chaque noeud
+	}
 
 
 int		ft_modify(t_lem_in *env)
