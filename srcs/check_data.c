@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 13:06:13 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/14 12:39:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_ants(t_lem_in *env)
 	env->ants = atoi(line);
 	if (env->ants <= 0)
 	{
-		ft_printf("ERROR NEGATIF\n");
+//		ft_printf("ERROR NEGATIF\n");
 		return (-1);
 	}
 //	ft_printf("\033[31mAnts = %d\n\033[0m", env->ants);

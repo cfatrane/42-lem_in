@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 15:25:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:08:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)
 {
+	dst = ft_memalloc(sizeof(t_rooms));
 	while (src)
 	{
 		dst->name = src->name;
@@ -27,32 +28,56 @@ t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)
 	return (dst);
 }
 
-int		ft_modify(t_lem_in *env)
+t_rooms	*decol(t_rooms *lst)
 {
-	t_rooms	*tmp_1;
-	t_rooms	*tmp_2;
-	t_rooms	*tmp_3;
+//	int		tempo;
+	t_rooms	*parcour;
 
-	tmp_1 = env->rooms;
-	tmp_3 = env->rooms;
-	while (tmp_1)
+	parcour = lst;
+	while (lst->next)
 	{
-		tmp_2 = tmp_1->next;
-		while (tmp_2)
+		if (lst->hash == lst->next->hash)
+//		if (((*cmp)(lst->data, lst->next->data)) == 0)
 		{
-			if (tmp_1->hash == tmp_2->hash)
-			{
-				ft_printf("|%s - %d| |%s - %d|\n", tmp_1->name, tmp_1->hash, tmp_2->name, tmp_2->hash);
-		//		tmp_2->hash++;
-		//		break ;
-//				return (-1);
-			}
-			if (tmp_2->next == NULL)
-				break ;
-			tmp_2 = tmp_2->next;
+			lst->hash++;
+		/*	tempo = lst->data;
+			lst->data = lst->next->data;
+			lst->next->data = tempo;*/
+			lst = parcour;
 		}
-//		ft_printf("|%s - %d|\n", tmp_1->name, tmp_1->hash);
-		tmp_1 = tmp_1->next;
+		else
+			lst = lst->next;
 	}
-	return (0);
+	lst = parcour;
+	return (lst);
 }
+/*
+   int		ft_modify(t_lem_in *env)
+   {
+   t_rooms	*tmp_1;
+   t_rooms	*tmp_2;
+   t_rooms	*tmp_3;
+
+   tmp_1 = env->rooms;
+   tmp_3 = env->rooms;
+   while (tmp_1)
+   {
+   tmp_2 = tmp_1->next;
+   while (tmp_2)
+   {
+   if (tmp_1->hash == tmp_2->hash)
+   {
+   ft_printf("|%s - %d| |%s - %d|\n", tmp_1->name, tmp_1->hash, tmp_2->name, tmp_2->hash);
+//		tmp_2->hash++;
+//		break ;
+//				return (-1);
+}
+if (tmp_2->next == NULL)
+break ;
+tmp_2 = tmp_2->next;
+}
+//		ft_printf("|%s - %d|\n", tmp_1->name, tmp_1->hash);
+tmp_1 = tmp_1->next;
+}
+return (0);
+}*/

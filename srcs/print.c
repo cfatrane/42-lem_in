@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 12:22:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:00:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	printlst(t_lem_in *env)
 		while (rooms)
 		{
 			ft_printf("|%s| --> ", rooms->name);
+//			ft_printf("|%d| --> ", rooms->hash);
 			rooms = rooms->next;
 		}
 		ft_printf("\n");
@@ -35,15 +36,16 @@ void	printlst(t_lem_in *env)
 	ft_printf("\n");
 }
 
-void	ft_rooms_display(t_lem_in *env)
+void	ft_rooms_display(t_rooms *rooms)
 {
 	t_rooms	*tmp;
 
-	tmp = env->rooms;
+	tmp = rooms;
 	while (tmp)
 	{
 		ft_printf("\033[31mName = %s Coord X = %d Coord Y = %d HASH = \
 %d\n\033[0m", tmp->name, tmp->coord_x, tmp->coord_y, tmp->hash);
 		tmp = tmp->next;
 	}
+	ft_printf("\n");
 }

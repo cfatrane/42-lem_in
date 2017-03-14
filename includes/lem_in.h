@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 16:00:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:08:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,14 @@ t_rooms	*ft_rooms_find_name(t_rooms *rooms, char *name_ref);
 void	ft_rooms_clear(t_rooms **begin_list);
 t_rooms	*ft_rooms_sort(t_rooms *lst);
 t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src);
+void	ft_rooms_push_front_tab(t_rooms **rooms, t_rooms *src, int hash);
+void	ft_rooms_push_back_tab(t_rooms **rooms, t_rooms *src, int hash);
 
 void	printlst(t_lem_in *env);
-void	ft_rooms_display(t_lem_in *env);
+void	ft_rooms_display(t_rooms *rooms);
 
 void	bfs(int src, t_lem_in *env);
+
+t_rooms	*decol(t_rooms *lst);
 
 #endif

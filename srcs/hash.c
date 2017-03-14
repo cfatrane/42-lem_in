@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 16:01:27 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/14 13:17:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,7 @@ t_rooms	*collision(t_lem_in *env)
 	}
 	return (tmp);
 }
-/*
-int	collision(t_lem_in *env)
-{
-	int		hash_tmp;
-	t_rooms	*tmp_1;
-	t_rooms	*tmp_2;
 
-	tmp_1 = env->rooms;
-	while (tmp_1)
-	{
-		tmp_2 = tmp_1->next;
-		hash_tmp = tmp_1->hash;
-		while (tmp_2)
-		{
-			if (hash_tmp == tmp_2->hash)
-			{
-//				ft_printf("Name = %s avec Name = %s COLLISION\n", tmp_1->name, tmp_2->name);
-//				return (-1);
-			}
-			tmp_2 = tmp_2->next;
-		}
-		tmp_1 = tmp_1->next;
-	}
-	return (0);
-}
-*/
-/*
-int	re_hach(char *str)
-{
-	int	hash;
-
-	hash = 0;
-	return (hash);
-}
-*/
 int	hachage_lst(t_lem_in *env, char *str)
 {
 	int	hash;
@@ -76,6 +42,7 @@ int	hachage_lst(t_lem_in *env, char *str)
 		i++;
 	}
 	hash %= env->nb_rooms;
+	hash = ft_abs(hash);
 	return (hash);
 }
 

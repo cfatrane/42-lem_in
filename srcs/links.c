@@ -6,11 +6,32 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/13 14:41:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/14 12:56:53 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+t_rooms	**ft_tab_rooms(int x, int y)
+{
+	t_rooms	**tab;
+	int		i;
+
+	ft_printf("LA\n");
+	if (!(tab = (t_rooms**)malloc(sizeof(**tab) * (y + 1))))
+		return (NULL);
+	i = 0;
+	while (i < y)
+	{
+	//	tab[i] = (t_rooms*)malloc(sizeof(*tab) * (x + 1));
+		tab[i] = (t_rooms*)malloc(sizeof(*tab) * (x + 1));
+		if (tab[i] == NULL)
+			return (NULL);
+		i++;
+	}
+	tab[i] = NULL;
+	return (tab);
+}
 
 int		ft_links(t_lem_in *env, char *line)
 {
@@ -20,6 +41,7 @@ int		ft_links(t_lem_in *env, char *line)
 	t_rooms	*tmp;
 
 //	ft_printf("IN LINKS DEBUG 1\n");
+//	env->rooms = ft_lstcpy(env->rooms, collision(env));
 	ft_lstcpy(env->rooms, collision(env));
 //	ft_printf("IN LINKS DEBUG 2\n");
 	max = max_hash(env) + 1;
@@ -27,20 +49,23 @@ int		ft_links(t_lem_in *env, char *line)
 	if (!(env->tab_rooms))
 		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * max)))
 			return (-1);
+/*	if (!(env->tab_rooms))
+		if (!(env->tab_rooms = ft_tab_rooms(max, max)))
+			return (-1);*/
 	env->flag_path = 1;
 	tmp = ft_rooms_find_name(env->rooms, ft_strdup_c(line, '-'));
 	hash1 = tmp->hash;
 	tmp = ft_rooms_find_name(env->rooms, ft_strchr(line, '-') + 1);
 	hash2 = tmp->hash;
 	tmp = ft_rooms_find_hash(env->rooms, hash2);
-	ft_rooms_push_back(&(env)->tab_rooms[hash1], tmp->name,
-			tmp->coord_x, tmp->coord_y);
+	ft_rooms_push_back_tab(&(env)->tab_rooms[hash1], tmp, hash2);
 	tmp = ft_rooms_find_hash(env->rooms, hash1);
 //	ft_printf("IN LINKS DEBUG FIN\n");
 	ft_rooms_sort(env->tab_rooms[hash1]);
-	ft_rooms_push_back(&(env)->tab_rooms[hash2], tmp->name,
-			tmp->coord_x, tmp->coord_y);
+	ft_rooms_push_back_tab(&(env)->tab_rooms[hash2], tmp, hash1);
 	ft_rooms_sort(env->tab_rooms[hash2]);
+//	ft_rooms_display(env->tab_rooms[hash1]);
+//	ft_rooms_display(env->tab_rooms[hash2]);
 //	ft_printf("IN LINKS DEBUG 3\n");
 	return (0);
 }
