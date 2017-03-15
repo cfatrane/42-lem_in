@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:55:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 15:11:06 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 18:06:10 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,7 @@ int		ft_check_doublon(t_lem_in *env)
 		while (tmp_2)
 		{
 			if (tmp_1->hash == tmp_2->hash)
-			{
 				return (1);
-			}
 			tmp_2 = tmp_2->next;
 		}
 		tmp_1 = tmp_1->next;
