@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/14 12:56:53 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 11:45:24 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_rooms	**ft_tab_rooms(int x, int y)
 	i = 0;
 	while (i < y)
 	{
-	//	tab[i] = (t_rooms*)malloc(sizeof(*tab) * (x + 1));
 		tab[i] = (t_rooms*)malloc(sizeof(*tab) * (x + 1));
 		if (tab[i] == NULL)
 			return (NULL);
@@ -39,19 +38,24 @@ int		ft_links(t_lem_in *env, char *line)
 	int		hash2;
 	int		max;
 	t_rooms	*tmp;
+	//	ft_printf("IN LINKS DEBUG 1\n");
 
-//	ft_printf("IN LINKS DEBUG 1\n");
-//	env->rooms = ft_lstcpy(env->rooms, collision(env));
-	ft_lstcpy(env->rooms, collision(env));
-//	ft_printf("IN LINKS DEBUG 2\n");
+	if (!env->flag_dbl)
+	{
+		ft_lstcpy(env->rooms, collision(env));
+		while (ft_check_doublon(env) != 0)
+			ft_modify_doublon(env->rooms);
+	}
+	env->flag_dbl = 1;
+	//	ft_printf("IN LINKS DEBUG 2\n");
 	max = max_hash(env) + 1;
-//	ft_printf("MAX = %d\n", max);
+	//	ft_printf("MAX = %d\n", max);
 	if (!(env->tab_rooms))
-		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * max)))
+		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * ft_nbcmp_max(max, env->nb_rooms))))
 			return (-1);
-/*	if (!(env->tab_rooms))
+	/*	if (!(env->tab_rooms))
 		if (!(env->tab_rooms = ft_tab_rooms(max, max)))
-			return (-1);*/
+		return (-1);*/
 	env->flag_path = 1;
 	tmp = ft_rooms_find_name(env->rooms, ft_strdup_c(line, '-'));
 	hash1 = tmp->hash;
@@ -60,13 +64,13 @@ int		ft_links(t_lem_in *env, char *line)
 	tmp = ft_rooms_find_hash(env->rooms, hash2);
 	ft_rooms_push_back_tab(&(env)->tab_rooms[hash1], tmp, hash2);
 	tmp = ft_rooms_find_hash(env->rooms, hash1);
-//	ft_printf("IN LINKS DEBUG FIN\n");
+	//	ft_printf("IN LINKS DEBUG FIN\n");
 	ft_rooms_sort(env->tab_rooms[hash1]);
 	ft_rooms_push_back_tab(&(env)->tab_rooms[hash2], tmp, hash1);
 	ft_rooms_sort(env->tab_rooms[hash2]);
-//	ft_rooms_display(env->tab_rooms[hash1]);
-//	ft_rooms_display(env->tab_rooms[hash2]);
-//	ft_printf("IN LINKS DEBUG 3\n");
+	//	ft_rooms_display(env->tab_rooms[hash1]);
+	//	ft_rooms_display(env->tab_rooms[hash2]);
+	//	ft_printf("IN LINKS DEBUG 3\n");
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/14 12:47:09 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 10:31:05 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_start(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
-	if (env->flag_end == 1)
+	if (env->flag_end == 1 || env->flag_start == 1)
 		return (-1);
 	env->flag_start = 1;
 	(get_next_line(0, &line));

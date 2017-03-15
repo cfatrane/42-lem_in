@@ -6,15 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/14 13:17:13 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 11:26:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
-/*
-** GERER COLLISION
-*/
 
 t_rooms	*collision(t_lem_in *env)
 {
