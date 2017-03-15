@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 13:33:45 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 18:57:58 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		max_hash(t_lem_in *env);
 
 int		ft_check_doublon(t_lem_in *env);
 t_rooms	*ft_modify_doublon(t_rooms *rooms);
+int		ft_check_links(t_lem_in *env, int hash1, int hash2);
 
 t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
 void	ft_rooms_push_back(t_rooms **rooms, char *name, int x, int y);
@@ -53,7 +54,5 @@ void	ft_rooms_push_back_tab(t_rooms **rooms, t_rooms *src, int hash);
 
 void	printlst(t_lem_in *env);
 void	ft_rooms_display(t_rooms *rooms);
-
-void	bfs(int src, t_lem_in *env);
 
 #endif

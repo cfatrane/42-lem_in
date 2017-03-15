@@ -6,13 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 18:05:04 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 18:58:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
-int		ft_check_links(t_lem_in *env, int hash1, int hash2);
 
 void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 {
