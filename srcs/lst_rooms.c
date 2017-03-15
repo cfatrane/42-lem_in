@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/14 13:15:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 13:47:51 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,30 +57,6 @@ void	ft_rooms_clear(t_rooms **begin_list)
 		free(*begin_list);
 		*begin_list = NULL;
 	}
-}
-
-t_rooms	*ft_rooms_find_hash(t_rooms *rooms, int hash_ref)
-{
-	if (rooms == NULL)
-		return (NULL);
-	if (ft_nbrcmp(rooms->hash, hash_ref) == 0)
-		return (rooms);
-	else if (rooms->next)
-		return (ft_rooms_find_hash(rooms->next, hash_ref));
-	else
-		return (NULL);
-}
-
-t_rooms	*ft_rooms_find_name(t_rooms *rooms, char *name_ref)
-{
-	if (rooms == NULL)
-		return (NULL);
-	if (ft_strcmp(rooms->name, name_ref) == 0)
-		return (rooms);
-	else if (rooms->next)
-		return (ft_rooms_find_name(rooms->next, name_ref));
-	else
-		return (NULL);
 }
 
 t_rooms	*ft_rooms_sort(t_rooms *lst)

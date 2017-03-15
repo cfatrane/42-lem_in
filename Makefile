@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/15 09:41:57 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/15 13:57:11 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,18 @@ INC_PATH = ./includes/
 
 # Name
 
-SRC_NAME =	main.c				\
+SRC_NAME =	lem_in.c			\
 			check_data.c		\
+			error_data.c		\
 			rooms.c				\
 			links.c				\
+			error_links.c		\
 			utils.c				\
-			error.c				\
 			hash.c				\
 			print.c				\
-			bfs.c				\
 			lst_rooms.c			\
 			lst_hash.c			\
+			lst_find.c			\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

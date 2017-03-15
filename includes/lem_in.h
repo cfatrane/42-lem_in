@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 11:21:15 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 13:33:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		ft_comment(t_lem_in *env, char *line);
 int		ft_is_links(t_lem_in *env, char *line);
 
 t_rooms	*collision(t_lem_in *env);
-int		hachage_lst(t_lem_in *env, char *str);
+int		hachage(t_lem_in *env, char *str);
 int		max_hash(t_lem_in *env);
 
 int		ft_check_doublon(t_lem_in *env);
@@ -55,7 +55,5 @@ void	printlst(t_lem_in *env);
 void	ft_rooms_display(t_rooms *rooms);
 
 void	bfs(int src, t_lem_in *env);
-
-t_rooms	*decol(t_rooms *lst);
 
 #endif

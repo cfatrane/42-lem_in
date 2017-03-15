@@ -6,11 +6,30 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 11:27:08 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 13:56:49 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+t_rooms	**ft_tab_rooms(int x, int y)
+{
+	t_rooms	**tab;
+	int		i;
+
+	if (!(tab = (t_rooms**)malloc(sizeof(**tab) * (y + 1))))
+		return (NULL);
+	i = 0;
+	while (i < y)
+	{
+		tab[i] = (t_rooms*)malloc(sizeof(*tab) * (x + 1));
+		if (tab[i] == NULL)
+			return (NULL);
+		i++;
+	}
+	tab[i] = NULL;
+	return (tab);
+}
 
 t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)
 {
@@ -26,52 +45,4 @@ t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)
 		dst = dst->next;
 	}
 	return (dst);
-}
-
-t_rooms	*ft_modify_doublon(t_rooms *rooms)
-{
-	t_rooms	*dst;
-	t_rooms	*tmp;
-
-	dst = rooms;
-	while (dst)
-	{
-		tmp = dst->next;
-		while (tmp)
-		{
-			if (dst->hash == tmp->hash)
-			{
-				tmp->hash++;
-				tmp = dst->next;
-			}
-			else
-				tmp = tmp->next;
-		}
-		dst = dst->next;
-	}
-	return (dst);
-}
-
-int		ft_check_doublon(t_lem_in *env)
-{
-	t_rooms	*tmp_1;
-	t_rooms	*tmp_2;
-
-	tmp_1 = env->rooms;
-	while (tmp_1)
-	{
-		tmp_2 = tmp_1->next;
-		while (tmp_2)
-		{
-			if (tmp_1->hash == tmp_2->hash)
-			{
-		//		ft_printf("|%s - %d| |%s - %d|\n", tmp_1->name, tmp_1->hash, tmp_2->name, tmp_2->hash);
-				return (1);
-			}
-			tmp_2 = tmp_2->next;
-		}
-		tmp_1 = tmp_1->next;
-	}
-	return (0);
-
 }

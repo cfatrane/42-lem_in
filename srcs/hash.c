@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 11:26:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 13:34:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ t_rooms	*collision(t_lem_in *env)
 	tmp = env->rooms;
 	while (tmp)
 	{
-		tmp->hash = hachage_lst(env, tmp->name);
+		tmp->hash = hachage(env, tmp->name);
 		tmp = tmp->next;
 	}
 	return (tmp);
 }
 
-int	hachage_lst(t_lem_in *env, char *str)
+int		hachage(t_lem_in *env, char *str)
 {
 	int	hash;
 	int	i;
@@ -42,14 +42,14 @@ int	hachage_lst(t_lem_in *env, char *str)
 	return (hash);
 }
 
-int	search_hash(t_lem_in *env, char *str)
+int		search_hash(t_lem_in *env, char *str)
 {
 	(void)env;
 	(void)str;
 	return (0);
 }
 
-int	max_hash(t_lem_in *env)
+int		max_hash(t_lem_in *env)
 {
 	int		max;
 	t_rooms	*tmp;
