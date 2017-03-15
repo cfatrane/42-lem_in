@@ -6,28 +6,43 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 14:22:08 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/15 18:46:41 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
+void	ft_rooms_display_name(t_rooms *rooms)
+{
+	t_rooms	*tmp;
+
+	tmp = rooms;
+	while (tmp)
+	{
+		ft_printf("\033[31m%s: \033[0m", tmp->name);
+		break ;
+		tmp = tmp->next;
+	}
+}
+
 void	printlst(t_lem_in *env)
 {
 	t_rooms	**tabroom;
 	t_rooms	*rooms;
+	t_rooms	*tmp;
 	int		i;
 
 	tabroom = env->tab_rooms;
 	i = 0;
 	while (i < (max_hash(env) + 1))
 	{
-		ft_printf("%d: ", i);
+		tmp = ft_rooms_find_hash(env->rooms, i);
+		ft_rooms_display_name(tmp);
 		rooms = tabroom[i];
 		while (rooms)
 		{
-			ft_printf("|%s| --> ", rooms->name);
 //			ft_printf("|%d| --> ", rooms->hash);
+			ft_printf("|%s| --> ", rooms->name);
 			rooms = rooms->next;
 		}
 		ft_printf("\n");
