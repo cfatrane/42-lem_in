@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 11:09:49 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:26:08 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ t_lstrooms	*collision(t_lem_in *env);
 int			hachage(t_lem_in *env, char *str);
 int			max_hash(t_lem_in *env);
 
-int			ft_check_doublon(t_lem_in *env);
 t_lstrooms	*ft_modify_doublon(t_lstrooms *rooms);
-int			ft_check_links(t_lem_in *env, int hash1, int hash2);
 
 t_lstrooms	*ft_create_elem_rooms(char *name, int x, int y);
 void		ft_push_back_rooms(t_lstrooms **rooms, char *name, int x, int y);
@@ -55,10 +53,12 @@ t_lstrooms	*ft_lstcpy(t_lstrooms *dst, t_lstrooms *src);
 void		ft_push_front_tab(t_lstrooms **rooms, t_lstrooms *src, int hash);
 void		ft_push_back_tab(t_lstrooms **rooms, t_lstrooms *src, int hash);
 
-void		printlst(t_lem_in *env);
+void		ft_printlst(t_lem_in *env);
 void		ft_rooms_display(t_lstrooms *rooms);
 
+int			check_doublon_hash(t_lem_in *env);
 int			check_doublon_name(t_lem_in *env);
 int			check_doublon_coord(t_lem_in *env);
+int			check_doublon_links(t_lem_in *env, int hash1, int hash2);
 
 #endif

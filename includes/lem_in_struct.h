@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:37:40 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:33:49 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct			s_lstrooms
 	int					coord_x;
 	int					coord_y;
 	int					hash;
+	int					weight;
 	struct s_lstrooms	*next;
 }						t_lstrooms;
 
@@ -36,6 +37,7 @@ typedef struct			s_lem_in
 {
 	int					ants;
 	int					nb_rooms;
+	int					nb_links;
 	int					flag_start;
 	int					flag_end;
 	int					flag_rooms;

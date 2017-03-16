@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:21:46 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:28:09 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 {
 	t_lstrooms	*tmp;
 
-	if (ft_check_links(env, hash1, hash2) == -1)
+	if (check_doublon_links(env, hash1, hash2) == -1)
 		return ;
 	tmp = ft_rooms_find_hash(env->rooms, hash2);
 	ft_push_back_tab(&(env)->tab_rooms[hash1], tmp, hash2);
@@ -24,6 +24,7 @@ void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 	tmp = ft_rooms_find_hash(env->rooms, hash1);
 	ft_push_back_tab(&(env)->tab_rooms[hash2], tmp, hash1);
 	ft_rooms_sort(env->tab_rooms[hash2]);
+	env->nb_links++;
 }
 
 int		ft_links(t_lem_in *env, char *line)
@@ -36,7 +37,7 @@ int		ft_links(t_lem_in *env, char *line)
 	if (!env->flag_dbl)
 	{
 		ft_lstcpy(env->rooms, collision(env));
-		while (ft_check_doublon(env) != 0)
+		while (check_doublon_hash(env) != 0)
 			ft_modify_doublon(env->rooms);
 	}
 	env->flag_dbl = 1;

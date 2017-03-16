@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:29:40 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:28:33 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int	lem_in(t_lem_in *env)
 		ft_printf("NO START OR END OR PATH\n");
 		return (-1);
 	}
-	printlst(env);
-	ft_rooms_display(env->rooms);
+	ft_printlst(env);
+	ft_printf("LINKS = %d\n", env->nb_links);
+//	ft_rooms_display(env->rooms);
 	return (0);
 }
 

@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_links.c                                      :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/15 13:55:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 13:24:59 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/03/16 13:40:44 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/03/16 13:50:46 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#include "libft/libft.h"
 
-int		check_doublon_links(t_lem_in *env, int hash1, int hash2)
+int	main(int argc, char **argv)
 {
-	t_lstrooms	*tmp;
+	int i = 0;
 
-	tmp = env->tab_rooms[hash1];
-	while (tmp)
+	while (i <= ft_atoi(argv[1]))
 	{
-		if (tmp->hash == hash2)
-			return (-1);
-		tmp = tmp->next;
+		ft_printf("%d %d %d\n",i , i, i);
+		i++;
 	}
-	tmp = env->tab_rooms[hash1];
-	while (tmp)
-	{
-		if (tmp->hash == hash1)
-			return (-1);
-		tmp = tmp->next;
-	}
-	return (0);
 }

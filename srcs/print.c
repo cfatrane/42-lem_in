@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:30:30 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:26:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_rooms_display_name(t_lstrooms *rooms)
 	}
 }
 
-void	printlst(t_lem_in *env)
+void	ft_printlst(t_lem_in *env)
 {
 	t_lstrooms	**tabroom;
 	t_lstrooms	*rooms;

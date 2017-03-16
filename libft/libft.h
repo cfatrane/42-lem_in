@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/12 15:31:16 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:45:33 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <wchar.h>
 # include <stdio.h>
 
-# define BUFF_SIZE 50000
+# define BUFF_SIZE 1000000
 
 typedef struct		s_gnl
 {

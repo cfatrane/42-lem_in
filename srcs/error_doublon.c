@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:02:32 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 11:09:42 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 13:27:02 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_lstrooms	*ft_modify_doublon(t_lstrooms *rooms)
 	return (dst);
 }
 
-int			ft_check_doublon(t_lem_in *env)
+int			check_doublon_hash(t_lem_in *env)
 {
 	t_lstrooms	*tmp_1;
 	t_lstrooms	*tmp_2;
@@ -87,7 +87,8 @@ int			check_doublon_coord(t_lem_in *env)
 		tmp_2 = tmp_1->next;
 		while (tmp_2)
 		{
-			if (tmp_1->coord_x == tmp_2->coord_x && tmp_1->coord_y == tmp_2->coord_y)
+			if (tmp_1->coord_x == tmp_2->coord_x &&
+					tmp_1->coord_y == tmp_2->coord_y)
 				return (-1);
 			tmp_2 = tmp_2->next;
 		}
