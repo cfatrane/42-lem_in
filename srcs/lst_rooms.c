@@ -6,17 +6,17 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 19:01:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 10:20:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_rooms	*ft_create_elem_rooms(char *name, int x, int y)
+t_lstrooms	*ft_create_elem_rooms(char *name, int x, int y)
 {
-	t_rooms	*rooms;
+	t_lstrooms	*rooms;
 
-	if (!(rooms = (t_rooms*)malloc(sizeof(*rooms))))
+	if (!(rooms = (t_lstrooms*)malloc(sizeof(*rooms))))
 		return (NULL);
 	rooms->name = name;
 	rooms->coord_x = x;
@@ -26,9 +26,9 @@ t_rooms	*ft_create_elem_rooms(char *name, int x, int y)
 	return (rooms);
 }
 
-void	ft_rooms_push_front(t_rooms **rooms, char *name, int x, int y)
+void		ft_push_front_rooms(t_lstrooms **rooms, char *name, int x, int y)
 {
-	t_rooms	*list;
+	t_lstrooms	*list;
 
 	list = ft_create_elem_rooms(name, x, y);
 	if ((*rooms))
@@ -36,12 +36,12 @@ void	ft_rooms_push_front(t_rooms **rooms, char *name, int x, int y)
 	*rooms = list;
 }
 
-void	ft_rooms_push_back(t_rooms **rooms, char *name, int x, int y)
+void		ft_push_back_rooms(t_lstrooms **rooms, char *name, int x, int y)
 {
 	if (*rooms)
 	{
 		if ((*rooms)->next)
-			ft_rooms_push_back(&(*rooms)->next, name, x, y);
+			ft_push_back_rooms(&(*rooms)->next, name, x, y);
 		else
 			(*rooms)->next = ft_create_elem_rooms(name, x, y);
 	}
@@ -49,7 +49,7 @@ void	ft_rooms_push_back(t_rooms **rooms, char *name, int x, int y)
 		*rooms = ft_create_elem_rooms(name, x, y);
 }
 
-void	ft_rooms_clear(t_rooms **begin_list)
+void		ft_rooms_clear(t_lstrooms **begin_list)
 {
 	if (*begin_list != NULL)
 	{
@@ -59,9 +59,9 @@ void	ft_rooms_clear(t_rooms **begin_list)
 	}
 }
 
-t_rooms	*ft_rooms_sort(t_rooms *lst)
+t_lstrooms	*ft_rooms_sort(t_lstrooms *lst)
 {
-	t_rooms	*parcour;
+	t_lstrooms	*parcour;
 
 	parcour = lst;
 	while (lst->next)

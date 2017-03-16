@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 19:01:05 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 10:26:25 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int		ft_start(t_lem_in *env, char *line)
 			ft_printf("ERROR START\n");
 			return (-1);
 		}
-		ft_rooms_push_back(&(env)->rooms, data[0], ft_atoll(data[1]),
+		take_start(env, data[0], ft_atoll(data[1]), ft_atoll(data[2]));
+		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
 		env->nb_rooms++;
 	}
@@ -59,7 +60,7 @@ int		ft_rooms(t_lem_in *env, char *line)
 			ft_printf("ERROR ROOMS\n");
 			return (-1);
 		}
-		ft_rooms_push_back(&(env)->rooms, data[0], ft_atoll(data[1]),
+		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
 		env->nb_rooms++;
 	}
@@ -89,7 +90,8 @@ int		ft_end(t_lem_in *env, char *line)
 			ft_printf("ERROR END\n");
 			return (-1);
 		}
-		ft_rooms_push_back(&(env)->rooms, data[0], ft_atoll(data[1]),
+		take_end(env, data[0], ft_atoll(data[1]), ft_atoll(data[2]));
+		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
 		env->nb_rooms++;
 	}

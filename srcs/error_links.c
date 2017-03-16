@@ -6,15 +6,15 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:55:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 18:06:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 10:13:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int		ft_check_links(t_lem_in *env, int hash1, int hash2)
+int			ft_check_links(t_lem_in *env, int hash1, int hash2)
 {
-	t_rooms	*tmp;
+	t_lstrooms	*tmp;
 
 	tmp = env->tab_rooms[hash1];
 	while (tmp)
@@ -33,10 +33,10 @@ int		ft_check_links(t_lem_in *env, int hash1, int hash2)
 	return (0);
 }
 
-t_rooms	*ft_modify_doublon(t_rooms *rooms)
+t_lstrooms	*ft_modify_doublon(t_lstrooms *rooms)
 {
-	t_rooms	*dst;
-	t_rooms	*tmp;
+	t_lstrooms	*dst;
+	t_lstrooms	*tmp;
 
 	dst = rooms;
 	while (dst)
@@ -57,10 +57,10 @@ t_rooms	*ft_modify_doublon(t_rooms *rooms)
 	return (dst);
 }
 
-int		ft_check_doublon(t_lem_in *env)
+int			ft_check_doublon(t_lem_in *env)
 {
-	t_rooms	*tmp_1;
-	t_rooms	*tmp_2;
+	t_lstrooms	*tmp_1;
+	t_lstrooms	*tmp_2;
 
 	tmp_1 = env->rooms;
 	while (tmp_1)

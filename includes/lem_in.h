@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 18:57:58 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 10:23:41 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,45 @@
 # include "lem_in_struct.h"
 # include <math.h>
 
-int		lem_in(t_lem_in *env);
+int			lem_in(t_lem_in *env);
 
-int		ft_error_nbr(char *line);
-int		ft_error_rooms(char *name, char *x, char *y);
+int			ft_error_nbr(char *line);
+int			ft_error_rooms(char *name, char *x, char *y);
 
-int		check_ants(t_lem_in *env);
-int		check_rooms(t_lem_in *env);
+int			check_ants(t_lem_in *env);
+int			check_rooms(t_lem_in *env);
 
-int		ft_start(t_lem_in *env, char *line);
-int		ft_rooms(t_lem_in *env, char *line);
-int		ft_end(t_lem_in *env, char *line);
-int		ft_links(t_lem_in *env, char *line);
-int		ft_comment(t_lem_in *env, char *line);
+void		take_start(t_lem_in *env, char *name, int coord_x, int coord_y);
+void		take_end(t_lem_in *env, char *name, int coord_x, int coord_y);
 
-int		ft_is_links(t_lem_in *env, char *line);
+int			ft_start(t_lem_in *env, char *line);
+int			ft_rooms(t_lem_in *env, char *line);
+int			ft_end(t_lem_in *env, char *line);
+int			ft_links(t_lem_in *env, char *line);
+int			ft_comment(t_lem_in *env, char *line);
 
-t_rooms	*collision(t_lem_in *env);
-int		hachage(t_lem_in *env, char *str);
-int		max_hash(t_lem_in *env);
+int			ft_is_links(t_lem_in *env, char *line);
 
-int		ft_check_doublon(t_lem_in *env);
-t_rooms	*ft_modify_doublon(t_rooms *rooms);
-int		ft_check_links(t_lem_in *env, int hash1, int hash2);
+t_lstrooms	*collision(t_lem_in *env);
+int			hachage(t_lem_in *env, char *str);
+int			max_hash(t_lem_in *env);
 
-t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
-void	ft_rooms_push_back(t_rooms **rooms, char *name, int x, int y);
-void	ft_rooms_push_front(t_rooms **rooms, char *name, int x, int y);
-t_rooms	*ft_rooms_find_hash(t_rooms *rooms, int content_ref);
-t_rooms	*ft_rooms_find_name(t_rooms *rooms, char *name_ref);
-void	ft_rooms_clear(t_rooms **begin_list);
-t_rooms	*ft_rooms_sort(t_rooms *lst);
-t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src);
-void	ft_rooms_push_front_tab(t_rooms **rooms, t_rooms *src, int hash);
-void	ft_rooms_push_back_tab(t_rooms **rooms, t_rooms *src, int hash);
+int			ft_check_doublon(t_lem_in *env);
+t_lstrooms	*ft_modify_doublon(t_lstrooms *rooms);
+int			ft_check_links(t_lem_in *env, int hash1, int hash2);
 
-void	printlst(t_lem_in *env);
-void	ft_rooms_display(t_rooms *rooms);
+t_lstrooms	*ft_create_elem_rooms(char *name, int x, int y);
+void		ft_push_back_rooms(t_lstrooms **rooms, char *name, int x, int y);
+void		ft_push_front_rooms(t_lstrooms **rooms, char *name, int x, int y);
+t_lstrooms	*ft_rooms_find_hash(t_lstrooms *rooms, int content_ref);
+t_lstrooms	*ft_rooms_find_name(t_lstrooms *rooms, char *name_ref);
+void		ft_rooms_clear(t_lstrooms **begin_list);
+t_lstrooms	*ft_rooms_sort(t_lstrooms *lst);
+t_lstrooms	*ft_lstcpy(t_lstrooms *dst, t_lstrooms *src);
+void		ft_push_front_tab(t_lstrooms **rooms, t_lstrooms *src, int hash);
+void		ft_push_back_tab(t_lstrooms **rooms, t_lstrooms *src, int hash);
+
+void		printlst(t_lem_in *env);
+void		ft_rooms_display(t_lstrooms *rooms);
 
 #endif

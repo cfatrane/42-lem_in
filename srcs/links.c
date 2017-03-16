@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 18:58:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 10:21:46 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 {
-	t_rooms	*tmp;
+	t_lstrooms	*tmp;
 
 	if (ft_check_links(env, hash1, hash2) == -1)
 		return ;
 	tmp = ft_rooms_find_hash(env->rooms, hash2);
-	ft_rooms_push_back_tab(&(env)->tab_rooms[hash1], tmp, hash2);
+	ft_push_back_tab(&(env)->tab_rooms[hash1], tmp, hash2);
 	ft_rooms_sort(env->tab_rooms[hash1]);
 	tmp = ft_rooms_find_hash(env->rooms, hash1);
-	ft_rooms_push_back_tab(&(env)->tab_rooms[hash2], tmp, hash1);
+	ft_push_back_tab(&(env)->tab_rooms[hash2], tmp, hash1);
 	ft_rooms_sort(env->tab_rooms[hash2]);
 }
 
 int		ft_links(t_lem_in *env, char *line)
 {
-	int		hash1;
-	int		hash2;
-	int		max;
-	t_rooms	*tmp;
+	int			hash1;
+	int			hash2;
+	int			max;
+	t_lstrooms	*tmp;
 
 	if (!env->flag_dbl)
 	{
@@ -42,7 +42,7 @@ int		ft_links(t_lem_in *env, char *line)
 	env->flag_dbl = 1;
 	max = max_hash(env) + 1;
 	if (!(env->tab_rooms))
-		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) *
+		if (!(env->tab_rooms = ft_memalloc(sizeof(t_lstrooms**) *
 						ft_nbcmp_max(max, env->nb_rooms))))
 			return (-1);
 	env->flag_path = 1;
@@ -56,7 +56,7 @@ int		ft_links(t_lem_in *env, char *line)
 
 void	flag_one(t_lem_in *env, char *line, int *i)
 {
-	t_rooms *tmp;
+	t_lstrooms	*tmp;
 
 	tmp = env->rooms;
 	while (tmp)
@@ -77,7 +77,7 @@ void	flag_one(t_lem_in *env, char *line, int *i)
 
 void	flag_two(t_lem_in *env, char *line, int i)
 {
-	t_rooms *tmp;
+	t_lstrooms	*tmp;
 
 	tmp = env->rooms;
 	while (tmp)

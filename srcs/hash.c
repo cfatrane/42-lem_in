@@ -6,15 +6,15 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 13:34:17 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 10:13:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_rooms	*collision(t_lem_in *env)
+t_lstrooms	*collision(t_lem_in *env)
 {
-	t_rooms *tmp;
+	t_lstrooms	*tmp;
 
 	tmp = env->rooms;
 	while (tmp)
@@ -25,7 +25,7 @@ t_rooms	*collision(t_lem_in *env)
 	return (tmp);
 }
 
-int		hachage(t_lem_in *env, char *str)
+int			hachage(t_lem_in *env, char *str)
 {
 	int	hash;
 	int	i;
@@ -42,17 +42,17 @@ int		hachage(t_lem_in *env, char *str)
 	return (hash);
 }
 
-int		search_hash(t_lem_in *env, char *str)
+int			search_hash(t_lem_in *env, char *str)
 {
 	(void)env;
 	(void)str;
 	return (0);
 }
 
-int		max_hash(t_lem_in *env)
+int			max_hash(t_lem_in *env)
 {
-	int		max;
-	t_rooms	*tmp;
+	int			max;
+	t_lstrooms	*tmp;
 
 	tmp = env->rooms;
 	max = tmp->hash;
