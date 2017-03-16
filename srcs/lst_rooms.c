@@ -6,17 +6,17 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:20:59 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:04:46 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_lstrooms	*ft_create_elem_rooms(char *name, int x, int y)
+t_rooms	*ft_create_elem_rooms(char *name, int x, int y)
 {
-	t_lstrooms	*rooms;
+	t_rooms	*rooms;
 
-	if (!(rooms = (t_lstrooms*)malloc(sizeof(*rooms))))
+	if (!(rooms = (t_rooms*)malloc(sizeof(*rooms))))
 		return (NULL);
 	rooms->name = name;
 	rooms->coord_x = x;
@@ -26,9 +26,9 @@ t_lstrooms	*ft_create_elem_rooms(char *name, int x, int y)
 	return (rooms);
 }
 
-void		ft_push_front_rooms(t_lstrooms **rooms, char *name, int x, int y)
+void	ft_push_front_rooms(t_rooms **rooms, char *name, int x, int y)
 {
-	t_lstrooms	*list;
+	t_rooms	*list;
 
 	list = ft_create_elem_rooms(name, x, y);
 	if ((*rooms))
@@ -36,7 +36,7 @@ void		ft_push_front_rooms(t_lstrooms **rooms, char *name, int x, int y)
 	*rooms = list;
 }
 
-void		ft_push_back_rooms(t_lstrooms **rooms, char *name, int x, int y)
+void	ft_push_back_rooms(t_rooms **rooms, char *name, int x, int y)
 {
 	if (*rooms)
 	{
@@ -49,7 +49,7 @@ void		ft_push_back_rooms(t_lstrooms **rooms, char *name, int x, int y)
 		*rooms = ft_create_elem_rooms(name, x, y);
 }
 
-void		ft_rooms_clear(t_lstrooms **begin_list)
+void	ft_rooms_clear(t_rooms **begin_list)
 {
 	if (*begin_list != NULL)
 	{
@@ -59,9 +59,9 @@ void		ft_rooms_clear(t_lstrooms **begin_list)
 	}
 }
 
-t_lstrooms	*ft_rooms_sort(t_lstrooms *lst)
+t_rooms	*ft_rooms_sort(t_rooms *lst)
 {
-	t_lstrooms	*parcour;
+	t_rooms	*parcour;
 
 	parcour = lst;
 	while (lst->next)

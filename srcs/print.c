@@ -6,15 +6,15 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 13:26:30 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:40:25 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-void	ft_rooms_display_name(t_lstrooms *rooms)
+void	ft_rooms_display_name(t_rooms *rooms)
 {
-	t_lstrooms	*tmp;
+	t_rooms	*tmp;
 
 	tmp = rooms;
 	while (tmp)
@@ -27,10 +27,10 @@ void	ft_rooms_display_name(t_lstrooms *rooms)
 
 void	ft_printlst(t_lem_in *env)
 {
-	t_lstrooms	**tabroom;
-	t_lstrooms	*rooms;
-	t_lstrooms	*tmp;
-	int			i;
+	t_rooms	**tabroom;
+	t_rooms	*rooms;
+	t_rooms	*tmp;
+	int		i;
 
 	tabroom = env->tab_rooms;
 	i = 0;
@@ -51,9 +51,9 @@ void	ft_printlst(t_lem_in *env)
 	}
 }
 
-void	ft_rooms_display(t_lstrooms *rooms)
+void	ft_rooms_display(t_rooms *rooms)
 {
-	t_lstrooms	*tmp;
+	t_rooms	*tmp;
 
 	tmp = rooms;
 	while (tmp)

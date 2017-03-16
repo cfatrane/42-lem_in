@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 13:28:09 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:04:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 {
-	t_lstrooms	*tmp;
+	t_rooms	*tmp;
 
 	if (check_doublon_links(env, hash1, hash2) == -1)
 		return ;
@@ -29,10 +29,10 @@ void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 
 int		ft_links(t_lem_in *env, char *line)
 {
-	int			hash1;
-	int			hash2;
-	int			max;
-	t_lstrooms	*tmp;
+	int		hash1;
+	int		hash2;
+	int		max;
+	t_rooms	*tmp;
 
 	if (!env->flag_dbl)
 	{
@@ -43,7 +43,7 @@ int		ft_links(t_lem_in *env, char *line)
 	env->flag_dbl = 1;
 	max = max_hash(env) + 1;
 	if (!(env->tab_rooms))
-		if (!(env->tab_rooms = ft_memalloc(sizeof(t_lstrooms**) *
+		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) *
 						ft_nbcmp_max(max, env->nb_rooms))))
 			return (-1);
 	env->flag_path = 1;
@@ -57,7 +57,7 @@ int		ft_links(t_lem_in *env, char *line)
 
 void	flag_one(t_lem_in *env, char *line, int *i)
 {
-	t_lstrooms	*tmp;
+	t_rooms	*tmp;
 
 	tmp = env->rooms;
 	while (tmp)
@@ -78,7 +78,7 @@ void	flag_one(t_lem_in *env, char *line, int *i)
 
 void	flag_two(t_lem_in *env, char *line, int i)
 {
-	t_lstrooms	*tmp;
+	t_rooms	*tmp;
 
 	tmp = env->rooms;
 	while (tmp)

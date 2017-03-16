@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 13:28:33 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:23:10 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	lem_in(t_lem_in *env)
 	}
 	ft_printlst(env);
 	ft_printf("LINKS = %d\n", env->nb_links);
+	count_vertices(env);
+	ft_printf("SOMMET = %d", env->nb_vertices);
 //	ft_rooms_display(env->rooms);
 	return (0);
 }

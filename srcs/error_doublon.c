@@ -6,16 +6,16 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:02:32 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 13:27:02 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:10:00 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_lstrooms	*ft_modify_doublon(t_lstrooms *rooms)
+t_rooms	*ft_modify_doublon(t_rooms *rooms)
 {
-	t_lstrooms	*dst;
-	t_lstrooms	*tmp;
+	t_rooms	*dst;
+	t_rooms	*tmp;
 
 	dst = rooms;
 	while (dst)
@@ -36,10 +36,10 @@ t_lstrooms	*ft_modify_doublon(t_lstrooms *rooms)
 	return (dst);
 }
 
-int			check_doublon_hash(t_lem_in *env)
+int		check_doublon_hash(t_lem_in *env)
 {
-	t_lstrooms	*tmp_1;
-	t_lstrooms	*tmp_2;
+	t_rooms	*tmp_1;
+	t_rooms	*tmp_2;
 
 	tmp_1 = env->rooms;
 	while (tmp_1)
@@ -56,10 +56,10 @@ int			check_doublon_hash(t_lem_in *env)
 	return (0);
 }
 
-int			check_doublon_name(t_lem_in *env)
+int		check_doublon_name(t_lem_in *env)
 {
-	t_lstrooms	*tmp_1;
-	t_lstrooms	*tmp_2;
+	t_rooms	*tmp_1;
+	t_rooms	*tmp_2;
 
 	tmp_1 = env->rooms;
 	while (tmp_1)
@@ -76,10 +76,10 @@ int			check_doublon_name(t_lem_in *env)
 	return (0);
 }
 
-int			check_doublon_coord(t_lem_in *env)
+int		check_doublon_coord(t_lem_in *env)
 {
-	t_lstrooms	*tmp_1;
-	t_lstrooms	*tmp_2;
+	t_rooms	*tmp_1;
+	t_rooms	*tmp_2;
 
 	tmp_1 = env->rooms;
 	while (tmp_1)

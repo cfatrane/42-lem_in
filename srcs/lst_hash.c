@@ -6,17 +6,17 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 11:19:22 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:19:39 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:04:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_lstrooms	*ft_create_elem_rooms_tab(t_lstrooms *src, int hash)
+t_rooms	*ft_create_elem_rooms_tab(t_rooms *src, int hash)
 {
-	t_lstrooms	*rooms;
+	t_rooms	*rooms;
 
-	if (!(rooms = (t_lstrooms*)malloc(sizeof(*rooms))))
+	if (!(rooms = (t_rooms*)malloc(sizeof(*rooms))))
 		return (NULL);
 	rooms->name = src->name;
 	rooms->coord_x = src->coord_x;
@@ -26,9 +26,9 @@ t_lstrooms	*ft_create_elem_rooms_tab(t_lstrooms *src, int hash)
 	return (rooms);
 }
 
-void		ft_push_front_tab(t_lstrooms **rooms, t_lstrooms *src, int hash)
+void	ft_push_front_tab(t_rooms **rooms, t_rooms *src, int hash)
 {
-	t_lstrooms	*list;
+	t_rooms	*list;
 
 	if (!(list = ft_create_elem_rooms_tab(src, hash)))
 		return ;
@@ -37,7 +37,7 @@ void		ft_push_front_tab(t_lstrooms **rooms, t_lstrooms *src, int hash)
 	*rooms = list;
 }
 
-void		ft_push_back_tab(t_lstrooms **rooms, t_lstrooms *src, int hash)
+void	ft_push_back_tab(t_rooms **rooms, t_rooms *src, int hash)
 {
 	if (*rooms)
 	{

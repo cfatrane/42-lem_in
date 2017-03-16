@@ -6,23 +6,23 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:16:29 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 16:22:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_lstrooms	**ft_tab_rooms(int x, int y)
+t_rooms	**ft_tab_rooms(int x, int y)
 {
-	t_lstrooms	**tab;
+	t_rooms	**tab;
 	int			i;
 
-	if (!(tab = (t_lstrooms**)malloc(sizeof(**tab) * (y + 1))))
+	if (!(tab = (t_rooms**)malloc(sizeof(**tab) * (y + 1))))
 		return (NULL);
 	i = 0;
 	while (i < y)
 	{
-		tab[i] = (t_lstrooms*)malloc(sizeof(*tab) * (x + 1));
+		tab[i] = (t_rooms*)malloc(sizeof(*tab) * (x + 1));
 		if (tab[i] == NULL)
 			return (NULL);
 		i++;
@@ -31,9 +31,9 @@ t_lstrooms	**ft_tab_rooms(int x, int y)
 	return (tab);
 }
 
-t_lstrooms	*ft_lstcpy(t_lstrooms *dst, t_lstrooms *src)
+t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)
 {
-	dst = ft_memalloc(sizeof(t_lstrooms));
+	dst = ft_memalloc(sizeof(t_rooms));
 	while (src)
 	{
 		dst->name = src->name;
@@ -45,4 +45,28 @@ t_lstrooms	*ft_lstcpy(t_lstrooms *dst, t_lstrooms *src)
 		dst = dst->next;
 	}
 	return (dst);
+}
+
+void	count_vertices(t_lem_in *env)
+{
+	t_rooms	**tabroom;
+	t_rooms	*rooms;
+	int		i;
+
+	tabroom = env->tab_rooms;
+	i = 0;
+	while (i < (max_hash(env) + 1))
+	{
+		rooms = tabroom[i];
+		if (rooms)
+		{
+			while (rooms)
+			{
+				env->nb_vertices++;
+				break ;
+				rooms = rooms->next;
+			}
+		}
+		i++;
+	}
 }
