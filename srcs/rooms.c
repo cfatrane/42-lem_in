@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:26:25 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 11:10:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ int		ft_rooms(t_lem_in *env, char *line)
 		}
 		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
+		if (check_doublon_coord(env) == -1)
+		{
+			ft_printf("DOUBLON NAME\n");
+			return (-1);
+		}
 		env->nb_rooms++;
 	}
 	else

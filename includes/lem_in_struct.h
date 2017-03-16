@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:19:58 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 10:37:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ typedef struct			s_lem_in
 	int					flag_path;
 	int					flag_links;
 	int					flag_dbl;
-	struct s_lstrooms	*rooms;
 	struct s_rooms		start;
 	struct s_rooms		end;
+	struct s_lstrooms	*rooms;
 	struct s_lstrooms	**tab_rooms;
 }						t_lem_in;
 

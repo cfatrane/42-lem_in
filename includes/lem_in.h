@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 10:23:41 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/16 11:09:49 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,8 @@ void		ft_push_back_tab(t_lstrooms **rooms, t_lstrooms *src, int hash);
 
 void		printlst(t_lem_in *env);
 void		ft_rooms_display(t_lstrooms *rooms);
+
+int			check_doublon_name(t_lem_in *env);
+int			check_doublon_coord(t_lem_in *env);
 
 #endif

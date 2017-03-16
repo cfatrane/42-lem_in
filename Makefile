@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/16 10:23:09 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/16 11:03:01 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_NAME =	lem_in.c			\
 			check_data.c		\
 			error_data.c		\
 			rooms.c				\
+			error_doublon.c		\
 			links.c				\
 			error_links.c		\
 			utils.c				\
