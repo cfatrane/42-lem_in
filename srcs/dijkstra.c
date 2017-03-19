@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 13:04:30 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/19 15:17:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:49:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,11 +220,12 @@ void dijkstra(struct Graph* graph, int src)
 		while (pCrawl != NULL)
 		{
 			int v = pCrawl->dest;
-			printf("v = %d ", v);
-			if (isInMinHeap(minHeap, v) && dist[u] != INT_MAX && 
+			printf("|v = %d| ", v);
+			if (isInMinHeap(minHeap, v) && dist[u] != INT_MAX &&
 					pCrawl->weight + dist[u] < dist[v])
 			{
 				dist[v] = dist[u] + pCrawl->weight;
+	//			printf("dist[v] = %d dist[u] = %d ", dist[v], dist[u]);
 				decreaseKey(minHeap, v, dist[v]);
 			}
 			pCrawl = pCrawl->next;

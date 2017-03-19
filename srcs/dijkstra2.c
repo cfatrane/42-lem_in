@@ -6,41 +6,46 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 15:21:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/19 15:27:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/19 16:32:20 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/lem_in.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 
-typedef struct {
+typedef struct
+{
 	int vertex;
 	int weight;
-} edge_t;
+}				edge_t;
 
-typedef struct {
+typedef struct
+{
 	edge_t **edges;
 	int edges_len;
 	int edges_size;
 	int dist;
 	int prev;
 	int visited;
-} vertex_t;
+}				vertex_t;
 
-typedef struct {
+typedef struct
+{
 	vertex_t **vertices;
 	int vertices_len;
 	int vertices_size;
 } graph_t;
 
-typedef struct {
+typedef struct
+{
 	int *data;
 	int *prio;
 	int *index;
 	int len;
 	int size;
-} heap_t;
+}				heap_t;
 
 void add_vertex (graph_t *g, int i)
 {
@@ -86,7 +91,7 @@ heap_t *create_heap (int n)
 	return h;
 }
 
-void push_heap (heap_t *h, int v, int p)
+void	push_heap(heap_t *h, int v, int p)
 {
 	int i = h->index[v] == 0 ? ++h->len : h->index[v];
 	int j = i / 2;
@@ -118,7 +123,8 @@ int pop_heap (heap_t *h)
 {
 	int v = h->data[1];
 	int i = 1;
-	while (1) {
+	while (1)
+	{
 		int j = min(h, h->len, 2 * i, 2 * i + 1);
 		if (j == h->len)
 			break;
@@ -134,12 +140,13 @@ int pop_heap (heap_t *h)
 	return v;
 }
 
-void dijkstra (graph_t *g, int a, int b)
+void dijkstra(graph_t *g, int a, int b)
 {
 	int i, j;
 	a = a - 'a';
 	b = b - 'a';
-	for (i = 0; i < g->vertices_len; i++) {
+	for (i = 0; i < g->vertices_len; i++)
+	{
 		vertex_t *v = g->vertices[i];
 		v->dist = INT_MAX;
 		v->prev = 0;
@@ -149,13 +156,15 @@ void dijkstra (graph_t *g, int a, int b)
 	v->dist = 0;
 	heap_t *h = create_heap(g->vertices_len);
 	push_heap(h, a, v->dist);
-	while (h->len) {
+	while (h->len)
+	{
 		i = pop_heap(h);
 		if (i == b)
 			break;
 		v = g->vertices[i];
 		v->visited = 1;
-		for (j = 0; j < v->edges_len; j++) {
+		for (j = 0; j < v->edges_len; j++)
+		{
 			edge_t *e = v->edges[j];
 			vertex_t *u = g->vertices[e->vertex];
 			if (!u->visited && v->dist + e->weight <= u->dist) {
