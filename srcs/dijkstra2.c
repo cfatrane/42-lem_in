@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 15:21:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/19 16:32:20 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/19 18:28:14 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct
 	vertex_t **vertices;
 	int vertices_len;
 	int vertices_size;
-} graph_t;
+}				graph_t;
 
 typedef struct
 {
@@ -140,7 +140,7 @@ int pop_heap (heap_t *h)
 	return v;
 }
 
-void dijkstra(graph_t *g, int a, int b)
+void	dijkstra(graph_t *g, int a, int b)
 {
 	int i, j;
 	a = a - 'a';
