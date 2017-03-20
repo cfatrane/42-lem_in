@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 18:35:24 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 19:35:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ t_rooms	**ft_tab_rooms(int x, int y)
 
 t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)
 {
-	dst = ft_memalloc(sizeof(t_rooms));
 	while (src)
 	{
 		dst->name = src->name;

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 18:14:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 20:05:43 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,11 @@ int		init_bfs(int src, t_lem_in *env, t_tab *tab)
 	int	i;
 
 	i = 0;
-	if (!(tab->color = (int*)malloc(sizeof(*tab->color) *
-					ft_nbcmp_max(env->nb_rooms, max_hash(env)))))
+	if (!(tab->color = (int*)malloc(sizeof(*tab->color) * env->malloc)))
 		return (-1);
-	if (!(tab->dist = (int*)malloc(sizeof(*tab->dist) *
-					ft_nbcmp_max(env->nb_rooms, max_hash(env)))))
+	if (!(tab->dist = (int*)malloc(sizeof(*tab->dist) * env->malloc)))
 		return (-1);
-	if (!(tab->parent = (int*)malloc(sizeof(*tab->parent) *
-					ft_nbcmp_max(env->nb_rooms, max_hash(env)))))
+	if (!(tab->parent = (int*)malloc(sizeof(*tab->parent) * env->malloc)))
 		return (-1);
 	while (i < env->nb_rooms)
 	{

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 18:24:52 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 20:00:53 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	check_rooms(t_lem_in *env)
 //		ft_printf("%s\n", line);
 		if (check_start_end(env, line) == -1)
 			return (-1);
+		free (line);
 	}
 	return (0);
 }

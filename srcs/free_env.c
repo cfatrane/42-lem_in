@@ -6,37 +6,41 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:20:39 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 18:58:28 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 20:02:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-void	ft_rooms_clear(t_rooms **begin_list)
+void	ft_rooms_clear(t_rooms **rooms)
 {
-	if (*begin_list != NULL)
+	if (*rooms != NULL)
 	{
-		ft_rooms_clear(&((*begin_list)->next));
-		free(*begin_list);
-		*begin_list = NULL;
+		ft_rooms_clear(&((*rooms)->next));
+		free(*rooms);
+		*rooms = NULL;
 	}
 }
 
-void	free_env(t_lem_in *env, t_tab *tab)
+void	free_tab_room(t_lem_in *env)
 {
 	int	i;
 
 	i = 0;
 	while (env->tab_rooms[i])
 	{
-		ft_rooms_clear(&env->tab_rooms[i]);
-		free(env->tab_rooms[i]);
+		ft_rooms_clear(&(env->tab_rooms[i]));
 		i++;
 	}
+}
+
+void	free_env(t_lem_in *env, t_tab *tab)
+{
+	free_tab_room(env);
+	free (env->tab_rooms);
 	ft_rooms_clear(&env->rooms);
 	free (tab->color);
 	free (tab->dist);
 	free (tab->parent);
-	free (env->tab_rooms);
 	free (env);
 }
