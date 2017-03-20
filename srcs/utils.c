@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 09:20:36 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:37:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ size_t	ft_int_size(t_int *stack)
 
 t_rooms	**ft_tab_rooms(int x, int y)
 {
+	int		i;
 	t_rooms	**tab;
-	int			i;
 
 	if (!(tab = (t_rooms**)malloc(sizeof(**tab) * (y + 1))))
 		return (NULL);

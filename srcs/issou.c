@@ -6,13 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:18:30 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 14:11:36 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:36:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
-
-void	printtmp(t_int *queue);
 
 t_int	*ft_create_elem_int(int i)
 {
@@ -48,52 +46,6 @@ void	ft_push_front_int(t_int **elem, int i)
 	*elem = list;
 }
 
-void	ft_int_delone_back(t_int *elem)
-{/*
-	t_int	*tmp;
-	t_int	*to_free;
-
-	to_free = *stack;
-	tmp = NULL;
-	while (to_free->next)
-	{
-		tmp = to_free;
-		to_free = to_free->next;
-	}
-	if (tmp != NULL)
-		tmp->next = NULL;
-	free(to_free);
-*/
-/*	t_int **tmp = elem;
-
-	while ((*tmp)->next != NULL)
-	{
-		ft_printf("hamza = %d\n", (*tmp)->i);
-		*tmp = (*tmp)->next;
-	}*/
-//	while ((*elem) != NULL)
-	printtmp(elem);
-	t_int *tmp;
-
-	while (elem != NULL)
-	{		
-		ft_printf("content = %d\n", (elem)->i);
-		if ((elem)->next->next == NULL)
-		{
-			tmp = elem;
-			free(elem->next);
-			ft_printf("TMP\n");
-			printtmp(tmp);
-			break ;
-		}
-		elem = (elem)->next;
-	}
-	ft_printf("ISSOU\n");
-	printtmp(elem);
-//	(*elem)->next = NULL;
-//	free(*elem);
-	}
-
 void	ft_int_delone_front(t_int **stack)
 {
 	t_int	*to_free;
@@ -108,7 +60,7 @@ void	ft_int_delone_front(t_int **stack)
 	}
 }
 
-int	ft_int_last(t_int *begin_list)
+int		ft_int_last(t_int *begin_list)
 {
 	if (begin_list == NULL)
 		return (0);
@@ -118,11 +70,11 @@ int	ft_int_last(t_int *begin_list)
 		return (begin_list->i);
 }
 
-int	ft_int_first(t_int *elem)
+int		ft_int_first(t_int *elem)
 {
-	int	i = 0;
+	int	i;
 
-//	list = ft_create_elem_int(i);
+	i = 0;
 	if (elem)
 		i = elem->i;
 	return (i);

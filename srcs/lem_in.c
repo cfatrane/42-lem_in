@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 14:25:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:37:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 int	lem_in(t_lem_in *env)
 {
+	t_tab	*tab;
+
+	if (!(tab = ft_memalloc(sizeof(t_tab))))
+	{
+		ft_putendl_fd("ERROR", 2);
+		return (-1);
+	}
 	if (check_ants(env) == -1)
 		return (-1);
 	if (check_rooms(env) == -1)
@@ -26,10 +33,9 @@ int	lem_in(t_lem_in *env)
 		ft_printf("NO START OR END OR PATH\n");
 		return (-1);
 	}
-	ft_printlst(env);
-	ft_printf("LINKS = %d\n", env->nb_links);
-	count_vertices(env);
-	bfs(254, env);
+//	ft_printlst(env);
+//	ft_rooms_display(env->rooms);
+	bfs(1, env, tab);
 	return (0);
 }
 
