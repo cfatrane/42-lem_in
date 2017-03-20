@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:18:30 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 15:36:59 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:49:58 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,6 @@ t_int	*ft_create_elem_int(int i)
 	elem->i = i;
 	elem->next = NULL;
 	return (elem);
-}
-
-void	ft_push_back_int(t_int **elem, int i)
-{
-	if (*elem)
-	{
-		if ((*elem)->next)
-			ft_push_back_int(&(*elem)->next, i);
-		else
-			(*elem)->next = ft_create_elem_int(i);
-	}
-	else
-		*elem = ft_create_elem_int(i);
 }
 
 void	ft_push_front_int(t_int **elem, int i)

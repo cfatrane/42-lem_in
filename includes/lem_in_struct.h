@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 15:03:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:41:51 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 
 typedef enum	e_color
 {
-	WHITE, GREY, BLACK
+	WHITE,
+	GREY,
+	BLACK
 }				t_color;
 
 typedef struct			s_tab
 {
-	int	*color;
-	int	*dist;
-	int	*parent;
+	int					*color;
+	int					*dist;
+	int					*parent;
 }						t_tab;
 
 typedef struct			s_int
