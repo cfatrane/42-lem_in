@@ -6,37 +6,27 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 15:34:48 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 16:39:23 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-void	print_path(int src, int dest, t_tab *tab)
+int	print_path(int src, int dest, t_tab *tab)
 {
 	if (src == dest)
 		printf("%d", src);
 	else if (tab->parent[dest] == -1)
+	{
 		printf("Il n'y a pas de chemin de %d vers %d", src, dest);
+		return (-1);
+	}
 	else
 	{
 		print_path(src, tab->parent[dest], tab);
 		printf(" %d", dest);
 	}
-}
-
-void	print_path_finding(int src, t_lem_in *env, t_tab *tab)
-{
-	int	i;
-
-	i = 0;
-	while (i <= env->nb_rooms)
-	{
-		printf("Chemin de %d vers %d : ", src, i);
-		print_path(src, i, tab);
-		printf("\n");
-		++i;
-	}
+	return (0);
 }
 
 void	init_bfs(int src, t_lem_in *env, t_tab *tab)
@@ -76,9 +66,8 @@ void	bfs_fill(t_tab *tab, t_int **queue, int u, int v)
 	}
 }
 
-void	bfs(int src, t_lem_in *env, t_tab *tab)
+int		bfs(int src, t_lem_in *env, t_tab *tab)
 {
-	int		i;
 	int		u;
 	int		v;
 	t_int	*queue;
@@ -100,4 +89,7 @@ void	bfs(int src, t_lem_in *env, t_tab *tab)
 		}
 		tab->color[u] = BLACK;
 	}
+	if (print_path(src, env->end_hash, tab) == -1)
+		return (-1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 15:41:07 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 16:39:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void	ft_int_delone_back(t_int *stack);
 void	ft_int_delone_front(t_int **stack);
 int		ft_int_last(t_int *begin_list);
 int		ft_int_first(t_int *elem);
+int		ft_get_hash(t_rooms *rooms, char *name_ref);
 
-void	bfs(int src, t_lem_in *env, t_tab *tab);
+int		bfs(int src, t_lem_in *env, t_tab *tab);
 
 #endif
