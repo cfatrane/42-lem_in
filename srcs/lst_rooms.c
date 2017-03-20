@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/19 18:19:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:25:46 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,6 @@ void	ft_push_back_rooms(t_rooms **rooms, char *name, int x, int y)
 	}
 	else
 		*rooms = ft_create_elem_rooms(name, x, y);
-}
-
-void	ft_rooms_clear(t_rooms **begin_list)
-{
-	if (*begin_list != NULL)
-	{
-		ft_rooms_clear(&((*begin_list)->next));
-		free(*begin_list);
-		*begin_list = NULL;
-	}
 }
 
 t_rooms	*ft_rooms_sort(t_rooms *lst)

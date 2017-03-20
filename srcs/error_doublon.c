@@ -6,11 +6,23 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:02:32 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 16:10:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:43:43 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+void	delete_collision(t_lem_in *env)
+{
+	if (!env->flag_dbl)
+	{
+		ft_lstcpy(env->rooms, collision(env));
+		while (check_doublon_hash(env) != 0)
+			ft_modify_doublon(env->rooms);
+	}
+	env->flag_dbl = 1;
+	env->malloc = max_hash(env) + 1;
+}
 
 t_rooms	*ft_modify_doublon(t_rooms *rooms)
 {

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 16:32:42 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:43:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct			s_lem_in
 	int					flag_dbl;
 	int					start_hash;
 	int					end_hash;
+	int					malloc;
 	struct s_rooms		start;
 	struct s_rooms		end;
 	struct s_rooms		*rooms;

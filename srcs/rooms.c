@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 14:26:40 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:57:34 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		ft_start(t_lem_in *env, char *line)
 		take_start(env, data[0], ft_atoll(data[1]), ft_atoll(data[2]));
 		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
+		free (*data);
 		env->nb_rooms++;
 	}
 	else
@@ -53,6 +54,7 @@ int		ft_rooms(t_lem_in *env, char *line)
 			return (-1);
 		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
+		free (*data);
 		if (check_doublon_coord(env) == -1)
 			return (-1);
 		env->nb_rooms++;
@@ -80,6 +82,7 @@ int		ft_end(t_lem_in *env, char *line)
 		take_end(env, data[0], ft_atoll(data[1]), ft_atoll(data[2]));
 		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
+		free (*data);
 		env->nb_rooms++;
 	}
 	else

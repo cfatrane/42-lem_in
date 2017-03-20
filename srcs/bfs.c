@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 17:33:22 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:14:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 	}
 	if (print_path(src, env->end_hash, tab) == -1)
 		return (-1);
+	ft_printf("\n");
 	return (0);
 }

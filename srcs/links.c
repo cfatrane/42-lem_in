@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 16:04:17 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:46:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,19 @@ void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 
 int		ft_links(t_lem_in *env, char *line)
 {
+	char	*line_tmp;
 	int		hash1;
 	int		hash2;
-	int		max;
 	t_rooms	*tmp;
 
-	if (!env->flag_dbl)
-	{
-		ft_lstcpy(env->rooms, collision(env));
-		while (check_doublon_hash(env) != 0)
-			ft_modify_doublon(env->rooms);
-	}
-	env->flag_dbl = 1;
-	max = max_hash(env) + 1;
+	delete_collision(env);
 	if (!(env->tab_rooms))
-		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) *
-						ft_nbcmp_max(max, env->nb_rooms))))
+		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * env->malloc)))
 			return (-1);
 	env->flag_path = 1;
-	tmp = ft_rooms_find_name(env->rooms, ft_strdup_c(line, '-'));
+	line_tmp = ft_strdup_c(line, '-');
+	tmp = ft_rooms_find_name(env->rooms, line_tmp);
+	free (line_tmp);
 	hash1 = tmp->hash;
 	tmp = ft_rooms_find_name(env->rooms, ft_strchr(line, '-') + 1);
 	hash2 = tmp->hash;
