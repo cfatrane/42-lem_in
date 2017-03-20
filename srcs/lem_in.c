@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 20:05:33 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 20:09:21 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	lem_in(t_lem_in *env, t_tab *tab)
 		return (-1);
 	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
 		return (-1);
-//	ft_printlst(env);
-//	ft_rooms_display(env->rooms);
 	ft_printf("\n");
 	env->start_hash = ft_get_hash(env->rooms, env->start_name);
 	env->end_hash = ft_get_hash(env->rooms, env->end_name);
@@ -48,6 +46,5 @@ int	main(void)
 		return (-1);
 	}
 	free_env(env, tab);
-//	while (1);
 	return (0);
 }
