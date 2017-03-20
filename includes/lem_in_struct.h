@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/19 13:51:53 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 09:20:34 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define LEM_IN_STRUCT_H
 
 # include "lem_in.h"
+
+typedef struct			s_int
+{
+	int					i;
+	struct s_int		*next;
+}						t_int;
 
 typedef struct			s_rooms
 {

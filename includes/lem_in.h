@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/19 18:09:28 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 14:02:58 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,14 @@ int		check_doublon_coord(t_lem_in *env);
 int		check_doublon_links(t_lem_in *env, int hash1, int hash2);
 
 size_t	ft_rooms_size(t_rooms *stack);
+size_t	ft_int_size(t_int *stack);
+
+void	ft_push_back_int(t_int **elem, int i);
+void	ft_push_front_int(t_int **elem, int i);
+void	bfs(int src, t_lem_in *env);
+void	ft_int_delone_back(t_int *stack);
+void	ft_int_delone_front(t_int **stack);
+int		ft_int_last(t_int *begin_list);
+int	ft_int_first(t_int *elem);
 
 #endif

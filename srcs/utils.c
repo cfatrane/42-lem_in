@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/19 17:28:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 09:20:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@ size_t	ft_rooms_size(t_rooms *stack)
 	if (stack == NULL)
 		return (0);
 	return (ft_rooms_size(stack->next) + 1);
+}
+
+size_t	ft_int_size(t_int *stack)
+{
+	if (stack == NULL)
+		return (0);
+	return (ft_int_size(stack->next) + 1);
 }
 
 t_rooms	**ft_tab_rooms(int x, int y)

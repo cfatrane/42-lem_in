@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/16 11:11:55 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/20 10:33:49 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SRC_NAME =	lem_in.c			\
 			error_doublon.c		\
 			error_links.c		\
 			error_data.c		\
+			issou.c				\
+			bfs.c				\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
