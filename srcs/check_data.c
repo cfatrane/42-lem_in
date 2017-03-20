@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 13:30:09 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:58:50 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	check_ants(t_lem_in *env)
 		return (-1);
 	env->ants = atoi(line);
 	if (env->ants <= 0)
-	{
 		return (-1);
-	}
 	return (0);
 }
 
@@ -35,16 +33,12 @@ int	check_links_rooms(t_lem_in *env, char *line)
 	else if (ft_is_links(env, line) == 1)
 	{
 		if (ft_links(env, line) == -1)
-		{
 			return (-1);
-		}
 	}
 	else if (1)
 	{
 		if (ft_rooms(env, line) == -1)
-		{
 			return (-1);
-		}
 	}
 	return (0);
 }
@@ -72,11 +66,9 @@ int	check_rooms(t_lem_in *env)
 
 	while (get_next_line(0, &line) > 0)
 	{
+		ft_printf("%s\n", line);
 		if (check_start_end(env, line) == -1)
-		{
-			ft_printf("ERROR\n");
 			return (-1);
-		}
 	}
 	return (0);
 }

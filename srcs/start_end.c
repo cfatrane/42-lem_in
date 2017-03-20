@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 09:56:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 16:13:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 16:45:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	take_end(t_lem_in *env, char *name, int coord_x, int coord_y)
 	env->end.hash = 0;
 }
 
-int	ft_get_hash(t_rooms *rooms, char *name_ref)
+int		ft_get_hash(t_rooms *rooms, char *name_ref)
 {
 	if (rooms == NULL)
 		return (0);

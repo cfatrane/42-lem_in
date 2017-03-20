@@ -6,43 +6,43 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 16:39:23 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:33:22 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int	print_path(int src, int dest, t_tab *tab)
+int		print_path(int src, int dest, t_tab *tab)
 {
 	if (src == dest)
-		printf("%d", src);
+		ft_printf("%d", src);
 	else if (tab->parent[dest] == -1)
 	{
-		printf("Il n'y a pas de chemin de %d vers %d", src, dest);
+		ft_printf("Il n'y a pas de chemin de %d vers %d", src, dest);
 		return (-1);
 	}
 	else
 	{
 		print_path(src, tab->parent[dest], tab);
-		printf(" %d", dest);
+		ft_printf(" %d", dest);
 	}
 	return (0);
 }
 
-void	init_bfs(int src, t_lem_in *env, t_tab *tab)
+int		init_bfs(int src, t_lem_in *env, t_tab *tab)
 {
 	int	i;
 
 	i = 0;
 	if (!(tab->color = (int*)malloc(sizeof(*tab->color) *
 					ft_nbcmp_max(env->nb_rooms, max_hash(env)))))
-		return ;
+		return (-1);
 	if (!(tab->dist = (int*)malloc(sizeof(*tab->dist) *
 					ft_nbcmp_max(env->nb_rooms, max_hash(env)))))
-		return ;
+		return (-1);
 	if (!(tab->parent = (int*)malloc(sizeof(*tab->parent) *
 					ft_nbcmp_max(env->nb_rooms, max_hash(env)))))
-		return ;
+		return (-1);
 	while (i < env->nb_rooms)
 	{
 		tab->color[i] = WHITE;
@@ -53,6 +53,7 @@ void	init_bfs(int src, t_lem_in *env, t_tab *tab)
 	tab->color[src] = GREY;
 	tab->dist[src] = 0;
 	tab->parent[src] = -1;
+	return (0);
 }
 
 void	bfs_fill(t_tab *tab, t_int **queue, int u, int v)
