@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 18:46:40 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/20 20:10:22 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_links(t_lem_in *env, char *line)
 	env->flag_path = 1;
 	line_tmp = ft_strdup_c(line, '-');
 	tmp = ft_rooms_find_name(env->rooms, line_tmp);
-	free (line_tmp);
+	free(line_tmp);
 	hash1 = tmp->hash;
 	tmp = ft_rooms_find_name(env->rooms, ft_strchr(line, '-') + 1);
 	hash2 = tmp->hash;
