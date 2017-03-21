@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/21 13:20:52 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/21 17:23:11 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,12 @@ int	main(void)
 	t_lem_in	*env;
 	t_tab		*tab;
 
-	if (!(tab = ft_memalloc(sizeof(t_tab))))
-		return (-1);
 	if (!(env = ft_memalloc(sizeof(t_lem_in))))
+	{
+		ft_putendl_fd("ERROR", 2);
+		return (-1);
+	}
+	if (!(tab = ft_memalloc(sizeof(t_tab))))
 	{
 		ft_putendl_fd("ERROR", 2);
 		return (-1);
@@ -45,6 +48,6 @@ int	main(void)
 		ft_putendl_fd("ERROR", 2);
 		return (-1);
 	}
-	free_env(env, tab);
+//	free_env(env, tab);
 	return (0);
 }
