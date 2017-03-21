@@ -6,16 +6,16 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/21 17:23:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/21 17:29:39 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-int		print_path(int src, int dest, t_tab *tab)
+int		print_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
 	if (src == dest)
-		ft_printf("%d", src);
+		ft_printf("L1-%d", src);
 	else if (tab->parent[dest] == -1)
 	{
 		ft_printf("Il n'y a pas de chemin de %d vers %d", src, dest);
@@ -23,8 +23,8 @@ int		print_path(int src, int dest, t_tab *tab)
 	}
 	else
 	{
-		print_path(src, tab->parent[dest], tab);
-		ft_printf(" %d", dest);
+		print_path(env, src, tab->parent[dest], tab);
+		ft_printf("\nL1-%d", dest);
 	}
 	return (0);
 }
@@ -87,7 +87,7 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 		}
 		tab->color[u] = BLACK;
 	}
-	if (print_path(src, env->end_hash, tab) == -1)
+	if (print_path(env, src, env->end_hash, tab) == -1)
 		return (-1);
 	ft_printf("\n");
 	return (0);
