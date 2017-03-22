@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:20:39 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/21 10:59:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 18:59:52 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,4 @@ void	free_tab_room(t_lem_in *env)
 
 void	free_env(t_lem_in *env, t_tab *tab)
 {
-	free_tab_room(env);
-	free(env->tab_rooms);
-	ft_rooms_clear(&env->rooms);
-	free(tab->color);
-	free(tab->dist);
-	free(tab->parent);
-	free(env);
 }

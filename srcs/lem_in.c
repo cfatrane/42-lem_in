@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 18:34:05 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 18:59:46 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int	main(int argc, char **argv)
 			return (-1);
 		}
 	}
-	//	free_env(env, tab);
+	free_env(env, tab);
 	return (0);
 }
