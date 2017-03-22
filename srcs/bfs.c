@@ -6,37 +6,21 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 13:49:07 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:00:25 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-void	printint(t_int *list)
-{
-	t_int *tmp = list;
-
-	while (tmp)
-	{
-		ft_printf("Val = %d\n", tmp->i);
-		tmp = tmp->next;
-	}
-}
-
-int		print_path(t_lem_in *env, int src, int dest, t_tab *tab)
+int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
 	if (src == dest)
-		ft_printf("L1-%d", src);
+	{
+	}
 	else if (tab->parent[dest] == -1)
-	{
-		ft_printf("Il n'y a pas de chemin de %d vers %d", src, dest);
 		return (-1);
-	}
 	else
-	{
-		print_path(env, src, tab->parent[dest], tab);
-		ft_printf("\nL1-%d", dest);
-	}
+		check_path(env, src, tab->parent[dest], tab);
 	return (0);
 }
 
@@ -50,8 +34,6 @@ int		print_path_two(t_lem_in *env, int src, int dest, t_tab *tab)
 		ft_push_front_int(&index, dest);
 		dest = tab->parent[dest];
 	}
-	if (src == dest)
-		ft_printf("\nsrc first = %d\n", src);
 	while (index)
 	{
 		ft_printf("L1-%d\n", tab->parent[index->i]);
@@ -120,10 +102,8 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 		}
 		tab->color[u] = BLACK;
 	}
-	if (print_path(env, src, env->end_hash, tab) == -1)
+	if (check_path(env, src, env->end_hash, tab) == -1)
 		return (-1);
-	ft_printf("\n\n\n");
-	ft_printf("dst = %d\n\n", env->end_hash);
 	if (print_path_two(env, src, env->end_hash, tab) == -1)
 		return (-1);
 	ft_printf("\n");
