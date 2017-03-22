@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 17:54:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 18:16:48 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	lem_in(t_lem_in *env, t_tab *tab)
 		return (-1);
 	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
 		return (-1);
-//	ft_rooms_display(env->rooms);
+	ft_printlst(env);
 	env->start_hash = ft_get_hash(env->rooms, env->start_name);
 	env->end_hash = ft_get_hash(env->rooms, env->end_name);
 	if (bfs(env->start_hash, env, tab) == -1)
@@ -28,7 +28,22 @@ int	lem_in(t_lem_in *env, t_tab *tab)
 	return (0);
 }
 
-int	main(void)
+int	active_flag(t_lem_in *env, int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		if (ft_strcmp(argv[1], "-v") == 0)
+			env->flag_print = 1;
+		else
+		{
+			ft_putendl_fd("ERROR", 2);
+			return (-1);
+		}
+	}
+	return (0);
+}
+
+int	main(int argc, char **argv)
 {
 	t_lem_in	*env;
 	t_tab		*tab;
@@ -43,11 +58,16 @@ int	main(void)
 		ft_putendl_fd("ERROR", 2);
 		return (-1);
 	}
-	if (lem_in(env, tab) == -1)
-	{
-		ft_putendl_fd("ERROR", 2);
+	if (active_flag(env, argc, argv) == -1)
 		return (-1);
+	if (argc == 1 || env->flag_print == 1)
+	{
+		if (lem_in(env, tab) == -1)
+		{
+			ft_putendl_fd("ERROR", 2);
+			return (-1);
+		}
 	}
-//	free_env(env, tab);
+	//	free_env(env, tab);
 	return (0);
 }

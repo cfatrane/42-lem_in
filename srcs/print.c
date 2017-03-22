@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 17:54:08 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 18:17:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,23 @@ void	ft_printlst(t_lem_in *env)
 
 	tabroom = env->tab_rooms;
 	i = 0;
-	while (i < (max_hash(env) + 1))
+	if (env->flag_print == 1)
 	{
-		ft_printf("%d: ", i);
-		tmp = ft_rooms_find_hash(env->rooms, i);
-		ft_rooms_display_name(tmp);
-		rooms = tabroom[i];
-		while (rooms)
-		{
-			ft_printf("|%s| --> ", rooms->name);
-			rooms = rooms->next;
-		}
 		ft_printf("\n");
-		i++;
+		while (i < (max_hash(env) + 1))
+		{
+			ft_printf("%d: ", i);
+			tmp = ft_rooms_find_hash(env->rooms, i);
+			ft_rooms_display_name(tmp);
+			rooms = tabroom[i];
+			while (rooms)
+			{
+				ft_printf("|%s| --> ", rooms->name);
+				rooms = rooms->next;
+			}
+			ft_printf("\n");
+			i++;
+		}
 	}
 }
 
