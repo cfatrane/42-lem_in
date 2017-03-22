@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 15:39:55 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 18:39:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		ft_comment(t_lem_in *env, char *line);
 t_rooms	*collision(t_lem_in *env);
 int		hachage(t_lem_in *env, char *str);
 int		max_hash(t_lem_in *env);
-
 t_rooms	*ft_modify_doublon(t_rooms *rooms);
 
 t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
