@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/26 16:57:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 20:07:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 11:35:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,6 @@ size_t	ft_int_size(t_int *stack)
 	if (stack == NULL)
 		return (0);
 	return (ft_int_size(stack->next) + 1);
-}
-
-int		ft_get_hash(t_rooms *rooms, char *name_ref)
-{
-	if (rooms == NULL)
-		return (0);
-	if (ft_strcmp(rooms->name, name_ref) == 0)
-		return (rooms->hash);
-	else if (rooms->next)
-		return (ft_get_hash(rooms->next, name_ref));
-	else
-		return (0);
 }
 
 t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)

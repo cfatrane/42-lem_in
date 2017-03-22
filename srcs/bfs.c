@@ -6,11 +6,22 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/21 17:29:39 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 13:49:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+void	printint(t_int *list)
+{
+	t_int *tmp = list;
+
+	while (tmp)
+	{
+		ft_printf("Val = %d\n", tmp->i);
+		tmp = tmp->next;
+	}
+}
 
 int		print_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
@@ -25,6 +36,28 @@ int		print_path(t_lem_in *env, int src, int dest, t_tab *tab)
 	{
 		print_path(env, src, tab->parent[dest], tab);
 		ft_printf("\nL1-%d", dest);
+	}
+	return (0);
+}
+
+int		print_path_two(t_lem_in *env, int src, int dest, t_tab *tab)
+{
+	t_int	*index;
+
+	index = NULL;
+	while (src != dest)
+	{
+		ft_push_front_int(&index, dest);
+		dest = tab->parent[dest];
+	}
+	if (src == dest)
+		ft_printf("\nsrc first = %d\n", src);
+	while (index)
+	{
+		ft_printf("L1-%d\n", tab->parent[index->i]);
+		if (index->next == NULL)
+			ft_printf("L1-%d", index->i);
+		index = index->next;
 	}
 	return (0);
 }
@@ -88,6 +121,10 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 		tab->color[u] = BLACK;
 	}
 	if (print_path(env, src, env->end_hash, tab) == -1)
+		return (-1);
+	ft_printf("\n\n\n");
+	ft_printf("dst = %d\n\n", env->end_hash);
+	if (print_path_two(env, src, env->end_hash, tab) == -1)
 		return (-1);
 	ft_printf("\n");
 	return (0);

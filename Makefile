@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/20 20:07:29 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/22 13:36:42 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,10 @@ SRC_NAME =	lem_in.c			\
 			lst_rooms.c			\
 			lst_hash.c			\
 			lst_find.c			\
+			lst_int.c			\
 			error_doublon.c		\
 			error_links.c		\
 			error_data.c		\
-			issou.c				\
 			bfs.c				\
 			free_env.c			\
 

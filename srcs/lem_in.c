@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/21 17:26:29 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 11:48:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	lem_in(t_lem_in *env, t_tab *tab)
 	ft_printf("\n");
 	env->start_hash = ft_get_hash(env->rooms, env->start_name);
 	env->end_hash = ft_get_hash(env->rooms, env->end_name);
+	ft_printf("dst = %d\n\n", env->end_hash);
 	if (bfs(env->start_hash, env, tab) == -1)
 		return (-1);
 	return (0);

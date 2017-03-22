@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/21 17:23:14 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 13:32:14 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,14 @@ void	delete_collision(t_lem_in *env);
 size_t	ft_rooms_size(t_rooms *stack);
 size_t	ft_int_size(t_int *stack);
 
-void	ft_push_back_int(t_int **elem, int i);
-void	ft_push_front_int(t_int **elem, int i);
+void	ft_push_back_int(t_int **elem, int data);
+void	ft_push_front_int(t_int **elem, int data);
 void	ft_int_delone_back(t_int *stack);
 void	ft_int_delone_front(t_int **stack);
 int		ft_int_last(t_int *rooms);
 int		ft_int_first(t_int *elem);
 int		ft_get_hash(t_rooms *rooms, char *name_ref);
+int		ft_get_index(t_tab *tab, int nbr);
 
 int		bfs(int src, t_lem_in *env, t_tab *tab);
 void	free_env(t_lem_in *env, t_tab *tab);
