@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 15:16:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:39:57 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,17 @@ void	ft_rooms_display(t_rooms *rooms)
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
+}
+
+void	print_path(t_lem_in *env)
+{
+	t_int	*tmp;
+
+	tmp = env->elem->next;
+	ft_printf("\n");
+	while (tmp)
+	{
+		ft_printf("L1-%s\n", ft_get_name(env->rooms, tmp->data));
+		tmp = tmp->next;
+	}
 }

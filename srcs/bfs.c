@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 15:22:29 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:47:50 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,15 @@
 int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
 	if (src == dest)
-	{
 		ft_push_front_int(&env->elem, dest);
-		ft_printf("%d", src);
-	}
 	else if (tab->parent[dest] == -1)
-	{
-		ft_printf("Il n'y a pas de chemin de %d vers %d\n", src, dest);
 		return (-1);
-	}
 	else
 	{
 		ft_push_front_int(&env->elem, dest);
 		check_path(env, src, tab->parent[dest], tab);
-		ft_printf(" %d", dest);
 	}
 	return (0);
-}
-
-void	print_path(t_lem_in *env)
-{
-	t_int	*tmp;
-
-	tmp = env->elem->next;
-	ft_printf("\n");
-	while (tmp)
-	{
-		ft_printf("L1-%s\n", ft_get_name(env->rooms, tmp->data));
-		tmp = tmp->next;
-	}
 }
 
 int		init_bfs(int src, t_lem_in *env, t_tab *tab)

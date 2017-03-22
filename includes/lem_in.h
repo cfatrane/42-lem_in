@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 14:06:18 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:39:55 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		ft_int_first(t_int *elem);
 
 void	ft_printlst(t_lem_in *env);
 void	ft_rooms_display(t_rooms *rooms);
+void	print_path(t_lem_in *env);
 
 int		bfs(int src, t_lem_in *env, t_tab *tab);
 void	free_env(t_lem_in *env, t_tab *tab);
