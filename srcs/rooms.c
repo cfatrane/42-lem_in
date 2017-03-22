@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 20:05:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:35:25 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_start(t_lem_in *env, char *line)
 		return (-1);
 	env->flag_start = 1;
 	(get_next_line(0, &line));
+	ft_printf("%s\n", line);
 	words = ft_count_words_sep(line, ' ');
 	if (words == 3)
 	{
@@ -71,6 +72,7 @@ int		ft_end(t_lem_in *env, char *line)
 		return (-1);
 	env->flag_end = 1;
 	(get_next_line(0, &line));
+	ft_printf("%s\n", line);
 	words = ft_count_words_sep(line, ' ');
 	if (words == 3)
 	{

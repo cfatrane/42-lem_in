@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 14:14:06 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:22:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,33 @@ int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
 	if (src == dest)
 	{
+		ft_push_front_int(&env->elem, dest);
+		ft_printf("%d", src);
 	}
 	else if (tab->parent[dest] == -1)
+	{
+		ft_printf("Il n'y a pas de chemin de %d vers %d\n", src, dest);
 		return (-1);
+	}
 	else
+	{
+		ft_push_front_int(&env->elem, dest);
 		check_path(env, src, tab->parent[dest], tab);
+		ft_printf(" %d", dest);
+	}
 	return (0);
 }
 
-void	print_path_two(t_lem_in *env, int src, int dest, t_tab *tab)
+void	print_path(t_lem_in *env)
 {
-	(void)env;
-	t_int	*index;
+	t_int	*tmp;
 
-	index = NULL;
-	while (src != dest)
+	tmp = env->elem->next;
+	ft_printf("\n");
+	while (tmp)
 	{
-		ft_push_front_int(&index, dest);
-		dest = tab->parent[dest];
-	}
-	index = index->next;
-	while (index)
-	{
-		ft_printf("L1-%d\n", tab->parent[index->data]);
-		if (index->next == NULL)
-			ft_printf("L1-%d\n", index->data);
-		index = index->next;
+		ft_printf("L1-%s\n", ft_get_name(env->rooms, tmp->data));
+		tmp = tmp->next;
 	}
 }
 
@@ -49,13 +50,13 @@ int		init_bfs(int src, t_lem_in *env, t_tab *tab)
 {
 	int	i;
 
-	i = 0;
 	if (!(tab->color = (int*)malloc(sizeof(*tab->color) * env->malloc)))
 		return (-1);
 	if (!(tab->dist = (int*)malloc(sizeof(*tab->dist) * env->malloc)))
 		return (-1);
 	if (!(tab->parent = (int*)malloc(sizeof(*tab->parent) * env->malloc)))
 		return (-1);
+	i = 0;
 	while (i < env->nb_rooms)
 	{
 		tab->color[i] = WHITE;
@@ -105,6 +106,6 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 	}
 	if (check_path(env, src, env->end_hash, tab) == -1)
 		return (-1);
-	print_path_two(env, src, env->end_hash, tab);
+	print_path(env);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:52:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/15 13:53:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:28:06 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ int		ft_check_format_nbr(char *line)
 		if (*line == '-' || *line == '+')
 			line++;
 		if (!ft_isdigit(*line))
-		{
-			ft_printf("ERROR FORMAT\n");
 			return (-1);
-		}
 		line++;
 	}
 	return (0);
@@ -31,10 +28,7 @@ int		ft_check_format_nbr(char *line)
 int		ft_check_max(ssize_t line)
 {
 	if (line > INT_MAX)
-	{
-		ft_printf("ERROR OVERFLOW\n");
 		return (-1);
-	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 14:07:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:06:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct			s_lem_in
 	int					malloc;
 	char				*start_name;
 	char				*end_name;
+	struct s_int		*elem;
 	struct s_rooms		*rooms;
 	struct s_rooms		**tab_rooms;
 }						t_lem_in;
