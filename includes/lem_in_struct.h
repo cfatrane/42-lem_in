@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 20:04:02 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:07:35 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct			s_tab
 
 typedef struct			s_int
 {
-	int					i;
+	int					data;
 	struct s_int		*next;
 }						t_int;
 

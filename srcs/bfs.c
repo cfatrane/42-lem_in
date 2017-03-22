@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 14:00:25 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:14:06 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 	return (0);
 }
 
-int		print_path_two(t_lem_in *env, int src, int dest, t_tab *tab)
+void	print_path_two(t_lem_in *env, int src, int dest, t_tab *tab)
 {
+	(void)env;
 	t_int	*index;
 
 	index = NULL;
@@ -34,14 +35,14 @@ int		print_path_two(t_lem_in *env, int src, int dest, t_tab *tab)
 		ft_push_front_int(&index, dest);
 		dest = tab->parent[dest];
 	}
+	index = index->next;
 	while (index)
 	{
-		ft_printf("L1-%d\n", tab->parent[index->i]);
+		ft_printf("L1-%d\n", tab->parent[index->data]);
 		if (index->next == NULL)
-			ft_printf("L1-%d", index->i);
+			ft_printf("L1-%d\n", index->data);
 		index = index->next;
 	}
-	return (0);
 }
 
 int		init_bfs(int src, t_lem_in *env, t_tab *tab)
@@ -104,8 +105,6 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 	}
 	if (check_path(env, src, env->end_hash, tab) == -1)
 		return (-1);
-	if (print_path_two(env, src, env->end_hash, tab) == -1)
-		return (-1);
-	ft_printf("\n");
+	print_path_two(env, src, env->end_hash, tab);
 	return (0);
 }

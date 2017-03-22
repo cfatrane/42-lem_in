@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:47:08 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 13:03:19 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:04:08 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,4 @@ char	*ft_get_name(t_rooms *rooms, int hash_ref)
 		return (ft_get_name(rooms->next, hash_ref));
 	else
 		return (0);
-}
-
-int		ft_get_index(t_tab *tab, int nbr)
-{
-	int	i;
-
-	i = 0;
-	while (tab->parent[i] != nbr)
-	{
-		i++;
-	}
-	i = 1003;
-	while (tab->parent[i] != nbr)
-	{
-//		ft_printf("hey = %d\n", );
-		i--;
-	}
-	ft_printf("i = %d avec nbr = %d", i, nbr);
-	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 13:27:25 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 13:37:27 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:07:52 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_int	*ft_create_elem_int(int data)
 
 	if (!(elem = (t_int*)malloc(sizeof(*elem))))
 		return (NULL);
-	elem->i = data;
+	elem->data = data;
 	elem->next = NULL;
 	return (elem);
 }
@@ -60,23 +60,12 @@ void	ft_int_delone_front(t_int **stack)
 	}
 }
 
-int		ft_int_last(t_int *begin_list)
-{
-	if (begin_list == NULL)
-		return (0);
-	if (begin_list->next)
-		return (ft_int_last(begin_list->next));
-	else
-		return (begin_list->i);
-}
-
 int		ft_int_first(t_int *elem)
 {
 	int	i;
 
 	i = 0;
 	if (elem)
-		i = elem->i;
+		i = elem->data;
 	return (i);
 }
-
