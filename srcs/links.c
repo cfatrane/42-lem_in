@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 20:10:22 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 17:33:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		ft_links(t_lem_in *env, char *line)
 	int		hash2;
 	t_rooms	*tmp;
 
+	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_rooms != 1)
+		return (-1);
 	delete_collision(env);
 	if (!(env->tab_rooms))
 		if (!(env->tab_rooms = ft_memalloc(sizeof(t_rooms**) * env->malloc)))

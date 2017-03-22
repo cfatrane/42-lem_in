@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 15:39:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/22 17:54:08 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ void	ft_printlst(t_lem_in *env)
 		rooms = tabroom[i];
 		while (rooms)
 		{
-			ft_printf("|%d| --> ", rooms->hash);
-//			ft_printf("|%s| --> ", rooms->name);
+			ft_printf("|%s| --> ", rooms->name);
 			rooms = rooms->next;
 		}
 		ft_printf("\n");
@@ -62,18 +61,26 @@ void	ft_rooms_display(t_rooms *rooms)
 %d\n\033[0m", tmp->name, tmp->coord_x, tmp->coord_y, tmp->hash);
 		tmp = tmp->next;
 	}
-	ft_printf("\n");
 }
 
 void	print_path(t_lem_in *env)
 {
+	int		ants;
 	t_int	*tmp;
+	t_int	*lst;
 
+	ants = 1;
 	tmp = env->elem->next;
+	lst = env->elem->next;
 	ft_printf("\n");
-	while (tmp)
+	while (ants != env->ants + 1)
 	{
-		ft_printf("L1-%s\n", ft_get_name(env->rooms, tmp->data));
-		tmp = tmp->next;
+		while (tmp)
+		{
+			ft_printf("L%d-%s\n", ants, ft_get_name(env->rooms, tmp->data));
+			tmp = tmp->next;
+		}
+		tmp = lst;
+		ants++;
 	}
 }
