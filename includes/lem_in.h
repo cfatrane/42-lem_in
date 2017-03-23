@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 15:38:42 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 18:21:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int		ft_end(t_lem_in *env, char *line);
 int		ft_is_links(t_lem_in *env, char *line);
 int		ft_links(t_lem_in *env, char *line);
 int		ft_comment(t_lem_in *env, char *line);
+
+t_rooms	**ft_malloc_lst_adj(size_t x, size_t y);
 
 t_rooms	*collision(t_lem_in *env);
 int		hachage(t_lem_in *env, char *str);
