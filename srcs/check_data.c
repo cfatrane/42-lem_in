@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 14:45:54 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:49:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ int	check_links_rooms(t_lem_in *env, char *line)
 	else if (ft_is_links(env, line) == 1)
 	{
 		if (ft_links(env, line) == -1)
-		{
-			ft_printf("ICI\n");
 			return (-1);
-		}
 	}
 	else if (1)
 	{
