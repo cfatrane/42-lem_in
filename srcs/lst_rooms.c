@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/20 18:25:46 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:40:18 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,19 @@ t_rooms	*ft_rooms_sort(t_rooms *lst)
 	}
 	lst = parcour;
 	return (lst);
+}
+
+t_rooms	*ft_lstcpy(t_rooms *dst, t_rooms *src)
+{
+	while (src)
+	{
+		dst->name = src->name;
+		dst->coord_x = src->coord_x;
+		dst->coord_y = src->coord_y;
+		dst->hash = src->hash;
+		dst->next = src->next;
+		src = src->next;
+		dst = dst->next;
+	}
+	return (dst);
 }

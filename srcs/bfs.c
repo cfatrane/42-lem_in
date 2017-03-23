@@ -6,11 +6,18 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:35:47 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:43:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+size_t	ft_path_size(t_path *stack)
+{
+	if (stack == NULL)
+		return (0);
+	return (ft_path_size(stack->next) + 1);
+}
 
 int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
