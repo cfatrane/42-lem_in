@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 18:26:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 18:58:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 	if (src == dest)
 		ft_push_front_int(&env->elem, dest);
 	else if (tab->parent[dest] == -1)
-	{
-		ft_printf("FIN");
 		return (-1);
-	}
 	else
 	{
 		ft_push_front_int(&env->elem, dest);
