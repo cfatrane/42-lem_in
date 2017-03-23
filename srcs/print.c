@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:22:45 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:33:01 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	ft_rooms_display(t_rooms *rooms)
 void	print_path(t_lem_in *env)
 {
 	int		ants;
-	t_int	*tmp;
-	t_int	*lst;
+	t_path	*tmp;
+	t_path	*lst;
 
 	ants = 1;
 	tmp = env->elem->next;

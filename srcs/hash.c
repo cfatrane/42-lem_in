@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 14:14:13 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 16:09:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:26:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,6 @@ int		hachage(t_lem_in *env, char *str)
 	hash %= env->nb_rooms;
 	hash = ft_abs(hash);
 	return (hash);
-}
-
-int		search_hash(t_lem_in *env, char *str)
-{
-	(void)env;
-	(void)str;
-	return (0);
 }
 
 int		max_hash(t_lem_in *env)

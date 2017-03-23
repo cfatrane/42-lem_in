@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 18:58:47 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:35:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
 	if (src == dest)
-		ft_push_front_int(&env->elem, dest);
+		ft_push_front_path(&env->elem, dest);
 	else if (tab->parent[dest] == -1)
 		return (-1);
 	else
 	{
-		ft_push_front_int(&env->elem, dest);
+		ft_push_front_path(&env->elem, dest);
 		check_path(env, src, tab->parent[dest], tab);
 	}
 	return (0);
@@ -50,14 +50,14 @@ int		init_bfs(int src, t_lem_in *env, t_tab *tab)
 	return (0);
 }
 
-void	bfs_fill(t_tab *tab, t_int **queue, int u, int v)
+void	bfs_fill(t_tab *tab, t_path **queue, int u, int v)
 {
 	if (tab->color[v] == WHITE)
 	{
 		tab->dist[v] = tab->dist[u] + 1;
 		tab->color[v] = GREY;
 		tab->parent[v] = u;
-		ft_push_back_int(queue, v);
+		ft_push_back_path(queue, v);
 	}
 }
 
@@ -65,16 +65,16 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 {
 	int		u;
 	int		v;
-	t_int	*queue;
+	t_path	*queue;
 	t_rooms	*tmp;
 
 	queue = NULL;
 	init_bfs(src, env, tab);
-	ft_push_back_int(&queue, src);
-	while (ft_int_size(queue) != 0)
+	ft_push_back_path(&queue, src);
+	while (ft_path_size(queue) != 0)
 	{
-		u = ft_int_first(queue);
-		ft_int_delone_front(&queue);
+		u = ft_path_first(queue);
+		ft_path_delone_front(&queue);
 		tmp = env->tab_rooms[u];
 		while (tmp)
 		{

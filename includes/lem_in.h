@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 18:21:45 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:35:19 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ int		check_doublon_links(t_lem_in *env, int hash1, int hash2);
 void	delete_collision(t_lem_in *env);
 
 size_t	ft_rooms_size(t_rooms *stack);
-size_t	ft_int_size(t_int *stack);
+size_t	ft_path_size(t_path *stack);
 
-void	ft_push_back_int(t_int **elem, int data);
-void	ft_push_front_int(t_int **elem, int data);
-void	ft_int_delone_back(t_int *stack);
-void	ft_int_delone_front(t_int **stack);
-int		ft_int_first(t_int *elem);
+void	ft_push_back_path(t_path **elem, int data);
+void	ft_push_front_path(t_path **elem, int data);
+void	ft_path_delone_back(t_path *stack);
+void	ft_path_delone_front(t_path **stack);
+int		ft_path_first(t_path *elem);
 
 void	ft_printlst(t_lem_in *env);
 void	ft_rooms_display(t_rooms *rooms);

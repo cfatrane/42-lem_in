@@ -1,54 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_int.c                                          :+:      :+:    :+:   */
+/*   lst_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 13:27:25 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 14:07:52 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:36:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_int	*ft_create_elem_int(int data)
+t_path	*ft_create_elem_path(int data)
 {
-	t_int	*elem;
+	t_path	*elem;
 
-	if (!(elem = (t_int*)malloc(sizeof(*elem))))
+	if (!(elem = (t_path*)malloc(sizeof(*elem))))
 		return (NULL);
 	elem->data = data;
 	elem->next = NULL;
 	return (elem);
 }
 
-void	ft_push_back_int(t_int **elem, int data)
+void	ft_push_back_path(t_path **elem, int data)
 {
 	if (*elem)
 	{
 		if ((*elem)->next)
-			ft_push_back_int(&(*elem)->next, data);
+			ft_push_back_path(&(*elem)->next, data);
 		else
-			(*elem)->next = ft_create_elem_int(data);
+			(*elem)->next = ft_create_elem_path(data);
 	}
 	else
-		*elem = ft_create_elem_int(data);
+		*elem = ft_create_elem_path(data);
 }
 
-void	ft_push_front_int(t_int **elem, int data)
+void	ft_push_front_path(t_path **elem, int data)
 {
-	t_int	*list;
+	t_path	*list;
 
-	list = ft_create_elem_int(data);
+	list = ft_create_elem_path(data);
 	if ((*elem))
 		list->next = *elem;
 	*elem = list;
 }
 
-void	ft_int_delone_front(t_int **stack)
+void	ft_path_delone_front(t_path **stack)
 {
-	t_int	*to_free;
+	t_path	*to_free;
 
 	if (stack == NULL)
 		exit(EXIT_FAILURE);
@@ -60,7 +60,7 @@ void	ft_int_delone_front(t_int **stack)
 	}
 }
 
-int		ft_int_first(t_int *elem)
+int		ft_path_first(t_path *elem)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:19:47 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:32:39 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ typedef struct			s_tab
 	int					*parent;
 }						t_tab;
 
-typedef struct			s_int
+typedef struct			s_path
 {
 	int					data;
-	struct s_int		*next;
-}						t_int;
+	struct s_path		*next;
+}						t_path;
 
 typedef struct			s_rooms
 {
@@ -62,7 +62,7 @@ typedef struct			s_lem_in
 	int					malloc;
 	char				*start_name;
 	char				*end_name;
-	struct s_int		*elem;
+	struct s_path		*elem;
 	struct s_rooms		*rooms;
 	struct s_rooms		**tab_rooms;
 }						t_lem_in;
