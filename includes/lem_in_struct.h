@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 18:59:19 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:19:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct			s_rooms
 	int					coord_x;
 	int					coord_y;
 	int					hash;
-	int					weight;
 	struct s_rooms		*next;
 }						t_rooms;
 
