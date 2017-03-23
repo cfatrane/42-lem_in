@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:43:17 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:57:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ size_t	ft_path_size(t_path *stack)
 int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
 	if (src == dest)
-		ft_push_front_path(&env->elem, dest);
+		ft_push_front_path(&env->path, dest);
 	else if (tab->parent[dest] == -1)
 		return (-1);
 	else
 	{
-		ft_push_front_path(&env->elem, dest);
+		ft_push_front_path(&env->path, dest);
 		check_path(env, src, tab->parent[dest], tab);
 	}
 	return (0);

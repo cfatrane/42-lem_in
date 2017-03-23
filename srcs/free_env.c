@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:20:39 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:34:29 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:58:01 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	ft_rooms_clear(t_rooms **rooms)
 	}
 }
 
-void	ft_path_clear(t_path **elem)
+void	ft_path_clear(t_path **path)
 {
-	if (*elem != NULL)
+	if (*path != NULL)
 	{
-		ft_path_clear(&((*elem)->next));
-		free(*elem);
-		*elem = NULL;
+		ft_path_clear(&((*path)->next));
+		free(*path);
+		*path = NULL;
 	}
 }
 
@@ -54,7 +54,7 @@ void	free_env(t_lem_in *env, t_tab *tab)
 {
 	ft_rooms_clear(&env->rooms);
 	ft_free_tab_room(env);
-	ft_path_clear(&env->elem);
+	ft_path_clear(&env->path);
 	free(tab->color);
 	free(tab->parent);
 	free(tab->dist);
