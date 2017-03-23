@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew_two.c                                    :+:      :+:    :+:   */
+/*   ft_strdel_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 11:36:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 15:21:45 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/03/23 15:36:34 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/03/23 15:53:48 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strnew_two(size_t x, size_t y)
+void	ft_strdel_two(char **ptr, int x, int y)
 {
-	char	**ptr;
-	size_t	i;
+	int i;
 
-	ptr = (char**)malloc(sizeof(*ptr) * (y + 1));
-	if (ptr == NULL)
-		return (NULL);
 	i = 0;
 	while (i < y)
 	{
-		ptr[i] = (char*)malloc(sizeof(**ptr) * (x + 1));
+		ptr[i] = (char*)malloc(sizeof(*(ptr[i])) * x);
 		if (ptr[i] == NULL)
-			return (NULL);
+		{
+			i = i - 1;
+			while (i >= 0)
+			{
+				free(ptr[i]);
+				i--;
+			}
+			free(ptr);
+		}
 		i++;
 	}
-	ptr[i] = "\0";
-	return (ptr);
 }

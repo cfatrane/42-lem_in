@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 16:03:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 15:41:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_start(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
-	if (env->flag_start == 1)
+	if (env->flag_start == 1 || env->flag_links == 3)
 		return (-1);
 	env->flag_start = 1;
 	(get_next_line(0, &line));
@@ -31,6 +31,7 @@ int		ft_start(t_lem_in *env, char *line)
 		env->start_name = data[0];
 		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
+		ft_strdel_two(data, 1, words);
 		env->nb_rooms++;
 	}
 	else
@@ -43,6 +44,8 @@ int		ft_rooms(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
+	if (env->flag_links == 3)
+		return (-1);
 	env->flag_rooms = 1;
 	words = ft_count_words_sep(line, ' ');
 	if (words == 3)
@@ -52,6 +55,7 @@ int		ft_rooms(t_lem_in *env, char *line)
 			return (-1);
 		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
+		ft_strdel_two(data, 1, words);
 		if (check_doublon_coord(env) == -1)
 			return (-1);
 		env->nb_rooms++;
@@ -66,7 +70,7 @@ int		ft_end(t_lem_in *env, char *line)
 	char	**data;
 	int		words;
 
-	if (env->flag_end == 1)
+	if (env->flag_end == 1 || env->flag_links == 3)
 		return (-1);
 	env->flag_end = 1;
 	(get_next_line(0, &line));
@@ -80,6 +84,7 @@ int		ft_end(t_lem_in *env, char *line)
 		env->end_name = data[0];
 		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
 				ft_atoll(data[2]));
+		ft_strdel_two(data, 1, words);
 		env->nb_rooms++;
 	}
 	else

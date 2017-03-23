@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 18:27:40 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 14:45:54 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	check_ants(t_lem_in *env)
 	if (env->ants <= 0)
 		return (-1);
 	ft_printf("%s\n", line);
+	free(line);
 	return (0);
 }
 

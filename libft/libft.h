@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/16 13:45:33 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 15:37:46 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ char				*ft_strnew(size_t size);
 char				**ft_strnew_two(size_t x, size_t y);
 char				***ft_strnew_three(size_t x, size_t y, size_t z);
 void				ft_strdel(char **as);
+void				ft_strdel_two(char **ptr, int x, int y);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));

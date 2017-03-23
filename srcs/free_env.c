@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 18:20:39 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 19:14:00 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 15:54:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,15 @@ void	ft_int_clear(t_int **elem)
 	}
 }
 
-void	free_tab_room(t_lem_in *env)
+void	ft_free_tab_room(t_lem_in *env)
 {
 	int	i;
 
 	i = 0;
 	while (env->tab_rooms[i])
 	{
-		ft_rooms_clear(&(env->tab_rooms[i]));
+		if (env->tab_rooms[i])
+			ft_rooms_clear(&(env->tab_rooms[i]));
 		i++;
 	}
 }
@@ -47,10 +48,10 @@ void	free_tab_room(t_lem_in *env)
 void	free_env(t_lem_in *env, t_tab *tab)
 {
 	ft_rooms_clear(&env->rooms);
+	ft_free_tab_room(env);
+	free(env->tab_rooms);
 	ft_int_clear(&env->elem);
 	free(tab->color);
 	free(tab->parent);
 	free(tab->dist);
-	free(tab);
-	free(env);
 }

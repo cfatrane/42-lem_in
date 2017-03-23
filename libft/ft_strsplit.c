@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:43:43 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/26 19:56:56 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/23 15:51:51 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	**ft_strsplit(char const *s, char c)
 {
 	char	**str;
-	int		i;
+	size_t	i;
 	int		nb_words;
 	size_t	len;
 
@@ -23,7 +23,7 @@ char	**ft_strsplit(char const *s, char c)
 		return (NULL);
 	i = 0;
 	nb_words = ft_count_words_sep(s, c);
-	if (!(str = ((char**)malloc(sizeof(*str) * (nb_words + 1)))))
+	if (!(str = ft_strnew_two(1, nb_words)))
 		return (NULL);
 	while (nb_words--)
 	{
@@ -33,9 +33,9 @@ char	**ft_strsplit(char const *s, char c)
 		str[i] = ft_strsub(s, 0, len);
 		if (str[i] == '\0')
 			return (NULL);
-		s = s + ft_strlen_sep(s, c);
+		s += ft_strlen_sep(s, c);
 		i++;
 	}
-	str[i] = NULL;
+	str[i] = "\0";
 	return (str);
 }

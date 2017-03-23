@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/12 15:31:38 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/23 15:38:27 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRC_NAME =	ft_memset.c				\
 			ft_atou.c				\
 			ft_strnew.c				\
 			ft_strdel.c				\
+			ft_strdel_two.c			\
 			ft_strclr.c				\
 			ft_striter.c			\
 			ft_striteri.c			\
