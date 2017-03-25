@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 11:24:41 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 17:43:12 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 18:50:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ void	move_ants(t_lem_in *env)
 
 	ants = 1;
 	parcours = NULL;
-	if (env->flag_entry != 1)
-		print_data(env);
+//	if (env->flag_entry != 1)
+//		print_data(env);
 	if (env->flag_print == 1)
 		ft_printlst(env);
 	while (ants != env->ants + 1)
 	{
 		ft_push_back_path(&parcours, 0, ants, env->path->next->name);
-		print_path(parcours);
+//		print_path(parcours);
 		if (parcours->name == env->end_name)
 			ft_path_delone_front(&parcours);
 		move_ants_next(env, parcours);
@@ -72,7 +72,7 @@ void	move_ants(t_lem_in *env)
 	}
 	while (ft_path_size(parcours) != 0)
 	{
-		print_path(parcours);
+//		print_path(parcours);
 		if (parcours->name == env->end_name)
 			ft_path_delone_front(&parcours);
 		move_ants_next(env, parcours);

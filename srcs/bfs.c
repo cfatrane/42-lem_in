@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 14:25:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 20:04:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int		init_bfs(int src, t_lem_in *env, t_tab *tab)
 {
 	int	i;
 
-	if (!(tab->color = (int*)malloc(sizeof(*tab->color) * env->malloc)))
+	if (!(tab->color = ft_tabnew(env->malloc)))
 		return (-1);
-	if (!(tab->dist = (int*)malloc(sizeof(*tab->dist) * env->malloc)))
+	if (!(tab->dist = ft_tabnew(env->malloc)))
 		return (-1);
-	if (!(tab->parent = (int*)malloc(sizeof(*tab->parent) * env->malloc)))
+	if (!(tab->parent = ft_tabnew(env->malloc)))
 		return (-1);
 	i = 0;
 	while (i < env->nb_rooms)

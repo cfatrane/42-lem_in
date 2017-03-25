@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 17:10:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 18:40:09 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	t_lem_in	*env;
 	t_tab		*tab;
 
-	if (!(env = ft_memalloc(sizeof(t_lem_in))))
+	if ((env = ft_memalloc(sizeof(t_lem_in))) == NULL)
 	{
 		ft_putendl_fd("ERROR", 2);
 		return (-1);
