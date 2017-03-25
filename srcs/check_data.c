@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 17:12:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 18:07:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	check_ants(t_lem_in *env)
 
 int	check_links_rooms(t_lem_in *env, char *line)
 {
-	if (line[0] == '#' && line[1] != '#')
+	if ((line[0] == '#' && line[1] != '#') ||
+			(line[0] == '#' && line[1] == '#'))
 	{
 	}
 	else if (ft_is_links(env, line) == 1)
@@ -76,19 +77,17 @@ int	check_rooms(t_lem_in *env, t_tab *tab)
 {
 	char	*line;
 
-	(void)tab;
 	while (get_next_line(0, &line) > 0)
 	{
 		ft_push_back_line(&env->data, line);
 		if (ft_strcmp(line, "") == 0)
-		{
-			if (algo(env, tab) == -1)
-				return (-1);
-			return (0);
-		}
+			return (algo(env, tab) == -1 ? -1 : 0);
 		if (check_start_end(env, line) == -1)
 		{
-			return (-1);
+			if (ft_strcmp(line, "") == 0)
+				return (algo(env, tab) == -1 ? -1 : 0);
+			ft_printf("\n");
+			return (algo(env, tab) == -1 ? -1 : -1);
 		}
 		free(line);
 	}

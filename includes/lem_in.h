@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 15:15:58 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 17:26:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		ft_path_first(t_path *path);
 size_t	ft_path_size(t_path *path);
 
 void	ft_push_back_line(t_line **line, char *data);
-void	print_data(t_line *data);
+void	print_data(t_lem_in *env);
 
 void	move_ants(t_lem_in *env);
 

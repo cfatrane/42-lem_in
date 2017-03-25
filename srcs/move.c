@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 11:24:41 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 14:58:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 17:43:12 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	move_ants(t_lem_in *env)
 
 	ants = 1;
 	parcours = NULL;
-	print_data(env->data);
+	if (env->flag_entry != 1)
+		print_data(env);
 	if (env->flag_print == 1)
 		ft_printlst(env);
 	while (ants != env->ants + 1)

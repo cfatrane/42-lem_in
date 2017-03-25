@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/25 14:33:56 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 14:55:06 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 17:27:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,16 @@ void	ft_push_back_line(t_line **line, char *data)
 		*line = ft_create_elem_line(data);
 }
 
-void	print_data(t_line *data)
+void	print_data(t_lem_in *env)
 {
 	t_line	*tmp;
 
-	tmp = data;
+	tmp = env->data;
 	while (tmp)
 	{
 		ft_printf("%s\n", tmp->line);
 		tmp = tmp->next;
 	}
-	ft_printf("\n");
+	if (env->flag_entry != 1)
+		ft_printf("\n");
 }
