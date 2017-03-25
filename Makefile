@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/07 09:38:40 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/03/23 19:40:55 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/03/24 11:25:12 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ INC_PATH = ./includes/
 # Name
 
 SRC_NAME =	lem_in.c			\
+			bfs.c				\
+			move.c				\
 			check_data.c		\
 			rooms.c				\
 			links.c				\
@@ -37,7 +39,6 @@ SRC_NAME =	lem_in.c			\
 			error_doublon.c		\
 			error_links.c		\
 			error_data.c		\
-			bfs.c				\
 			free_env.c			\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

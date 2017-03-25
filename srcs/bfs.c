@@ -6,28 +6,28 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 17:10:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:57:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 13:04:25 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-size_t	ft_path_size(t_path *stack)
+size_t	ft_path_size(t_path *path)
 {
-	if (stack == NULL)
+	if (path == NULL)
 		return (0);
-	return (ft_path_size(stack->next) + 1);
+	return (ft_path_size(path->next) + 1);
 }
 
 int		check_path(t_lem_in *env, int src, int dest, t_tab *tab)
 {
 	if (src == dest)
-		ft_push_front_path(&env->path, dest);
+		ft_push_front_path(&env->path, dest, 0, ft_get_name(env->rooms, dest));
 	else if (tab->parent[dest] == -1)
 		return (-1);
 	else
 	{
-		ft_push_front_path(&env->path, dest);
+		ft_push_front_path(&env->path, dest, 0, ft_get_name(env->rooms, dest));
 		check_path(env, src, tab->parent[dest], tab);
 	}
 	return (0);
@@ -64,7 +64,7 @@ void	bfs_fill(t_tab *tab, t_path **queue, int u, int v)
 		tab->dist[v] = tab->dist[u] + 1;
 		tab->color[v] = GREY;
 		tab->parent[v] = u;
-		ft_push_back_path(queue, v);
+		ft_push_back_path(queue, v, 0, NULL);
 	}
 }
 
@@ -77,7 +77,7 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 
 	queue = NULL;
 	init_bfs(src, env, tab);
-	ft_push_back_path(&queue, src);
+	ft_push_back_path(&queue, src, 0, NULL);
 	while (ft_path_size(queue) != 0)
 	{
 		u = ft_path_first(queue);
@@ -93,6 +93,7 @@ int		bfs(int src, t_lem_in *env, t_tab *tab)
 	}
 	if (check_path(env, src, env->end_hash, tab) == -1)
 		return (-1);
-	print_path(env);
+//	print_path(env);
+	move_ants(env);
 	return (0);
 }

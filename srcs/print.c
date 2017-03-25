@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/10 16:18:24 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:57:49 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/24 11:24:54 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,27 +63,5 @@ void	ft_rooms_display(t_rooms *rooms)
 		ft_printf("\033[31mName = %s Coord X = %d Coord Y = %d HASH = \
 				%d\n\033[0m", tmp->name, tmp->coord_x, tmp->coord_y, tmp->hash);
 		tmp = tmp->next;
-	}
-}
-
-void	print_path(t_lem_in *env)
-{
-	int		ants;
-	t_path	*tmp;
-	t_path	*lst;
-
-	ants = 1;
-	tmp = env->path->next;
-	lst = env->path->next;
-	ft_printf("\n");
-	while (ants != env->ants + 1)
-	{
-		while (tmp)
-		{
-			ft_printf("L%d-%s\n", ants, ft_get_name(env->rooms, tmp->data));
-			tmp = tmp->next;
-		}
-		tmp = lst;
-		ants++;
 	}
 }

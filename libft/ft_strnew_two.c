@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/20 11:36:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 15:21:45 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/24 15:34:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char	**ft_strnew_two(size_t x, size_t y)
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
-	while (i < y)
+	while (i < y - 1)
 	{
 		ptr[i] = (char*)malloc(sizeof(**ptr) * (x + 1));
 		if (ptr[i] == NULL)
 			return (NULL);
 		i++;
 	}
-	ptr[i] = "\0";
+	ptr[i] = NULL;
 	return (ptr);
 }

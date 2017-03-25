@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/21 14:22:42 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/28 11:53:50 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/24 16:11:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 int		**ft_tabnew_two(size_t x, size_t y)
 {
+	int		**ptr;
 	size_t	i;
-	int		**tab;
-	int		*tab2;
 
+	ptr = (int**)malloc(sizeof(*ptr) * (y + 1));
+	if (ptr == NULL)
+		return (NULL);
 	i = 0;
-	if (!(tab = (int**)malloc(sizeof(tab) * y)))
-		return (NULL);
-	if (!(tab2 = (int*)malloc(sizeof(tab2) * (x * y))))
-		return (NULL);
-	while (i < y)
+	while (i < y - 1)
 	{
-		tab[i] = &tab2[i * x];
+		ptr[i] = (int*)malloc(sizeof(**ptr) * (x + 1));
+		if (ptr[i] == NULL)
+			return (NULL);
 		i++;
 	}
-	return (tab);
+	ptr[i] = NULL;
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:43:43 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 15:51:51 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/24 15:25:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ char	**ft_strsplit(char const *s, char c)
 		s += ft_strlen_sep(s, c);
 		i++;
 	}
-	str[i] = "\0";
+	str[i] = NULL;
 	return (str);
 }
