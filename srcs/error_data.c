@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:52:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/22 14:28:06 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 16:10:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_check_format_nbr(char *line)
 
 int		ft_check_max(ssize_t line)
 {
-	if (line > INT_MAX)
+	if (line < INT_MIN || line > INT_MAX)
 		return (-1);
 	return (0);
 }

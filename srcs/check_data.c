@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 15:29:47 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 17:12:57 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_ants(t_lem_in *env)
 	get_next_line(0, &line);
 	if (ft_error_nbr(line) == -1)
 		return (-1);
-	env->ants = atoi(line);
+	env->ants = ft_atoll(line);
 	if (env->ants <= 0)
 		return (-1);
 	ft_push_back_line(&env->data, line);
@@ -62,26 +62,32 @@ int	check_start_end(t_lem_in *env, char *line)
 	return (0);
 }
 
+int	algo(t_lem_in *env, t_tab *tab)
+{
+	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
+		return (-1);
+	env->flag_entry = 1;
+	if (bfs(env->start_hash, env, tab) == -1)
+		return (-1);
+	return (0);
+}
+
 int	check_rooms(t_lem_in *env, t_tab *tab)
 {
 	char	*line;
 
+	(void)tab;
 	while (get_next_line(0, &line) > 0)
 	{
 		ft_push_back_line(&env->data, line);
+		if (ft_strcmp(line, "") == 0)
+		{
+			if (algo(env, tab) == -1)
+				return (-1);
+			return (0);
+		}
 		if (check_start_end(env, line) == -1)
 		{
-			if (ft_strcmp(line, "") == 0)
-			{
-				if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
-					return (-1);
-				env->flag_entry = 1;
-				if (bfs(env->start_hash, env, tab) == -1)
-					return (-1);
-				return (0);
-			}
-				if (bfs(env->start_hash, env, tab) == -1)
-					return (-1);
 			return (-1);
 		}
 		free(line);
