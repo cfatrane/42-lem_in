@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 14:42:08 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 15:21:11 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct			s_lem_in
 	int					flag_links;
 	int					flag_dbl;
 	int					flag_print;
+	int					flag_entry;
 	int					start_hash;
 	int					end_hash;
 	int					malloc;

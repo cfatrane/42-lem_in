@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 15:02:48 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 15:21:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ int	lem_in(t_lem_in *env, t_tab *tab)
 {
 	if (check_ants(env) == -1)
 		return (-1);
-	if (check_rooms(env) == -1)
+	if (check_rooms(env, tab) == -1)
 		return (-1);
 	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
 		return (-1);
-	if (bfs(env->start_hash, env, tab) == -1)
-		return (-1);
+	if (env->flag_entry != 1)
+		if (bfs(env->start_hash, env, tab) == -1)
+			return (-1);
 	return (0);
 }
 

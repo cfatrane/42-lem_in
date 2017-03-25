@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 14:56:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 15:15:58 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_error_nbr(char *line);
 int		ft_error_rooms(char *name, char *x, char *y);
 
 int		check_ants(t_lem_in *env);
-int		check_rooms(t_lem_in *env);
+int		check_rooms(t_lem_in *env, t_tab *tab);
 
 int		ft_start(t_lem_in *env, char *line);
 int		ft_rooms(t_lem_in *env, char *line);
