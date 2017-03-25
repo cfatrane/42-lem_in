@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/24 15:47:46 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 14:42:08 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ typedef enum			e_color
 	BLACK
 }						t_color;
 
-typedef enum			e_status
+typedef struct			s_line
 {
-	VACANT,
-	TAKEN
-}						t_status;
+	char				*line;
+	struct s_line		*next;
+}						t_line;
 
 typedef struct			s_tab
 {
@@ -40,7 +40,6 @@ typedef struct			s_path
 	char				*name;
 	int					ants;
 	int					data;
-	int					status;
 	struct s_path		*next;
 }						t_path;
 
@@ -71,6 +70,7 @@ typedef struct			s_lem_in
 	int					malloc;
 	char				*start_name;
 	char				*end_name;
+	struct s_line		*data;
 	struct s_path		*path;
 	struct s_rooms		*rooms;
 	struct s_rooms		**tab_rooms;

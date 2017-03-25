@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/24 15:51:13 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 14:56:03 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,20 @@ void	ft_push_front_rooms(t_rooms **rooms, char *name, int x, int y);
 void	ft_push_front_tab(t_rooms **rooms, t_rooms *src, int hash);
 void	ft_push_back_tab(t_rooms **rooms, t_rooms *src, int hash);
 
-void	ft_push_back_path(t_path **path, int data,int ants, char *name);
+void	ft_push_back_path(t_path **path, int data, int ants, char *name);
 void	ft_push_front_path(t_path **path, int data, int ants, char *name);
 void	ft_path_delone_back(t_path *path);
 void	ft_path_delone_front(t_path **path);
 int		ft_path_first(t_path *path);
 size_t	ft_path_size(t_path *path);
 
+void	ft_push_back_line(t_line **line, char *data);
+void	print_data(t_line *data);
+
 void	move_ants(t_lem_in *env);
 
 void	ft_printlst(t_lem_in *env);
 void	ft_rooms_display(t_rooms *rooms);
-//void	print_path(t_lem_in *env);
 
 void	free_env(t_lem_in *env, t_tab *tab);
 

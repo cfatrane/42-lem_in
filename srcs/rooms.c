@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/24 15:24:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 14:55:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int		ft_start(t_lem_in *env, char *line)
 	if (env->flag_start == 1 || env->flag_links == 3)
 		return (-1);
 	env->flag_start = 1;
-	(get_next_line(0, &line));
-	ft_printf("%s\n", line);
+	get_next_line(0, &line);
 	words = ft_count_words_sep(line, ' ');
 	if (words == 3)
 	{
@@ -33,6 +32,7 @@ int		ft_start(t_lem_in *env, char *line)
 				ft_atoll(data[2]));
 		ft_strdel_two(data, 1, words);
 		env->nb_rooms++;
+		ft_push_back_line(&env->data, line);
 	}
 	else
 		return (-1);
@@ -73,8 +73,7 @@ int		ft_end(t_lem_in *env, char *line)
 	if (env->flag_end == 1 || env->flag_links == 3)
 		return (-1);
 	env->flag_end = 1;
-	(get_next_line(0, &line));
-	ft_printf("%s\n", line);
+	get_next_line(0, &line);
 	words = ft_count_words_sep(line, ' ');
 	if (words == 3)
 	{
@@ -86,6 +85,7 @@ int		ft_end(t_lem_in *env, char *line)
 				ft_atoll(data[2]));
 		ft_strdel_two(data, 1, words);
 		env->nb_rooms++;
+		ft_push_back_line(&env->data, line);
 	}
 	else
 		return (-1);
