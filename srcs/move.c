@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 11:24:41 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 18:50:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/28 13:22:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 void	print_path(t_path *parcours)
 {
 	t_path	*tmp;
+	int		color;
 
+	color = 31;
 	tmp = parcours;
 	while (tmp)
 	{
-		ft_printf("L%d-%s", tmp->ants, tmp->name);
+		ft_printf("L");
+		ft_printf("\033[%dm%d\033[0m-\033[36m%s\033[0m",
+				color, tmp->ants, tmp->name);
 		if (tmp->next != NULL)
 			ft_printf(" ");
 		tmp = tmp->next;
@@ -57,14 +61,15 @@ void	move_ants(t_lem_in *env)
 
 	ants = 1;
 	parcours = NULL;
-//	if (env->flag_entry != 1)
-//		print_data(env);
-	if (env->flag_print == 1)
+	if (env->flag_entry != 1)
+		print_data(env);
+	if (env->flag_print_list == 1)
 		ft_printlst(env);
+	return ;
 	while (ants != env->ants + 1)
 	{
 		ft_push_back_path(&parcours, 0, ants, env->path->next->name);
-//		print_path(parcours);
+		print_path(parcours);
 		if (parcours->name == env->end_name)
 			ft_path_delone_front(&parcours);
 		move_ants_next(env, parcours);
@@ -72,7 +77,7 @@ void	move_ants(t_lem_in *env)
 	}
 	while (ft_path_size(parcours) != 0)
 	{
-//		print_path(parcours);
+		print_path(parcours);
 		if (parcours->name == env->end_name)
 			ft_path_delone_front(&parcours);
 		move_ants_next(env, parcours);

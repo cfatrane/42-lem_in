@@ -6,11 +6,17 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 13:51:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 18:40:09 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/28 13:42:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+int	return_error(void)
+{
+	ft_putendl_fd("ERROR", 2);
+	return (-1);
+}
 
 int	lem_in(t_lem_in *env, t_tab *tab)
 {
@@ -20,24 +26,10 @@ int	lem_in(t_lem_in *env, t_tab *tab)
 		return (-1);
 	if (env->flag_start != 1 || env->flag_end != 1 || env->flag_path != 1)
 		return (-1);
+//	ft_rooms_display(env->rooms);
 	if (env->flag_entry != 1)
 		if (bfs(env->start_hash, env, tab) == -1)
 			return (-1);
-	return (0);
-}
-
-int	active_flag(t_lem_in *env, int argc, char **argv)
-{
-	if (argc == 2)
-	{
-		if (ft_strcmp(argv[1], "-v") == 0)
-			env->flag_print = 1;
-		else
-		{
-			ft_putendl_fd("ERROR", 2);
-			return (-1);
-		}
-	}
 	return (0);
 }
 
@@ -46,26 +38,19 @@ int	main(int argc, char **argv)
 	t_lem_in	*env;
 	t_tab		*tab;
 
-	if ((env = ft_memalloc(sizeof(t_lem_in))) == NULL)
-	{
-		ft_putendl_fd("ERROR", 2);
-		return (-1);
-	}
+	if (!(env = ft_memalloc(sizeof(t_lem_in))))
+		return (return_error());
 	if (!(tab = ft_memalloc(sizeof(t_tab))))
-	{
-		ft_putendl_fd("ERROR", 2);
-		return (-1);
-	}
+		return (return_error());
 	if (active_flag(env, argc, argv) == -1)
-		return (-1);
-	if (argc == 1 || env->flag_print == 1)
-	{
+		return (return_error());
+	if (argc == 1 || env->flag_print_list == 1 || env->flag_print_short == 1 ||
+			env->flag_print_all == 1)
 		if (lem_in(env, tab) == -1)
-		{
-			ft_putendl_fd("ERROR", 2);
-			return (-1);
-		}
-	}
+			return (return_error());
+	if (env->flag_print_short == 1)
+		ft_print_shortest_path(env);
+	ft_print_full_path(env, tab);
 	free_env(env, tab);
 	return (0);
 }

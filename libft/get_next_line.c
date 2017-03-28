@@ -6,27 +6,33 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 13:51:49 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 16:28:45 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/26 20:49:10 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_return(char *readfile, char **line)
+static int	ft_return(char **readfile, char **line)
 {
 	char	*temp;
 
-	temp = ft_strchr(readfile, '\n');
+	if (ft_strcmp("\0", *readfile) == 0)
+	{
+		free(*readfile);
+		*readfile = NULL;
+		return (0);
+	}
+	temp = ft_strchr(*readfile, '\n');
 	if (temp != NULL)
 	{
-		*line = ft_strdup_c(readfile, '\n');
-		ft_strcpy(readfile, temp + 1);
+		*line = ft_strdup_c(*readfile, '\n');
+		ft_strcpy(*readfile, temp + 1);
 		return (1);
 	}
-	else if (ft_strlen(readfile) > 0)
+	else if (ft_strlen(*readfile) > 0)
 	{
-		*line = ft_strdup(readfile);
-		*readfile = '\0';
+		*line = ft_strdup(*readfile);
+		**readfile = '\0';
 		return (1);
 	}
 	return (0);
@@ -49,11 +55,12 @@ int			get_next_line(const int fd, char **line)
 		if (ret == -1)
 			return (-1);
 		if (ret == 0)
-			return (ft_return(readfile, line));
+			return (ft_return(&readfile, line));
 		buf[ret] = '\0';
-		temp = ft_strjoin(readfile, buf);
+		if (!(temp = ft_strjoin(readfile, buf)))
+			return (0);
 		free(readfile);
 		readfile = temp;
 	}
-	return (ft_return(readfile, line));
+	return (ft_return(&readfile, line));
 }

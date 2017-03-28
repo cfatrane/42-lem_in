@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:40:28 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:40:31 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/26 19:50:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	size_t i;
+	size_t	i;
 
 	i = ft_strlen(src);
 	while (*src != '\0')

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 16:24:35 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 17:31:22 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/27 20:15:55 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 
 # include "lem_in.h"
 
-typedef enum			e_color
-{
-	WHITE,
-	GREY,
-	BLACK
-}						t_color;
+# define WHITE 1
+# define GREY 2
+# define BLACK 3
 
 typedef struct			s_line
 {
@@ -64,7 +61,9 @@ typedef struct			s_lem_in
 	int					flag_path;
 	int					flag_links;
 	int					flag_dbl;
-	int					flag_print;
+	int					flag_print_list;
+	int					flag_print_short;
+	int					flag_print_all;
 	int					flag_entry;
 	int					flag_error;
 	int					start_hash;

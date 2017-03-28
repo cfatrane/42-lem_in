@@ -6,26 +6,30 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:09 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/23 19:40:18 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/28 13:09:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-t_rooms	*ft_create_elem_rooms(char *name, int x, int y)
+t_rooms	*ft_create_elem_rooms(char *name, char *x, char *y)
 {
 	t_rooms	*rooms;
 
 	if (!(rooms = (t_rooms*)malloc(sizeof(*rooms))))
 		return (NULL);
-	rooms->name = name;
-	rooms->coord_x = x;
-	rooms->coord_y = y;
+	if (!(rooms->name = ft_strdup(name)))
+		return (NULL);
+	ft_printf("Adresse rooms->name = %p pour Adresse = %p\n", rooms->name, name);
+	rooms->coord_x = ft_atoll(x);
+	ft_printf("Adresse rooms->coord_x = %p pour Adresse = %p\n", rooms->coord_x, x);
+	rooms->coord_y = ft_atoll(y);
+	ft_printf("Adresse rooms->coord_y = %p pour Adresse = %p\n", rooms->coord_y, y);
 	rooms->hash = 0;
 	rooms->next = NULL;
 	return (rooms);
 }
-
+/*
 void	ft_push_front_rooms(t_rooms **rooms, char *name, int x, int y)
 {
 	t_rooms	*list;
@@ -35,8 +39,8 @@ void	ft_push_front_rooms(t_rooms **rooms, char *name, int x, int y)
 		list->next = *rooms;
 	*rooms = list;
 }
-
-void	ft_push_back_rooms(t_rooms **rooms, char *name, int x, int y)
+*/
+void	ft_push_back_rooms(t_rooms **rooms, char *name, char *x, char *y)
 {
 	if (*rooms)
 	{
@@ -46,7 +50,10 @@ void	ft_push_back_rooms(t_rooms **rooms, char *name, int x, int y)
 			(*rooms)->next = ft_create_elem_rooms(name, x, y);
 	}
 	else
+	{
 		*rooms = ft_create_elem_rooms(name, x, y);
+//		free(name);
+	}
 }
 
 t_rooms	*ft_rooms_sort(t_rooms *lst)

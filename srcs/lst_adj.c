@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/14 11:19:22 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 19:23:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/28 11:05:54 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_rooms	*ft_create_elem_rooms_tab(t_rooms *src, int hash)
 
 	if (!(rooms = (t_rooms*)malloc(sizeof(*rooms))))
 		return (NULL);
-	rooms->name = src->name;
+	rooms->name = ft_strdup(src->name);
 	rooms->coord_x = src->coord_x;
 	rooms->coord_y = src->coord_y;
 	rooms->hash = hash;

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:27:05 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 19:25:22 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/26 20:51:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ int	check_ants(t_lem_in *env)
 {
 	char	*line;
 
-	get_next_line(0, &line);
-	if (ft_error_nbr(line) == -1)
-		return (-1);
-	env->ants = ft_atoll(line);
-	if (env->ants <= 0)
-		return (-1);
-	ft_push_back_line(&env->data, line);
-	free(line);
+	if (get_next_line(0, &line) > 0)
+	{
+		if (ft_error_nbr(line) == -1)
+			return (-1);
+		env->ants = ft_atoll(line);
+		if (env->ants <= 0)
+			return (-1);
+		ft_push_back_line(&env->data, line);
+		free(line);
+	}
 	return (0);
 }
 

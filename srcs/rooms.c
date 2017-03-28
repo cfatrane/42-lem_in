@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/25 19:40:24 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/28 13:14:56 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,21 @@ int		ft_start(t_lem_in *env, char *line)
 	if (words == 3)
 	{
 		data = ft_strsplit(line, ' ');
+		ft_printf("Adresse rooms = %p\n", data[0]);
 		if (ft_error_rooms(data[0], data[1], data[2]) == -1)
 			return (-1);
-		env->start_name = data[0];
-		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
-				ft_atoll(data[2]));
-		ft_strdel_two(data, 1, words);
+		env->start_name = ft_strdup(data[0]);
+		ft_push_back_rooms(&(env)->rooms, data[0], data[1], data[2]);
 		env->nb_rooms++;
 		ft_push_back_line(&env->data, line);
-		free(line);
+		free(data[0]);
+		free(data[1]);
+		free(data[2]);
+		free(data);
 	}
 	else
 		return (-1);
+	free(line);
 	return (0);
 }
 
@@ -52,13 +55,16 @@ int		ft_rooms(t_lem_in *env, char *line)
 	if (words == 3)
 	{
 		data = ft_strsplit(line, ' ');
+		ft_printf("Adresse rooms = %p\n", data[0]);
 		if (ft_error_rooms(data[0], data[1], data[2]) == -1)
 			return (-1);
-		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
-				ft_atoll(data[2]));
-		ft_strdel_two(data, 0, words - 1);
+		ft_push_back_rooms(&(env)->rooms, data[0], data[1], data[2]);
 		if (check_doublon_coord(env) == -1)
 			return (-1);
+		free(data[0]);
+		free(data[1]);
+		free(data[2]);
+		free(data);
 		env->nb_rooms++;
 	}
 	else
@@ -79,17 +85,20 @@ int		ft_end(t_lem_in *env, char *line)
 	if (words == 3)
 	{
 		data = ft_strsplit(line, ' ');
+		ft_printf("Adresse rooms = %p\n", data[0]);
 		if (ft_error_rooms(data[0], data[1], data[2]) == -1)
 			return (-1);
-		env->end_name = data[0];
-		ft_push_back_rooms(&(env)->rooms, data[0], ft_atoll(data[1]),
-				ft_atoll(data[2]));
-		ft_strdel_two(data, 1, words);
+		ft_push_back_rooms(&(env)->rooms, data[0], data[1], data[2]);
+		env->end_name = ft_strdup(data[0]);
 		env->nb_rooms++;
 		ft_push_back_line(&env->data, line);
-		free(line);
+		free(data[0]);
+		free(data[1]);
+		free(data[2]);
+		free(data);
 	}
 	else
 		return (-1);
+	free(line);
 	return (0);
 }

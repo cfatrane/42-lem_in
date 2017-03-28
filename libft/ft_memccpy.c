@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:37:22 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:37:25 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/26 20:36:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	unsigned char	*oct1;
 	unsigned char	*oct2;
+	unsigned int	i;
 
 	oct1 = (unsigned char*)dst;
 	oct2 = (unsigned char*)src;
-	while (n--)
+	i = 0;
+	while (oct2[i] && i < n)
 	{
-		*oct1 = *oct2;
-		if (*oct1 == (unsigned char)c)
-			return (oct1 + 1);
-		oct1++;
-		oct2++;
+		oct1[i] = oct2[i];
+		if (oct1[i] == (unsigned char)c)
+			return (&oct1[i] + 1);
+		i++;
 	}
 	return (NULL);
 }
