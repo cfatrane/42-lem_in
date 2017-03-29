@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 19:28:06 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/28 09:41:27 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/28 19:08:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,34 @@ void	ft_print_shortest_path(t_lem_in *env)
 	ft_printf("\n");
 }
 
+void	ft_printlst(t_lem_in *env)
+{
+	t_rooms	**tabroom;
+	t_rooms	*rooms;
+	t_rooms	*tmp;
+	int		i;
+
+	tabroom = env->tab_rooms;
+	i = 0;
+	while (i < (max_hash(env) + 1))
+	{
+		ft_printf("%d: ", i);
+		tmp = ft_rooms_find_hash(env->rooms, i);
+		ft_rooms_display_name(tmp);
+		rooms = tabroom[i];
+		while (rooms)
+		{
+			ft_printf("|%s|", rooms->name);
+			if (rooms->next != NULL)
+				ft_printf(" --> ", rooms->name);
+			rooms = rooms->next;
+		}
+		ft_printf("\n");
+		i++;
+	}
+	ft_printf("\n");
+}
+
 void	ft_print_path(t_lem_in *env, t_tab *tab, int src, int dest)
 {
 	if (src == dest)
@@ -73,13 +101,12 @@ void	ft_print_full_path(t_lem_in *env, t_tab *tab)
 
 	i = env->start_hash;
 	ft_printf("\n");
-	if (env->flag_print_all == 1)
-		while (i < env->malloc)
-		{
-			ft_printf("Chemin de %s vers %s : ", ft_get_name(env->rooms,
-						env->start_hash), ft_get_name(env->rooms, i));
-			ft_print_path(env, tab, env->start_hash, i);
-			i++;
-			ft_printf("\n");
-		}
+	while (i < env->malloc)
+	{
+		ft_printf("Chemin de %s vers %s : ", ft_get_name(env->rooms,
+					env->start_hash), ft_get_name(env->rooms, i));
+		ft_print_path(env, tab, env->start_hash, i);
+		i++;
+		ft_printf("\n");
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 13:27:25 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/28 13:43:52 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/25 14:52:10 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ t_path	*ft_create_path(int data, int ants, char *name)
 	if (!(path = (t_path*)malloc(sizeof(*path))))
 		return (NULL);
 	path->ants = ants;
-	ft_printf("Adresse path->ants = %p pour Adresse = %p\n", path->ants, ants);
 	path->data = data;
-	ft_printf("Adresse path->data = %p pour Adresse = %p\n", path->data, ants);
 	path->name = name;
-	ft_printf("Adresse path->name = %p pour Adresse = %p\n", path->name, ants);
 	path->next = NULL;
 	return (path);
 }

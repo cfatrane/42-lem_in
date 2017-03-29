@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/12 13:33:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/27 19:48:36 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/29 16:00:04 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	put_in_tab(t_lem_in *env, int hash1, int hash2)
 	t_rooms	*tmp;
 
 	if (check_doublon_links(env, hash1, hash2) == -1)
-	{
-		ft_printf("ICI\n");
 		return ;
-	}
 	tmp = ft_rooms_find_hash(env->rooms, hash2);
 	ft_push_back_tab(&(env)->tab_rooms[hash1], tmp, hash2);
 	ft_rooms_sort(env->tab_rooms[hash1]);

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/20 11:36:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/03/28 09:50:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/03/28 18:50:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	delete_collision(t_lem_in *env);
 size_t	ft_rooms_size(t_rooms *stack);
 size_t	ft_path_size(t_path *path);
 
-//t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
-void	ft_push_back_rooms(t_rooms **rooms, char *name, char *x, char *y);
+t_rooms	*ft_create_elem_rooms(char *name, int x, int y);
+void	ft_push_back_rooms(t_rooms **rooms, char *name, int x, int y);
 void	ft_push_front_rooms(t_rooms **rooms, char *name, int x, int y);
 
 void	ft_push_front_tab(t_rooms **rooms, t_rooms *src, int hash);
@@ -79,6 +79,7 @@ void	ft_rooms_display(t_rooms *rooms);
 void	ft_print_shortest_path(t_lem_in *env);
 void	ft_print_full_path(t_lem_in *env, t_tab *tab);
 int		active_flag(t_lem_in *env, int argc, char **argv);
+void	ft_rooms_display_name(t_rooms *rooms);
 
 void	free_env(t_lem_in *env, t_tab *tab);
 
